@@ -1,36 +1,37 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!" android:flat="true"/>
-        <TabView android:tabBackgroundColor="#53ba82"
+        <ActionBar title="Welcome to Relay Calculator" android:flat="true"/>
+        <TabView android:tabBackgroundColor="#4a7b8f"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffffff">
-            <TabViewItem title="Tab 1">
-                <MyComp></MyComp>
+            <TabViewItem title="Search">
+                <Search></Search>
                 <!-- <GridLayout columns="*" rows="*">
                     <Label class="message" :text="msg" col="0" row="0"/>
                 </GridLayout> -->
             </TabViewItem>
-            <TabViewItem title="Tab 2">
+            <TabViewItem title="Times">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
-            <TabViewItem title="Tab 3">
+            <TabViewItem title="Calculate">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>
                 </GridLayout>
             </TabViewItem>
         </TabView>
     </Page>
+
 </template>
 
 <script lang="ts">
-    import MyComp from './MyComp.vue'
+    import Search from './Search'
 
   export default {
     components: {
-            MyComp
+            Search
     },
     data() {
       return {
@@ -42,7 +43,7 @@
 
 <style scoped>
     ActionBar {
-        background-color: #53ba82;
+        background-color: #4a7b8f;
         color: #ffffff;
     }
 
