@@ -7,9 +7,6 @@
                  androidSelectedTabHighlightColor="#ffffff">
             <TabViewItem title="Search">
                 <Search></Search>
-                <!-- <GridLayout columns="*" rows="*">
-                    <Label class="message" :text="msg" col="0" row="0"/>
-                </GridLayout> -->
             </TabViewItem>
             <TabViewItem title="Times">
                 <GridLayout columns="*" rows="*">
@@ -22,8 +19,6 @@
                 </GridLayout>
             </TabViewItem>
         </TabView>
-
-
     </Page>
 </template>
 

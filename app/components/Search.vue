@@ -4,8 +4,8 @@
     <TextField row="0" col="1" v-model="lastName" hint="Last name" />
     <Button text="Search" row="1" @tap="search"></Button>
     <StackLayout row="2">
-      <!-- <Label v-for="test in results" v-bind:key="test.id" :text="test.clubName"></Label> -->
-      <Label :text="results"/>
+      <Label v-for="test in results()" v-bind:key="test.id" :text="test.clubName"></Label>
+      <!-- <Label :text="results()"/> -->
     </StackLayout>
   </GridLayout>
 </template>
