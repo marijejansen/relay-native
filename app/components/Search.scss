@@ -1,4 +1,11 @@
+.search-layout {
+    background-color: rgb(197, 192, 192);
+}
+
+
+
 TextField {
+    background-color: white;
     vertical-align: top;
     height: 110px;
     padding-left: 20px;
@@ -8,14 +15,23 @@ TextField {
     margin: 30px 10px 0 10px;
 }
 
-.search-results {
-    margin: 10px;
-    background-color: blue($color: #dff0fa);
+// FlexboxLayout {
+//     background-color: hotpink;
+// }
+
+
+ListView{
+    padding: 1px;
 }
 
-// StackLayout {}
-
-FlexboxLayout {
-    background-color: greenyellow;
-    margin: 0, 10px;
+FlexboxLayout.search-result {
+    background-color: rgb(197, 192, 192);
+    padding: 10px;
+    Label {
+        background-color: white;
+        padding: 20px;
+        margin: 0px;
+        margin-bottom: 0px;
+    }
 }
+

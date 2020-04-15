@@ -1,18 +1,29 @@
 <template>
-  <GridLayout rows="auto, *, auto">
+  <GridLayout rows="auto, *, auto" class="search-layout">
 
   <GridLayout row="0" orientation="horizontal" columns="*,*">
     <TextField column="0" v-model="firstName" hint="First name" />
     <TextField column="1" v-model="lastName" hint="Last name" />
   </GridLayout>
 
-    <ListView row="1" for="result in results()">
-      <v-template>
-        <FlexboxLayout flexDirection="row" style="background-color: greenyellow">
+    <!-- <ListView row="1" for="result in results()">
+      <v-template class="search-result">
+        <FlexboxLayout flexDirection="row" class="search-result">
           <Label :text="result.firstName"></Label>
           <Label :text="result.lastName"></Label>
           <Label :text="result.clubName"></Label>
           <Label :text="result.birthYear"></Label>
+        </FlexboxLayout>
+      </v-template>
+    </ListView> -->
+    <ListView row="1" for="result in test()">
+
+      <v-template>
+        <FlexboxLayout flexDirection="row" columns="*, *, 2*, *" class="search-result">
+          <Label flexGrow="2" :text="result.firstName"></Label>
+          <Label flexGrow="2" :text="result.lastName"></Label>
+          <Label flexGrow="4" :text="result.clubName"></Label>
+          <Label flexGrow="1" :text="result.birthYear"></Label>
         </FlexboxLayout>
       </v-template>
     </ListView>

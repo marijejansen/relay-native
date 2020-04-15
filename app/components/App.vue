@@ -12,6 +12,7 @@
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
+        
             </TabViewItem>
             <TabViewItem title="Calculate">
                 <GridLayout columns="*" rows="*">
@@ -19,7 +20,7 @@
                 </GridLayout>
             </TabViewItem>
         </TabView>
-    </Page>
+    </Page>  
 </template>
 
 <script lang="ts">
@@ -47,6 +48,6 @@
         vertical-align: center;
         text-align: center;
         font-size: 20;
-        color: #333333;
+        color: #c22525;
     }
 </style>
