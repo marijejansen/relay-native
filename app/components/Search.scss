@@ -1,8 +1,10 @@
+* {
+    font-size: larger;
+}
+
 .search-layout {
     background-color: rgb(197, 192, 192);
 }
-
-
 
 TextField {
     background-color: white;
@@ -11,27 +13,30 @@ TextField {
     padding-left: 20px;
     border-width: 2px;
     border: 2px solid grey;
-    border-radius: 5px;
-    margin: 30px 10px 0 10px;
+    border-radius: 10px;
+    margin: 30px 10px;
 }
-
-// FlexboxLayout {
-//     background-color: hotpink;
-// }
-
 
 ListView{
     padding: 1px;
 }
 
-FlexboxLayout.search-result {
+GridLayout.search-result {
     background-color: rgb(197, 192, 192);
-    padding: 10px;
+    margin: 10px;
     Label {
         background-color: white;
         padding: 20px;
-        margin: 0px;
-        margin-bottom: 0px;
+        
+        &.first{
+            border-color: rgb(255, 196, 0);
+
+            border-width: 0 0 0 4;
+        }
     }
+}
+
+Button {
+    background-color: rgb(255, 235, 193);
 }
 

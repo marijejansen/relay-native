@@ -35,9 +35,22 @@ export default class Search extends Vue {
 
     },{
       id: 124,
-      firstName: "Martijn",
+      firstName: "Martijntje",
       lastName: "Giezen",
       birthYear: 1985,
+      clubName: "ZPC Amersfoort",
+      position: 0,
+      gender: 1,
+      time: 0,
+      //@ts-ignore
+      longCourseTimes: [],
+      //@ts-ignore
+      shortCourseTimes: [],
+    },{
+      id: 124,
+      firstName: "Moskou",
+      lastName: "Jansen",
+      birthYear: 2013,
       clubName: "ZPC Amersfoort",
       position: 0,
       gender: 1,

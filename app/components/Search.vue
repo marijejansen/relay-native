@@ -6,26 +6,16 @@
     <TextField column="1" v-model="lastName" hint="Last name" />
   </GridLayout>
 
-    <!-- <ListView row="1" for="result in results()">
-      <v-template class="search-result">
-        <FlexboxLayout flexDirection="row" class="search-result">
-          <Label :text="result.firstName"></Label>
-          <Label :text="result.lastName"></Label>
-          <Label :text="result.clubName"></Label>
-          <Label :text="result.birthYear"></Label>
-        </FlexboxLayout>
-      </v-template>
-    </ListView> -->
-    <ListView row="1" for="result in test()">
-
+    <ListView row="1" for="result in results()">
       <v-template>
-        <FlexboxLayout flexDirection="row" columns="*, *, 2*, *" class="search-result">
-          <Label flexGrow="2" :text="result.firstName"></Label>
-          <Label flexGrow="2" :text="result.lastName"></Label>
-          <Label flexGrow="4" :text="result.clubName"></Label>
-          <Label flexGrow="1" :text="result.birthYear"></Label>
-        </FlexboxLayout>
+        <GridLayout columns="3*, 3*, 6*, 2*" class="search-result">
+          <Label col="0" class="first" :text="result.firstName"></Label>
+          <Label col="1" :text="result.lastName"></Label>
+          <Label col="2" :text="result.clubName"></Label>
+          <Label col="3" :text="result.birthYear"></Label>
+        </GridLayout>
       </v-template>
+      
     </ListView>
 
   <Button row="2" text="Search" @tap="search"></Button>

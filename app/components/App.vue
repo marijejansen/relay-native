@@ -1,10 +1,10 @@
 <template>
     <Page>
         <ActionBar title="Welcome to Relay Calculator" android:flat="true"/>
-        <TabView android:tabBackgroundColor="#4a7b8f"
+        <TabView android:tabBackgroundColor="#29648A"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
-                 androidSelectedTabHighlightColor="#ffffff">
+                 androidSelectedTabHighlightColor="#9495b">
             <TabViewItem title="Search">
                 <Search></Search>
             </TabViewItem>
@@ -20,7 +20,7 @@
                 </GridLayout>
             </TabViewItem>
         </TabView>
-    </Page>  
+    </Page>
 </template>
 
 <script lang="ts">
@@ -40,7 +40,7 @@
 
 <style scoped>
     ActionBar {
-        background-color: #4a7b8f;
+        background-color: #29648A;
         color: #ffffff;
     }
 
