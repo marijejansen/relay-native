@@ -2,7 +2,7 @@
   "name": "relay-native",
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
-  "author": "M Jan <jansen.marije@gmail.com>",
+  "author": "Marije Jansen <jansen.marije@gmail.com>",
   "license": "MIT",
   "nativescript": {
     "id": "org.nativescript.application",

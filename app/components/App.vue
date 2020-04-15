@@ -22,12 +22,13 @@
                 </GridLayout>
             </TabViewItem>
         </TabView>
-    </Page>
 
+
+    </Page>
 </template>
 
 <script lang="ts">
-    import Search from './Search'
+  import Search from './Search'
 
   export default {
     components: {
