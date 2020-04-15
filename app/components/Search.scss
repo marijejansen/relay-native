@@ -8,6 +8,7 @@ TextField {
     margin: 40px 10px 0 10px;
 }
 
-Label {
-    background-color: red;
+.search-results {
+    margin: 10px;
+    background-color: blue($color: #dff0fa);
 }

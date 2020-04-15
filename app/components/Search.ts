@@ -12,15 +12,15 @@ export default class Search extends Vue {
 
   results(){
     console.log("TEST:   results")
+    //TODO: kan dit weg?
     if(this.searchResult != undefined){
-      return this.searchResult
+      return this.searchResult;
     }
   }
 
   async search() {
     await searchRepository.getSearch(this.firstName, this.lastName)
-      .then(response => response.map(res => this.searchResult.push(res)));
-      // .then(response => this.testResult = response[0].clubName)
+      .then(response => this.searchResult = response);
       console.log("TEST:   search")
   }
 }
