@@ -10,6 +10,13 @@ export default class SelectionItem extends Vue {
     @Prop()
     private selectionItem!: Swimmer;
 
+    get time(){
+        console.log("TEST: get time");
+        if(this.selectionItem && this.selectionItem.shortCourseTimes){
+            return this.selectionItem.shortCourseTimes.freestyle50M;
+        }
+    }
+
     get item(){
         return this.selectionItem;
     }
@@ -24,7 +31,7 @@ export default class SelectionItem extends Vue {
         this.removed = true;
         setTimeout(() => { 
             store.commit("removeFromSelectedSwimmers", this.item.id);
-        }, 600);
+        }, 200);
         // store.commit("removeFromSelectedSwimmers", this.item.id);
     }
     

@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex, { StoreOptions } from "vuex";
 import { RootState } from './types';
 import { Swimmer } from '@/models/Swimmer';
+import searchRepository from '@/repositories/search-repository';
 
 Vue.use(Vuex);
 
@@ -18,6 +19,10 @@ const store: StoreOptions<RootState> = {
     getters: {
         getAllSelected(state){
             return state.selectedSwimmers;
+          },
+
+          getYear(state) {
+            return state.fromYear;
           },
     },
 
@@ -39,6 +44,22 @@ const store: StoreOptions<RootState> = {
     },
 
     actions: {
+
+      async updateWithTimes({ commit, getters }, swimmerId) {
+        console.log("TEST: updateWithTimes action");
+
+        var year = getters.getYear;
+  
+        await searchRepository.getShortCourseTimes(swimmerId, year)
+          .then((response) => {
+            commit("addSCTimes", { id: swimmerId, courseTimes: response })
+          });
+  
+        await searchRepository.getLongCourseTimes(swimmerId, year)
+          .then((response) => {
+            commit("addLCTimes", { id: swimmerId, courseTimes: response });
+          });
+      },
 
     }
 };

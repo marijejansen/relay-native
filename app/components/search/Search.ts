@@ -43,5 +43,12 @@ export default class Search extends Vue {
     console.log("TEST: select");
     const swimmer = this.searchResult.find(s => s.id == id);  
     store.commit("addToSelectedSwimmers", swimmer);
+    store.dispatch('updateWithTimes', id);
   }
+
+  updateWithTimes(id: number){
+    console.log("TEST:  updateWIthTimes");
+    store.dispatch('updateWithTimes', id);
+  }
+
 }

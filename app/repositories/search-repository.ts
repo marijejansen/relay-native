@@ -1,5 +1,6 @@
 import baseRepository from './baserepository'
 import { Swimmer } from '@/models/Swimmer';
+import { CourseTimes } from '@/models/coursetimes';
 
 export default {
 
@@ -12,5 +13,30 @@ export default {
             return response.data;
           });
       },
+      async getShortCourseTimes(
+        swimmerId: number,
+        fromYear: number
+      ): Promise<CourseTimes> {
+        return baseRepository
+          .get(
+            `/SwimmerData/getTimesShortCourse?id=${swimmerId}&fromYear=${fromYear}`
+          )
+          .then(response => {
+            return response.data;
+          });
+      },
+    
+      async getLongCourseTimes(
+        swimmerId: number,
+        fromYear: number
+      ): Promise<CourseTimes> {
+        return baseRepository
+          .get(
+            `/SwimmerData/getTimesLongCourse?id=${swimmerId}&fromYear=${fromYear}`
+          )
+          .then(response => {
+            return response.data;
+          });
+      }
 
 }
