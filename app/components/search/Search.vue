@@ -17,19 +17,6 @@
     </ListView>
 
     <Selection row="2" v-if="hasSelection()"></Selection>
-    <!-- <Label v-if="hasSelection()" row="2" text="Selection" class="selection"></Label>
-
-
-    <ListView row="3" for="result in selection()">
-      <v-template>
-        <GridLayout columns="6*, 6*, 2*, *" class="search-result" :class="{ removed: removed === result.id}">
-          <Label col="0" class="first" :text="result.firstName + ' '+ result.lastName"></Label>
-          <Label col="1" :text="result.clubName" ></Label>
-          <Label col="2" :text="result.birthYear"></Label>
-          <Label col="3" text="X" class="remove" @tap="remove(result.id)"></Label>
-        </GridLayout>
-      </v-template>     
-    </ListView> -->
 
   <Button row="3" text="Search" @tap="search"></Button>
   </GridLayout>
