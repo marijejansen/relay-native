@@ -24,23 +24,26 @@ GridLayout.search-result {
         background-color: white;
         padding: 20px;
         font-size: larger;
-
-        &.first {
-            border-color: #ffc400;
-
-            border-width: 0 0 0 4;
-        }
     }
 
-    &.removed{
+    &.removed {
         Label {
             background-color: rgb(247, 214, 214);
 
-            &.remove{
+            &.remove {
                 color: rgb(190, 26, 26);
             }
         }
-        
+    }
+
+    &.selection {
+        Label.first {
+            border-color: #ffc400;
+            border-width: 0 0 0 4;
+        }
+        &.loaded Label.first {
+            border-color: #87ad5b;
+        }
     }
 }
 

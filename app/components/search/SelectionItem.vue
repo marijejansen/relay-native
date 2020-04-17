@@ -1,5 +1,5 @@
 <template>
-        <GridLayout columns="6*, 6*, 2*, *" class="search-result" :class="{ removed: isRemoved }">
+        <GridLayout columns="6*, 6*, 2*, *" class="search-result selection" :class="{ removed: isRemoved, loaded: timesLoaded }">
           <Label col="0" class="first" :text="item.firstName + ' '+ item.lastName"></Label>
           <Label col="1" :text="item.clubName" ></Label>
           <Label col="2" :text="item.birthYear"></Label>

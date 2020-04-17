@@ -8,7 +8,7 @@ export const getters: GetterTree<SearchState, RootState> = {
     return state.searchResult
   },
 
-  timesLoaded(state) {
+  timesLoaded(state): Number[]{
     return state.loadedTimes;
   },
 }

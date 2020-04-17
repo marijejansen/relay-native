@@ -12,8 +12,7 @@
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 2 Content" col="0" row="0"/>
                 </GridLayout>
-            </TabViewItem>
-
+            </TabViewItem>           
             <TabViewItem title="Calculate">
                 <GridLayout columns="*" rows="*">
                     <Label class="message" text="Tab 3 Content" col="0" row="0"/>

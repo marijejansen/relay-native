@@ -1,17 +1,26 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import store from '@/store/index';
+import { namespace } from 'vuex-class';
+const search = namespace('search');
 
 @Component
 export default class SelectionItem extends Vue {
     
     private removed: boolean = false;
 
+    loadedTEST: Number[] = store.getters['search/timesLoaded'];
+
+    get timesLoaded() {
+        console.log(this.loadedTEST);
+        return this.loadedTEST.find(lt => lt === this.item.id) > 0;
+        
+    }
+
     @Prop()
     private selectionItem!: Swimmer;
 
     get time(){
-        console.log("TEST: get time");
         if(this.selectionItem && this.selectionItem.shortCourseTimes){
             return this.selectionItem.shortCourseTimes.freestyle50M;
         }
@@ -22,12 +31,10 @@ export default class SelectionItem extends Vue {
     }
 
     get isRemoved(){
-        console.log("TEST: removed??")
         return this.removed;
     }
 
     remove() {
-        console.log("TEST: remove");
         this.removed = true;
         setTimeout(() => { 
             store.commit("removeFromSelectedSwimmers", this.item.id);

@@ -3,11 +3,13 @@ import Vuex, { StoreOptions } from "vuex";
 import { RootState } from './types';
 import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository';
+import { search } from './search';
 
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
     modules: {
+      search
     },
 
     state: {
@@ -36,6 +38,16 @@ const store: StoreOptions<RootState> = {
             }
           },
 
+          addSCTimes(state, payload) {
+            var index = state.selectedSwimmers.findIndex(sw => sw.id == payload.id);
+            state.selectedSwimmers[index].shortCourseTimes = payload.courseTimes;
+          },
+      
+          addLCTimes(state, payload) {
+            var index = state.selectedSwimmers.findIndex(sw => sw.id == payload.id);
+            state.selectedSwimmers[index].longCourseTimes = payload.courseTimes;
+          },
+
           removeFromSelectedSwimmers(state, swimmerId) {
             state.selectedSwimmers = state.selectedSwimmers.filter(
               sw => sw.id !== swimmerId
@@ -46,7 +58,6 @@ const store: StoreOptions<RootState> = {
     actions: {
 
       async updateWithTimes({ commit, getters }, swimmerId) {
-        console.log("TEST: updateWithTimes action");
 
         var year = getters.getYear;
   
@@ -59,6 +70,8 @@ const store: StoreOptions<RootState> = {
           .then((response) => {
             commit("addLCTimes", { id: swimmerId, courseTimes: response });
           });
+          console.log("TEST:  einde update with times gehaald")
+        return "OK";
       },
 
     }
