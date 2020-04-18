@@ -9,27 +9,26 @@
                <Search></Search>
             </TabViewItem>
             <TabViewItem title="Times">
-                <GridLayout columns="*" rows="*">
-                    <Label class="message" text="Tab 2 Content" col="0" row="0"/>
-                </GridLayout>
+                <Times></Times>
             </TabViewItem>           
             <TabViewItem title="Calculate">
-                <GridLayout columns="*" rows="*">
-                    <Label class="message" text="Tab 3 Content" col="0" row="0"/>
-                </GridLayout>
+                <Calculate></Calculate>
             </TabViewItem>           
         </TabView>
     </Page>
-
 </template>
 
 
 <script lang="ts">
   import Search from './search/Search'
+  import Times from './times/Times'
+  import Calculate from './calculate/Calculate'
 
   export default {
     components: {
-            Search
+            Search,
+            Times,
+            Calculate
     },
     data() {
       return {
