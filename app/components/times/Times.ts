@@ -1,11 +1,20 @@
-import { Component, Vue } from "vue-property-decorator";
-import './Times.scss'
+import { Component, Mixins } from "vue-property-decorator";
+// import './Times.scss'
+import TestMixin from '@/mixins/TestMixin'
 import { Swimmer } from '@/models/Swimmer';
-import searchRepository from '@/repositories/search-repository'
-import store from '@/store/index';
-
-@Component({components: {} })
-export default class Times extends Vue {
 
 
+@Component({components: {}})
+export default class Times extends Mixins(TestMixin) {
+
+    getTestData: Swimmer[] = this.getTestResults();
+
+    test(){
+        const data = this.getTestData;
+        return data;
+    }
+
+    test2(){
+        return ["ja", "nee"];
+    }
 }

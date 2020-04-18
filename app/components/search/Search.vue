@@ -27,4 +27,6 @@
 export { default } from './Search.ts';
 </script>
 
-<!--<style type="text/css" src="Search.scss">
+<style lang="scss" scoped>
+@import "./Search.scss";
+</style>
