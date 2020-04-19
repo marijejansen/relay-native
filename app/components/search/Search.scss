@@ -1,67 +1,42 @@
+@import '../../colors.scss';
+
 .search-layout {
-    background-color: rgb(197, 192, 192);
-}
 
-TextField {
-    background-color: white;
-    vertical-align: top;
-    height: 110px;
-    padding-left: 20px;
-    border-width: 2px;
-    border: 2px solid grey;
-    border-radius: 10px;
-    margin: 30px 10px;
-}
-
-ListView {
-    padding: 1px;
-}
-
-GridLayout.search-result {
-    background-color: rgb(197, 192, 192);
-    margin: 10px;
-    Label {
-        background-color: white;
-        padding: 20px;
-        font-size: larger;
+    TextField {
+        background-color: $white;
+        height: 120px;
+        padding-left: 20px;
+        padding-top: 35px;
+        padding-bottom: 30px;
+        border-width: 2px;
+        border: 2px solid $border-grey;
+        border-radius: 10px;
+        margin: 30px 10px;
     }
 
-    &.removed {
-        Label {
-            background-color: rgb(247, 214, 214);
+    GridLayout.search-result {
 
-            &.remove {
-                color: rgb(190, 26, 26);
+        &.removed {
+            Label {
+                background-color: $remove-red;
+
+                &.remove {
+                    color: $red;
+                }
+            }
+        }
+
+        &.selection {
+
+            color: black;
+
+            Label.first {
+                border-color: $yellow;
+                border-width: 0 0 0 6;
+            }
+            &.loaded Label.first {
+                border-color: $green;
             }
         }
     }
-
-    &.selection {
-        Label.first {
-            border-color: #ffc400;
-            border-width: 0 0 0 4;
-        }
-        &.loaded Label.first {
-            border-color: #87ad5b;
-        }
-    }
-}
-
-Button {
-    background-color: rgb(253, 223, 159);
-    font-size: 20;
-    color: #5c5745;
-}
-
-Label.selection {
-    font-size: 16;
-    background-color: #29648a;
-    color: rgb(228, 228, 228);
-    border-radius: 10px;
-    margin: 20px;
-    text-align: center;
-}
-
-Label.remove:highlighted {
-    color: red;
 }

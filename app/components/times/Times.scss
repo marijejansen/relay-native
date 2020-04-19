@@ -1,8 +1,15 @@
-GridLayout.times-top{
-    margin: 10px;
-    background-color: #29648a;
-}
+@import '../../colors.scss';
 
-GridLayout {
-    background-color: pink;
+.times-top {
+    margin: 20px;
+    background-color: $base-blue;
+    padding: 10px 3px;
+    border-radius: 10px;
+    > * {
+        background-color: $base-blue;
+        text-align: center;
+        font-size: 14;
+        padding: 0px;
+        color: $white;
+    }
 }

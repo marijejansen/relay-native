@@ -15,10 +15,10 @@
   
       <ListView row="1" for="test in test()">
       <v-template>
-        <GridLayout  columns="3*, 3*, *">
-          <Label col="0" :text="test.firstName + ' ' + test.lastName"></Label>
+        <GridLayout class="search-result" columns="3*, 3*, *">
+          <Label col="0" class="search-result" :text="test.firstName + ' ' + test.lastName"></Label>
           <Label col="1" :text="test.clubName"></Label>
-          <Label col="2" :text="test.birtYear"></Label>
+          <Label col="2" :text="test.birthYear"></Label>
           <!-- <Label col="0" class="first" :text="result.firstName + ' '+ result.lastName"></Label>
           <Label col="1" :text="result.clubName"></Label>
           <Label col="2" :text="result.birthYear"></Label> -->
@@ -35,6 +35,6 @@
 export { default } from "./Times.ts";
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./Times.scss";
 </style>

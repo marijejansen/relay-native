@@ -1,9 +1,45 @@
-// NativeScript core theme
-// @see https://docs.nativescript.org/ui/theme
-@import '~@nativescript/theme/core';
-@import '~@nativescript/theme/aqua';
+@import './colors.scss';
 
-// Override variables here
+.page {
+    background-color: $background-grey;
+    
+}
 
-// Global SCSS styling
-// @see https://docs.nativescript.org/ui/styling
+Tabview {
+    font-size: 17;
+}
+
+ListView  {
+    separator-color: transparent;
+}
+
+button {
+    background-color: $button-yellow;
+    border-radius: 10px;
+    margin: 28px;
+    font-size: 20rem;
+    color: $button-border;
+    border-width: 2px;
+    border-color: $button-border;
+}
+
+.label-top {
+    font-size: 16;
+    background-color: #29648a;
+    color: rgb(228, 228, 228);
+    border-radius: 10px;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+label{
+    background-color: $white;
+    padding: 20px;
+    font-size: 16;
+}
+
+GridLayout.search-result  {
+    padding: 10px 20px;
+}
+

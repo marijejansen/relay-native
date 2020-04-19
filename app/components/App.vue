@@ -1,5 +1,5 @@
 <template>
-    <Page>
+    <Page class="page">   
         <ActionBar title="Welcome to Relay Calculator" android:flat="true"/>
         <TabView android:tabBackgroundColor="#29648A"
                  android:tabTextColor="#c4ffdf"
@@ -10,12 +10,14 @@
             </TabViewItem>
             <TabViewItem title="Times">
                 <Times></Times>
+                
             </TabViewItem>           
             <TabViewItem title="Calculate">
                 <Calculate></Calculate>
             </TabViewItem>           
         </TabView>
     </Page>
+
 </template>
 
 
@@ -42,11 +44,4 @@
         background-color: #29648A;
         color: #ffffff;
     }
-
-    .message {
-        vertical-align: center;
-        text-align: center;
-        font-size: 20;
-        color: #c22525;
-    } 
 </style>
