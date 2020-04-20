@@ -1,8 +1,8 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import store from '@/store/index';
-import { namespace } from 'vuex-class';
-const search = namespace('search');
+// import { namespace } from 'vuex-class';
+// const search = namespace('search');
 
 @Component
 export default class SelectionItem extends Vue {

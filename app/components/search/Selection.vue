@@ -1,5 +1,5 @@
 <template>
-<GridLayout rows="auto, *" class="search-layout">
+<GridLayout rows="auto, *">
     <Label row="0" text="Selection" class="label-top"></Label>
 
     <ListView row="1" for="result in selection()">

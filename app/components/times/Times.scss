@@ -1,9 +1,20 @@
 @import '../../colors.scss';
 
+.details-label {
+    color: $dark-grey;
+    margin: 5px 0;
+}
+
+.details > * {
+    font-size: 12;
+    padding: 0px 5px;
+    text-align: center;
+}
+
 .times-top {
-    margin: 20px;
     background-color: $base-blue;
     padding: 10px 3px;
+    margin: 0 0 15px;
     border-radius: 10px;
     > * {
         background-color: $base-blue;
@@ -13,3 +24,10 @@
         color: $white;
     }
 }
+
+.edit-icon{
+    font-family: Icons; 
+    font-size: 22;
+    color: $grey;
+}
+

@@ -1,15 +1,14 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 .page {
     background-color: $background-grey;
-    
 }
 
 Tabview {
     font-size: 17;
 }
 
-ListView  {
+ListView {
     separator-color: transparent;
 }
 
@@ -28,18 +27,18 @@ button {
     background-color: #29648a;
     color: rgb(228, 228, 228);
     border-radius: 10px;
-    margin: 20px;
+    margin: 10px 0 20px;
     text-align: center;
     padding: 10px;
 }
 
-label{
+label {
     background-color: $white;
     padding: 20px;
     font-size: 16;
 }
 
-GridLayout.search-result  {
+GridLayout.container {
     padding: 10px 20px;
 }
 

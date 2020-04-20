@@ -9,12 +9,14 @@
         padding-top: 35px;
         padding-bottom: 30px;
         border-width: 2px;
-        border: 2px solid $border-grey;
+        border: 2px solid $grey;
         border-radius: 10px;
-        margin: 30px 10px;
+        margin: 10px 10px 15px;
     }
 
     GridLayout.search-result {
+
+        padding: 5px 0;
 
         &.removed {
             Label {

@@ -15,26 +15,26 @@ class TestMixin extends Vue {
             gender: 0,
             time: 0,
             longCourseTimes: {
-                freestyle50M: 28.00,
-                freestyle100M: 61.00,
-                freestyle200M: 145.00,
-                backstroke50M: 32.00,
-                backstroke100M: 70.00,
-                butterfly50M: 31.00,
-                butterfly100M: 70.00,
-                breaststroke50M: 40.00,
-                breaststroke100M: 85.00
+                freestyle50M: 28.02,
+                freestyle100M: 61.03,
+                freestyle200M: 145.04,
+                backstroke50M: 32.01,
+                backstroke100M: 70.01,
+                butterfly50M: 31.01,
+                butterfly100M: 70.02,
+                breaststroke50M: 40.01,
+                breaststroke100M: 85.01
             },
             shortCourseTimes: {
-                freestyle50M: 28.00,
-                freestyle100M: 61.00,
-                freestyle200M: 145.00,
-                backstroke50M: 32.00,
-                backstroke100M: 70.00,
-                butterfly50M: 31.00,
-                butterfly100M: 70.00,
-                breaststroke50M: 40.00,
-                breaststroke100M: 85.00
+                freestyle50M: 28.01,
+                freestyle100M: 61.02,
+                freestyle200M: 145.01,
+                backstroke50M: 32.04,
+                backstroke100M: 70.02,
+                butterfly50M: 31.03,
+                butterfly100M: 70.02,
+                breaststroke50M: 40.02,
+                breaststroke100M: 85.02
             },
 
         }, {
@@ -48,26 +48,26 @@ class TestMixin extends Vue {
             time: 0,
             //@ts-ignore
             longCourseTimes: {
-                freestyle50M: 26.00,
-                freestyle100M: 58.00,
-                freestyle200M: 125.00,
-                backstroke50M: 28.00,
-                backstroke100M: 61.00,
-                butterfly50M: 28.00,
-                butterfly100M: 64.00,
-                breaststroke50M: 31.00,
-                breaststroke100M: 72.00
+                freestyle50M: 26.02,
+                freestyle100M: 58.01,
+                freestyle200M: 125.01,
+                backstroke50M: 28.01,
+                backstroke100M: 61.01,
+                butterfly50M: 28.01,
+                butterfly100M: 64.01,
+                breaststroke50M: 31.01,
+                breaststroke100M: 72.01
             },
             shortCourseTimes: {
-                freestyle50M: 26.00,
-                freestyle100M: 58.00,
-                freestyle200M: 125.00,
-                backstroke50M: 28.00,
-                backstroke100M: 61.00,
-                butterfly50M: 28.00,
-                butterfly100M: 64.00,
-                breaststroke50M: 31.00,
-                breaststroke100M: 72.00
+                freestyle50M: 26.01,
+                freestyle100M: 58.01,
+                freestyle200M: 125.01,
+                backstroke50M: 28.01,
+                backstroke100M: 61.01,
+                butterfly50M: 28.01,
+                butterfly100M: 64.01,
+                breaststroke50M: 31.01,
+                breaststroke100M: 72.01
             },
         }, {
             id: 124,
@@ -80,26 +80,26 @@ class TestMixin extends Vue {
             time: 0,
             //@ts-ignore
             longCourseTimes: {
-                freestyle50M: 28.00,
-                freestyle100M: 61.00,
-                freestyle200M: 145.00,
-                backstroke50M: 32.00,
-                backstroke100M: 70.00,
-                butterfly50M: 31.00,
-                butterfly100M: 70.00,
-                breaststroke50M: 40.00,
-                breaststroke100M: 85.00
+                freestyle50M: 28.01,
+                freestyle100M: 61.01,
+                freestyle200M: 145.01,
+                backstroke50M: 32.01,
+                backstroke100M: 70.01,
+                butterfly50M: 31.01,
+                butterfly100M: 70.01,
+                breaststroke50M: 40.01,
+                breaststroke100M: 85.01
             },
             shortCourseTimes: {
-                freestyle50M: 28.00,
-                freestyle100M: 61.00,
-                freestyle200M: 145.00,
-                backstroke50M: 32.00,
-                backstroke100M: 70.00,
-                butterfly50M: 31.00,
-                butterfly100M: 70.00,
-                breaststroke50M: 40.00,
-                breaststroke100M: 85.00
+                freestyle50M: 28.01,
+                freestyle100M: 61.01,
+                freestyle200M: 145.01,
+                backstroke50M: 32.01,
+                backstroke100M: 70.01,
+                butterfly50M: 31.01,
+                butterfly100M: 70.01,
+                breaststroke50M: 40.01,
+                breaststroke100M: 85.01
             },
         }];
     }
