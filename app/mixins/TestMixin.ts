@@ -16,7 +16,7 @@ class TestMixin extends Vue {
             time: 0,
             longCourseTimes: {
                 freestyle50M: 28.02,
-                freestyle100M: 61.03,
+                freestyle100M: 61.73,
                 freestyle200M: 145.04,
                 backstroke50M: 32.01,
                 backstroke100M: 70.01,

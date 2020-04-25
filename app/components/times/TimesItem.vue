@@ -18,8 +18,9 @@
       <Label  v-for="(val, key, index) in times" v-bind:key="'det' + item.id + index" :col="index" :text="val"></Label>
     </GridLayout>
 
-    <GridLayout row="1" v-if="showEdit" class="details" :rows="colsOrRowsForTimes('rows')">
-      <Label v-for="(val, key, index) in times" v-bind:key="'ed' + item.id + index" :row="index" :text="timeString(val)"></Label>
+    <GridLayout row="1" v-if="showEdit" class="details edit" columns="*,*" :rows="colsOrRowsForTimes('rows')">
+      <Label class="edit-result" col="0" v-for="(val, key, index) in times" v-bind:key="'ed_n' + item.id + index" :row="index" :text="strokeNameLong(key)"></Label>
+      <Label class="edit-result" col="1" v-for="(val, key, index) in times" v-bind:key="'ed' + item.id + index" :row="index" :text="timeString(val)"></Label>
     </GridLayout>
 
 </GridLayout>
