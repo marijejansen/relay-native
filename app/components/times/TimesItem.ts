@@ -1,4 +1,4 @@
-import { Component, Vue, Prop, Mixins } from "vue-property-decorator";
+import { Component, Vue, Prop, Mixins, Emit } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin'
 import StrokeMixin from '@/mixins/StrokeMixin'
@@ -17,13 +17,17 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     @Prop()
     private item!: Swimmer;
 
+
+    @Emit('toggleShow')
+    toggleShow(show: boolean, id: number) {
+    }
+
     timeString(seconds: number){
         return this.toTimeString(seconds);
     }
 
     colsOrRowsForTimes(wat: string){
         var x = '*' + ', *'.repeat(Object.keys(this.times).length - 1);
-        console.log('TEST:  - - :'+ wat + '=' + x );
         return x;
 
     }
@@ -39,7 +43,6 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     toggleDetails(){
         this.showDetails = !this.showDetails;
         this.showEdit = false;
+        this.toggleShow(this.showDetails, this.item.id);
     }
-
-
 }

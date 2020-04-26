@@ -4,14 +4,14 @@
           <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
           <Label col="1" :text="item.clubName"></Label>
           <Label col="2" :text="item.birthYear"></Label>
-          <Label col="3" class="edit-icon" text="A" @tap="toggleDetails()"></Label>
+          <Label col="3" class="edit-icon" text="A" @tap="toggleDetails"></Label>
     </GridLayout>
 
     <GridLayout v-if="showDetails" row="0" class="details-label" columns="4*, 5*, auto, auto">
           <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
           <Label col="1" :text="item.birthYear"></Label>
           <Label col="2" class="edit-icon" text="B" @tap="showEdit = !showEdit"></Label>
-          <Label col="3" class="edit-icon" text="A" @tap="toggleDetails()"></Label>
+          <Label col="3" class="edit-icon" text="A" @tap="toggleDetails"></Label>
     </GridLayout>
 
     <GridLayout row="1" v-if="showDetails && !showEdit" class="details" :columns="colsOrRowsForTimes()">
