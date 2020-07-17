@@ -2,10 +2,11 @@ import { Component, Vue, Prop, Mixins, Emit } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin'
 import StrokeMixin from '@/mixins/StrokeMixin'
+import SingleTime from './SingleTime';
 import { CourseTimes } from '@/models/coursetimes';
 import { Course } from '@/models/Course';
 
-@Component({components: {}})
+@Component({ components: { SingleTime } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     course: Course.ShortCourse;

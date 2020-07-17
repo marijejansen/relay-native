@@ -31,8 +31,13 @@
     color: $grey;
 }
 
-.edit > Label {
+.edit > * {
     text-align: start;
     padding: 19px;
+    font-size: 16;
+}
+
+TextField {
+    background-color: $white;
     font-size: 16;
 }
