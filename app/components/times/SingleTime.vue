@@ -1,8 +1,16 @@
       
 <template>
-      <TextField @focus="onFocus" id="singleField" keyboardType="number" returnPress="setTime" tap="showKeyboard" class="edit-result" :text="time" @blur="onBlur" /> 
-            <!-- <TextField keyboardType="number" class="edit-result" text="1" />  -->
-
+  <GridLayout class="single-time">
+    <Label v-show="!input" :text="time()" @tap="toggleInput" />
+    <TextField
+      keyboardType="number"
+      @returnPress="setTime"
+      returnKeyType="done"
+      v-show="inputVisible"
+      v-model="editTime"
+      @blur="setTime"
+    />
+  </GridLayout>
 </template>      
 
 

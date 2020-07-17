@@ -6,6 +6,9 @@ import SingleTime from './SingleTime';
 import { CourseTimes } from '@/models/coursetimes';
 import { Course } from '@/models/Course';
 
+import * as utils from "tns-core-modules/utils/utils";
+
+
 @Component({ components: { SingleTime } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
@@ -23,27 +26,35 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     toggleShow(show: boolean, id: number) {
     }
 
-    timeString(seconds: number){
+    timeString(seconds: number) {
         return this.toTimeString(seconds);
     }
 
-    colsOrRowsForTimes(wat: string){
+    colsOrRowsForTimes(wat: string) {
         var x = '*' + ', *'.repeat(Object.keys(this.times).length - 1);
         return x;
 
     }
 
-    get times(){
+    get times() {
         return this.course === Course.ShortCourse ? this.item.shortCourseTimes : this.item.longCourseTimes;
     }
 
-    strokeNameLong(stroke: keyof CourseTimes){
+    strokeNameLong(stroke: keyof CourseTimes) {
         return this.getStrokeNameLong(stroke);
     }
 
-    toggleDetails(){
+    toggleDetails() {
         this.showDetails = !this.showDetails;
         this.showEdit = false;
         this.toggleShow(this.showDetails, this.item.id);
+    }
+
+    toggleEdit() {
+        this.showEdit = !this.showEdit;
+    }
+
+    saveEdit() {
+        this.showEdit = false;
     }
 }

@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
 .details-label {
     color: $dark-grey;
@@ -25,19 +25,25 @@
     }
 }
 
-.edit-icon{
-    font-family: Icons; 
+.edit-icon {
+    font-family: Icons;
     font-size: 22;
     color: $grey;
 }
 
 .edit > * {
-    text-align: start;
+    // text-align: start;
     padding: 19px;
     font-size: 16;
 }
 
 TextField {
-    background-color: $white;
-    font-size: 16;
+    padding: 19px;
+    background-color: #ebebeb;
+    // font-size: 16;
+}
+
+.single-time {
+    margin: 0;
+    padding: 0;
 }
