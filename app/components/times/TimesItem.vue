@@ -11,7 +11,7 @@
       <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
       <Label col="1" :text="item.birthYear"></Label>
       <Label col="2" v-if="!showEdit" class="edit-icon" text="p" @tap="toggleEdit"></Label>
-      <Label col="2" v-if="showEdit" class="edit-icon" text="S" @tap="saveEdit"></Label>
+      <Label col="2" v-if="showEdit" class="edit-icon" text="S" @tap="onSave"></Label>
       <Label col="3" v-if="!showEdit" class="edit-icon" text="E" @tap="toggleDetails"></Label>
     </GridLayout>
 
@@ -52,6 +52,7 @@
         v-bind:key="'ed' + item.id + index"
         :row="index"
         :_time="val"
+        @saveTime="saveTime(index, $event)"
       ></SingleTime>
     </GridLayout>
   </GridLayout>

@@ -5,9 +5,7 @@ import StrokeMixin from '@/mixins/StrokeMixin'
 import SingleTime from './SingleTime';
 import { CourseTimes } from '@/models/coursetimes';
 import { Course } from '@/models/Course';
-
-import * as utils from "tns-core-modules/utils/utils";
-
+import store from '@/store/index';
 
 @Component({ components: { SingleTime } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
@@ -21,7 +19,6 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     @Prop()
     private item!: Swimmer;
 
-
     @Emit('toggleShow')
     toggleShow(show: boolean, id: number) {
     }
@@ -33,7 +30,6 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     colsOrRowsForTimes(wat: string) {
         var x = '*' + ', *'.repeat(Object.keys(this.times).length - 1);
         return x;
-
     }
 
     get times() {
@@ -54,7 +50,11 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         this.showEdit = !this.showEdit;
     }
 
-    saveEdit() {
+    onSave() {
         this.showEdit = false;
+    }
+
+    saveTime(index: number, time: number) {
+        console.log("time to be saved: " + time + ", index: " + index);
     }
 }

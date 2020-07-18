@@ -1,4 +1,4 @@
-import { Component, Mixins, Prop } from 'vue-property-decorator';
+import { Component, Mixins, Prop, Emit } from 'vue-property-decorator';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin';
 
 @Component({ components: {} })
@@ -11,8 +11,10 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
 
     private displayTime: string;
 
+    @Emit('saveTime')
+    saveTime(time: number) { }
+
     get editTime() {
-        console.log("get time: " + this.displayTime)
         return this.displayTime;
     }
 
@@ -28,6 +30,7 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
         var seconds = this.toSeconds(this.displayTime);
         if (seconds != NaN) {
             this._time = seconds;
+            this.saveTime(seconds);
         } else {
             this.displayTime = this.toTimeString(this._time);
         }
@@ -38,7 +41,7 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
         this.displayTime = this.toTimeString(this._time)
     }
 
-    showInput() {
+    setInputVisible() {
         this.inputVisible = true;
     }
 }

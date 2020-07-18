@@ -1,7 +1,7 @@
       
 <template>
   <GridLayout class="single-time">
-    <Label v-show="!input" :text="time()" @tap="toggleInput" />
+    <Label v-show="!input" :text="time()" @tap="setInputVisible" />
     <TextField
       keyboardType="number"
       @returnPress="setTime"
