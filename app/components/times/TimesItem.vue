@@ -10,9 +10,10 @@
     <GridLayout v-if="showDetails" row="0" class="details-label" columns="4*, 5*, auto, auto">
       <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
       <Label col="1" :text="item.birthYear"></Label>
-      <Label col="2" v-if="!showEdit" class="edit-icon" text="p" @tap="toggleEdit"></Label>
-      <Label col="2" v-if="showEdit" class="edit-icon" text="S" @tap="onSave"></Label>
-      <Label col="3" v-if="!showEdit" class="edit-icon" text="E" @tap="toggleDetails"></Label>
+      <Label col="2" v-if="!showEdit" class="edit-icon" text="P" @tap="toggleEdit"></Label>
+      <Label col="2" v-if="showEdit" class="edit-icon" text="O" @tap="onSave"></Label>
+      <Label col="3" v-if="!showEdit" class="edit-icon" text="C" @tap="toggleDetails"></Label>
+
     </GridLayout>
 
     <GridLayout
@@ -51,7 +52,7 @@
         v-for="(val, key, index) in times"
         v-bind:key="'ed' + item.id + index"
         :row="index"
-        :_time="val"
+        :timeSeconds="val"
         @saveTime="saveTime(index, $event)"
       ></SingleTime>
     </GridLayout>

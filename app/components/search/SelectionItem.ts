@@ -12,7 +12,6 @@ export default class SelectionItem extends Vue {
     loadedTEST: Number[] = store.getters['search/timesLoaded'];
 
     get timesLoaded() {
-        console.log(this.loadedTEST);
         return this.loadedTEST.find(lt => lt === this.item.id) > 0;
         
     }

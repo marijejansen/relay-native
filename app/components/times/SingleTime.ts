@@ -5,7 +5,7 @@ import TimeFormatMixin from '@/mixins/TimeFormatMixin';
 export default class SingleTime extends Mixins(TimeFormatMixin) {
 
     @Prop()
-    private _time: number;
+    private timeSeconds: number;
 
     private inputVisible = false;
 
@@ -19,7 +19,7 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
     }
 
     time() {
-        return this.toTimeString(this._time);
+        return this.toTimeString(this.timeSeconds);
     }
 
     set editTime(timeString: string) {
@@ -29,16 +29,15 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
     setTime() {
         var seconds = this.toSeconds(this.displayTime);
         if (seconds != NaN) {
-            this._time = seconds;
             this.saveTime(seconds);
         } else {
-            this.displayTime = this.toTimeString(this._time);
+            this.displayTime = this.toTimeString(seconds);
         }
         this.inputVisible = false;
     }
 
     created() {
-        this.displayTime = this.toTimeString(this._time)
+        this.displayTime = this.toTimeString(this.timeSeconds)
     }
 
     setInputVisible() {

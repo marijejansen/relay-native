@@ -3,7 +3,7 @@
     <GridLayout v-if="showTop" row="0" columns="*,*,*,*,*,*,*,*,*" class="times-top">
 
 
-      <Label col="0" :text="wha"></Label>          
+      <Label col="0" text="50Fr"></Label>          
       <Label col="1" text="100Fr"></Label>
       <Label col="2" text="200Fr"></Label>
       <Label col="3" text="50B"></Label>     

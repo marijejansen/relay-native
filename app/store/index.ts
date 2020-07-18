@@ -35,7 +35,6 @@ const store: StoreOptions<RootState> = {
   mutations: {
 
     setIsSaving(state, save) {
-      console.log("store, saving");
       state.saving = save;
     },
 
@@ -80,7 +79,6 @@ const store: StoreOptions<RootState> = {
         .then((response) => {
           commit("addLCTimes", { id: swimmerId, courseTimes: response });
         });
-      console.log("TEST:  einde update with times gehaald")
       return "OK";
     },
 

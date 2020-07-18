@@ -10,7 +10,7 @@ import store from '@/store/index';
 @Component({ components: { SingleTime } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
-    course: Course.ShortCourse;
+    course: Course = Course.ShortCourse;
 
     showDetails: boolean = false;
 
@@ -55,6 +55,23 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     }
 
     saveTime(index: number, time: number) {
-        console.log("time to be saved: " + time + ", index: " + index);
+        var swimmer = this.item;
+        var times = this.times;
+
+        var key = this.getCourseKeyByIndex(index);
+        times[key] = time;
+
+        if(this.course === Course.LongCourse){
+            swimmer.longCourseTimes = times;
+        } else {
+            swimmer.shortCourseTimes = times;
+        }
+
+        store.commit("addToSelectedSwimmers", swimmer);
+    }
+
+    private getCourseKeyByIndex(index: number): keyof CourseTimes{
+        var courseKeys = Object.keys(this.times);
+        return courseKeys[index] as keyof CourseTimes;
     }
 }
