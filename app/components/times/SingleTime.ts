@@ -1,11 +1,19 @@
 import { Component, Mixins, Prop, Emit } from 'vue-property-decorator';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin';
+import { GridLayout } from 'tns-core-modules/ui/layouts';
+import { TextField } from 'tns-core-modules/ui/text-field';
+import * as utils from "tns-core-modules/utils/utils";
+import { isAndroid } from "tns-core-modules/platform"
+
 
 @Component({ components: {} })
 export default class SingleTime extends Mixins(TimeFormatMixin) {
 
     @Prop()
     private timeSeconds: number;
+
+    @Prop()
+    private index: number;
 
     private inputVisible = false;
 
@@ -42,5 +50,17 @@ export default class SingleTime extends Mixins(TimeFormatMixin) {
 
     setInputVisible() {
         this.inputVisible = true;
+    }
+
+    focusEdit(args) {
+        var gridLayout = <GridLayout>args.object;
+        var edit = <TextField>gridLayout.getViewById("edit-time_" + this.index);
+
+        // ugly fix to ensure element gets focus
+        if (isAndroid) {
+            setTimeout(() => {
+                edit.focus();
+            }, 1);
+        }
     }
 }

@@ -53,6 +53,7 @@
         v-bind:key="'ed' + item.id + index"
         :row="index"
         :timeSeconds="val"
+        :index="index"
         @saveTime="saveTime(index, $event)"
       ></SingleTime>
     </GridLayout>

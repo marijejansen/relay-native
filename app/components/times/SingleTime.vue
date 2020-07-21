@@ -1,8 +1,9 @@
       
 <template>
-  <GridLayout class="single-time">
+  <GridLayout class="single-time" @tap="focusEdit($event)">
     <Label v-show="!inputVisible" :text="time()" @tap="setInputVisible" />
     <TextField
+      :id="'edit-time_' + index"
       keyboardType="number"
       @returnPress="setTime"
       returnKeyType="done"
