@@ -41,9 +41,10 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
     }
 
     toggleDetails() {
-        this.showDetails = !this.showDetails;
-        this.showEdit = false;
-        this.toggleShow(this.showDetails, this.item.id);
+        if(!this.showEdit){
+            this.showDetails = !this.showDetails;
+            this.toggleShow(this.showDetails, this.item.id);
+        }
     }
 
     toggleEdit() {
@@ -52,6 +53,7 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     onSave() {
         this.showEdit = false;
+        this.toggleDetails;
     }
 
     saveTime(index: number, time: number) {

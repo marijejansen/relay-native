@@ -5,5 +5,5 @@ const baseURL = `${base}/api`;
 
 export default axios.create({
   baseURL,
-  headers: {}
+  headers: { "Content-Type": "application/json" },
 });

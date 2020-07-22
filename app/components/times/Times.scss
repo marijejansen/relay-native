@@ -3,6 +3,13 @@
 .details-label {
     color: $dark-grey;
     margin: 5px 0;
+
+    background-color: white;
+
+    > Image {
+        height: 70px;
+        margin: 0 30px;
+    }
 }
 
 .details > * {

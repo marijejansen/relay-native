@@ -1,19 +1,16 @@
 <template>
   <GridLayout rows="*,*,*,*">
-    <GridLayout v-if="!showDetails" row="0" class="details-label" columns="4*, 4*, 2*, auto">
-      <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
-      <Label col="1" :text="item.clubName"></Label>
-      <Label col="2" :text="item.birthYear"></Label>
-      <Label col="3" class="edit-icon" text="E" @tap="toggleDetails"></Label>
+    <GridLayout v-if="!showDetails" row="0" class="details-label" columns="4*, 5*, 2*" >
+      <Label col="0" :text="item.firstName + ' ' + item.lastName" @tap="toggleDetails"></Label>
+      <Label col="1" :text="item.clubName" @tap="toggleDetails"></Label>
+      <Label col="2" :text="item.birthYear" @tap="toggleDetails"></Label>
     </GridLayout>
 
     <GridLayout v-if="showDetails" row="0" class="details-label" columns="4*, 5*, auto, auto">
-      <Label col="0" :text="item.firstName + ' ' + item.lastName"></Label>
-      <Label col="1" :text="item.birthYear"></Label>
-      <Label col="2" v-if="!showEdit" class="edit-icon" text="P" @tap="toggleEdit"></Label>
-      <Label col="2" v-if="showEdit" class="edit-icon" text="O" @tap="onSave"></Label>
-      <Label col="3" v-if="!showEdit" class="edit-icon" text="C" @tap="toggleDetails"></Label>
-
+      <Label col="0" :text="item.firstName + ' ' + item.lastName" @tap="toggleDetails"></Label>
+      <Label col="1" :text="item.birthYear" @tap="toggleDetails"></Label>
+      <Image col="2" v-if="!showEdit" class="edit-icon" @tap="toggleEdit()" src="~/assets/images/pen_yellow.png" stretch="fill" />
+      <Image col="2" v-if="showEdit" class="edit-icon" @tap="onSave" src="~/assets/images/check_yellow.png" stretch="fill" />
     </GridLayout>
 
     <GridLayout
