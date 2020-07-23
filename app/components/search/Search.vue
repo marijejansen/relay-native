@@ -2,7 +2,7 @@
   <GridLayout rows="auto, *,  *" class="search-layout container">
 
   <GridLayout row="0" class="search-bar" orientation="horizontal" columns="3*,3*,1*">
-    <TextField column="0" v-model="firstName" hint="First name" returnKeyType="next"/>
+    <TextField column="0" v-model="firstName" hint="First name" returnKeyType="next" @tap="onFirstTextfieldTap()"/>
     <TextField column="1" v-model="lastName" hint="Last name" @returnPress="search" returnKeyType="done"/>
     <Image src="~/assets/images/lens.png" stretch="fill" column="2" class="search-button" :class="{ 'active': searched }" @tap="search"/>
   </GridLayout>

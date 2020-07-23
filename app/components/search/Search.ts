@@ -14,6 +14,10 @@ export default class Search extends Vue {
 
   searchResult?: Swimmer[] = [];
   
+  onFirstTextfieldTap(){
+    this.removeSearchInput();
+  }
+
   selection() : Swimmer[]{
     return store.getters.getAllSelected;
   }
@@ -49,6 +53,11 @@ export default class Search extends Vue {
     const swimmer = this.searchResult.find(s => s.id == id);  
     store.commit("addToSelectedSwimmers", swimmer);
     this.updateWithTimes(id);
+  }
+
+  removeSearchInput() {
+    this.firstName = "";
+    this.lastName = "";
   }
 
   async updateWithTimes(id: number){
