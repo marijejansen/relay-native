@@ -3,10 +3,12 @@ import { Component, Mixins } from "vue-property-decorator";
 import TestMixin from '@/mixins/TestMixin'
 import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
+import store from '@/store/index';
+import StrokeMixin from '@/mixins/StrokeMixin';
 
 
 @Component({ components: { TimesItem } })
-export default class Times extends Mixins(TestMixin) {
+export default class Times extends Mixins(TestMixin, StrokeMixin) {
 
     showTop = false;
 
@@ -14,10 +16,13 @@ export default class Times extends Mixins(TestMixin) {
 
     getTestData: Swimmer[] = this.getTestResults();
 
-    items() {
-        const data = this.getTestData;
-        return data;
+    selection(): Swimmer[] {
+        return store.getters.getAllSelected;
     }
+
+    // getStrokeNamesSuperShort() {
+    //     return this.getStrokeNamesSuperShort()
+    // }
 
     private onToggleShow(show: boolean, id: number) {
         if (show) {

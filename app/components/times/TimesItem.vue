@@ -22,8 +22,8 @@
       <Label
         v-for="(val, key, index) in times"
         v-bind:key="'det' + item.id + index"
-        :col="index"
-        :text="val"
+        :col="getIndex(key)"
+        :text="timeString(val)"
       ></Label>
     </GridLayout>
 
@@ -39,7 +39,7 @@
         col="0"
         v-for="(val, key, index) in times"
         v-bind:key="'ed_n' + item.id + index"
-        :row="index"
+        :row="getIndex(key)"
         :text="strokeNameLong(key)"
       ></Label>
       <SingleTime
@@ -48,9 +48,9 @@
         col="1"
         v-for="(val, key, index) in times"
         v-bind:key="'ed' + item.id + index"
-        :row="index"
+        :row="getIndex(key)"
         :timeSeconds="val"
-        :index="index"
+        :index="getIndex(key)"
         @saveTime="saveTime(index, $event)"
       ></SingleTime>
     </GridLayout>

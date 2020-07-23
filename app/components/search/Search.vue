@@ -2,8 +2,8 @@
   <GridLayout rows="auto, *,  *, auto" class="search-layout container">
 
   <GridLayout row="0" orientation="horizontal" columns="*,*">
-    <TextField column="0" v-model="firstName" hint="First name" />
-    <TextField column="1" v-model="lastName" hint="Last name" />
+    <TextField column="0" v-model="firstName" hint="First name" returnKeyType="next"/>
+    <TextField column="1" v-model="lastName" hint="Last name" @returnPress="search" returnKeyType="done"/>
   </GridLayout>
 
     <ListView class="result-list" row="1" for="result in results()">

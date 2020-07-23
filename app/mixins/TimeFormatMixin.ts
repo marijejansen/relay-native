@@ -25,6 +25,9 @@ class TimeFormatMixin extends Vue {
   }
 
   public toTimeString(time: number): string {
+    if(!(time > 0)){
+      return "";
+    }
     var secNum = time % 60;
     var sec = this.getSeconds(secNum);
     var min = ((time - secNum) / 60).toString();

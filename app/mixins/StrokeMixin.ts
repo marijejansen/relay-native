@@ -72,7 +72,28 @@ class StrokeMixin extends Vue {
         }
     }
 
-
+    public getStrokeIndex(stroke: keyof CourseTimes) :number {
+        switch (stroke) {
+            case "freestyle50M":
+                return 0;
+            case "freestyle100M":
+                return 1;
+            case "freestyle200M":
+                return 2;
+            case "backstroke50M":
+                return 3;
+            case "backstroke100M":
+                return 4;
+            case "breaststroke50M":
+                return 5;
+            case "breaststroke100M":
+                return 6;
+            case "butterfly50M":
+                return 7;
+            case "butterfly100M":
+                return 8;
+        }
+    }
 }
 
 export default StrokeMixin

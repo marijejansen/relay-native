@@ -32,8 +32,12 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         return x;
     }
 
-    get times() {
+    get times(): CourseTimes {
         return this.course === Course.ShortCourse ? this.item.shortCourseTimes : this.item.longCourseTimes;
+    }
+
+    getIndex(key: keyof CourseTimes) : number {
+        return this.getStrokeIndex(key);
     }
 
     strokeNameLong(stroke: keyof CourseTimes) {
