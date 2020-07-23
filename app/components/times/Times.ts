@@ -1,11 +1,9 @@
 import { Component, Mixins } from "vue-property-decorator";
-// import './Times.scss'
 import TestMixin from '@/mixins/TestMixin'
 import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
 import store from '@/store/index';
 import StrokeMixin from '@/mixins/StrokeMixin';
-import { ICourseTimes } from '@/models/interfaces/ICourseTimes';
 
 
 @Component({ components: { TimesItem } })
