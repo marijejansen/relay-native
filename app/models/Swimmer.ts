@@ -1,5 +1,5 @@
 import { Gender } from "./gender";
-import { CourseTimes } from "./coursetimes";
+import { ICourseTimes } from "./interfaces/ICourseTimes";
 
 export interface Swimmer {
   id: number;
@@ -9,7 +9,7 @@ export interface Swimmer {
   birthYear: number;
   gender: Gender;
   clubName: string;
-  shortCourseTimes: CourseTimes;
-  longCourseTimes: CourseTimes;
+  shortCourseTimes: ICourseTimes;
+  longCourseTimes: ICourseTimes;
   time: number;
 }

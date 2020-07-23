@@ -38,7 +38,7 @@ const store: StoreOptions<RootState> = {
       state.saving = save;
     },
 
-    addToSelectedSwimmers(state, swimmer) {
+    addToSelectedSwimmers(state, swimmer: Swimmer) {
       var index = state.selectedSwimmers.findIndex(sw => sw.id == swimmer.id);
       if (index != -1) {
         state.selectedSwimmers[index] = swimmer;

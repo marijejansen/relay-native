@@ -5,7 +5,7 @@ import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
 import store from '@/store/index';
 import StrokeMixin from '@/mixins/StrokeMixin';
-import { CourseTimes } from '@/models/coursetimes';
+import { ICourseTimes } from '@/models/interfaces/ICourseTimes';
 
 
 @Component({ components: { TimesItem } })

@@ -1,11 +1,11 @@
 import { Component, Vue } from "vue-property-decorator";
-import { CourseTimes } from '../models/CourseTimes';
+import { ICourseTimes } from '../models/interfaces/ICourseTimes';
 
 
 @Component
 class StrokeMixin extends Vue {
 
-    public getStrokeNameLong(stroke: keyof CourseTimes) {
+    public getStrokeNameLong(stroke: keyof ICourseTimes) {
         switch (stroke) {
             case "freestyle50M":
                 return '50m freestyle';
@@ -27,7 +27,7 @@ class StrokeMixin extends Vue {
                 return '100m butterfly';
         }
     }
-    public getStrokeNameShort(stroke: keyof CourseTimes) {
+    public getStrokeNameShort(stroke: keyof ICourseTimes) {
         switch (stroke) {
             case "freestyle50M":
                 return '50 free';
@@ -49,7 +49,7 @@ class StrokeMixin extends Vue {
                 return '100 fly';
         }
     }
-    public getStrokeNameSuperShort(stroke: keyof CourseTimes) {
+    public getStrokeNameSuperShort(stroke: keyof ICourseTimes) {
         switch (stroke) {
             case "freestyle50M":
                 return '50Fr';
@@ -77,7 +77,7 @@ class StrokeMixin extends Vue {
         return strokes
     }
 
-    public getStrokeIndex(stroke: keyof CourseTimes) :number {
+    public getStrokeIndex(stroke: keyof ICourseTimes) :number {
         switch (stroke) {
             case "freestyle50M":
                 return 0;

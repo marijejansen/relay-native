@@ -3,7 +3,8 @@ import { Swimmer } from '@/models/Swimmer';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin'
 import StrokeMixin from '@/mixins/StrokeMixin'
 import SingleTime from './SingleTime';
-import { CourseTimes } from '@/models/coursetimes';
+import { ICourseTimes } from '@/models/interfaces/ICourseTimes';
+import { CourseTimes } from '@/models/CourseTimes';
 import { Course } from '@/models/Course';
 import store from '@/store/index';
 
@@ -32,15 +33,16 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         return x;
     }
 
-    get times(): CourseTimes {
-        return this.course === Course.ShortCourse ? this.item.shortCourseTimes : this.item.longCourseTimes;
+    get times(): ICourseTimes {
+        var times =  this.course === Course.ShortCourse ? this.item.shortCourseTimes : this.item.longCourseTimes;
+        return times ?? new CourseTimes();
     }
 
-    getIndex(key: keyof CourseTimes) : number {
+    getIndex(key: keyof ICourseTimes) : number {
         return this.getStrokeIndex(key);
     }
 
-    strokeNameLong(stroke: keyof CourseTimes) {
+    strokeNameLong(stroke: keyof ICourseTimes) {
         return this.getStrokeNameLong(stroke);
     }
 
@@ -76,8 +78,8 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         store.commit("addToSelectedSwimmers", swimmer);
     }
 
-    private getCourseKeyByIndex(index: number): keyof CourseTimes{
+    private getCourseKeyByIndex(index: number): keyof ICourseTimes{
         var courseKeys = Object.keys(this.times);
-        return courseKeys[index] as keyof CourseTimes;
+        return courseKeys[index] as keyof ICourseTimes;
     }
 }

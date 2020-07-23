@@ -1,6 +1,6 @@
 import baseRepository from './baserepository'
 import { Swimmer } from '@/models/Swimmer';
-import { CourseTimes } from '@/models/coursetimes';
+import { ICourseTimes } from '@/models/interfaces/ICourseTimes';
 
 export default {
 
@@ -16,7 +16,7 @@ export default {
       async getShortCourseTimes(
         swimmerId: number,
         fromYear: number
-      ): Promise<CourseTimes> {
+      ): Promise<ICourseTimes> {
         return baseRepository
           .get(
             `/SwimmerData/getTimesShortCourse?id=${swimmerId}&fromYear=${fromYear}`
@@ -29,7 +29,7 @@ export default {
       async getLongCourseTimes(
         swimmerId: number,
         fromYear: number
-      ): Promise<CourseTimes> {
+      ): Promise<ICourseTimes> {
         return baseRepository
           .get(
             `/SwimmerData/getTimesLongCourse?id=${swimmerId}&fromYear=${fromYear}`
