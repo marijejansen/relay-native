@@ -5,6 +5,7 @@ import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
 import store from '@/store/index';
 import StrokeMixin from '@/mixins/StrokeMixin';
+import { CourseTimes } from '@/models/coursetimes';
 
 
 @Component({ components: { TimesItem } })
@@ -20,9 +21,10 @@ export default class Times extends Mixins(TestMixin, StrokeMixin) {
         return store.getters.getAllSelected;
     }
 
-    // getStrokeNamesSuperShort() {
-    //     return this.getStrokeNamesSuperShort()
-    // }
+    getStrokesSuperShort(): string[] {
+        var namesShort = this.getStrokeNamesSuperShort();
+        return namesShort;
+    }
 
     private onToggleShow(show: boolean, id: number) {
         if (show) {

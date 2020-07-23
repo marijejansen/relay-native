@@ -72,6 +72,11 @@ class StrokeMixin extends Vue {
         }
     }
 
+    public getStrokeNamesSuperShort(): string[] {
+        var strokes = ["50Fr", "100Fr", "200Fr", "50Ba", "100Ba", "50Br", "100Br", "50Fl", "100Fl"];
+        return strokes
+    }
+
     public getStrokeIndex(stroke: keyof CourseTimes) :number {
         switch (stroke) {
             case "freestyle50M":
