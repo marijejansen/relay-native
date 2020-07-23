@@ -1,21 +1,34 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
 .search-layout {
+    .search-bar {
+        > * {
+            height: 140px;
+            border-width: 2px;
+            border: 2px solid $grey;
+            border-radius: 10px;
+            padding-bottom: 30px;
+            margin: 10px 0 20px;
+        }
 
-    TextField {
-        background-color: $white;
-        height: 120px;
-        padding-left: 20px;
-        padding-top: 35px;
-        padding-bottom: 30px;
-        border-width: 2px;
-        border: 2px solid $grey;
-        border-radius: 10px;
-        margin: 10px 10px 15px;
+        TextField {
+            background-color: $white;
+            padding-left: 15x;
+            padding-top: 35px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 10px 14px;
+            background-color: $button-yellow;
+
+            &.active {
+                background-color: $yellow;
+            }
+        }
     }
 
     GridLayout.search-result {
-
         padding: 5px 0;
 
         &.removed {
@@ -29,7 +42,6 @@
         }
 
         &.selection {
-
             color: black;
 
             Label.first {

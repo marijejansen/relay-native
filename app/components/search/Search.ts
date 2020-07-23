@@ -10,6 +10,8 @@ export default class Search extends Vue {
   private firstName: string = "";
   private lastName: string = "";
 
+  private searched: boolean = false;
+
   searchResult?: Swimmer[] = [];
   
   selection() : Swimmer[]{
@@ -33,8 +35,14 @@ export default class Search extends Vue {
 
   // naar store
   async search() {
+    this.setSearched();
     await searchRepository.getSearch(this.firstName, this.lastName)
       .then(response => this.searchResult = response);
+  }
+
+  setSearched(){
+    this.searched = true;
+    setTimeout(() => {this.searched = false}, 300);
   }
 
   select(id: number) {

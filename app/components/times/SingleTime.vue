@@ -4,7 +4,6 @@
     <Label v-show="!inputVisible" :text="time()" @tap="setInputVisible" />
     <TextField
       :id="'edit-time_' + index"
-      keyboardType="number"
       @returnPress="setTime"
       returnKeyType="done"
       v-show="inputVisible"
