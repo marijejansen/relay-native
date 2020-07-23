@@ -17,6 +17,8 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     showEdit: boolean = false;
 
+    loadedTimes: Number[] = store.getters['search/timesLoaded'];
+
     @Prop()
     private item!: Swimmer;
 
@@ -44,6 +46,10 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     strokeNameLong(stroke: keyof ICourseTimes) {
         return this.getStrokeNameLong(stroke);
+    }
+
+    get timesLoaded() {
+        return this.loadedTimes.find(lt => lt === this.item.id) > 0;
     }
 
     toggleDetails() {

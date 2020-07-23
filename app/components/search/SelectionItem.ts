@@ -9,10 +9,10 @@ export default class SelectionItem extends Vue {
     
     private removed: boolean = false;
 
-    loadedTEST: Number[] = store.getters['search/timesLoaded'];
+    loadedTimes: Number[] = store.getters['search/timesLoaded'];
 
     get timesLoaded() {
-        return this.loadedTEST.find(lt => lt === this.item.id) > 0;
+        return this.loadedTimes.find(lt => lt === this.item.id) > 0;
         
     }
 

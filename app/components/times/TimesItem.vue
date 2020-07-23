@@ -1,9 +1,9 @@
 <template>
   <GridLayout rows="*,*,*,*">
-    <GridLayout v-if="!showDetails" row="0" class="details-label" columns="4*, 5*, 2*" >
+    <GridLayout v-if="!showDetails" row="0" class="details-label" columns="6*, 6*, 2*" >
       <Label col="0" :text="item.firstName + ' ' + item.lastName" @tap="toggleDetails"></Label>
       <Label col="1" :text="item.clubName" @tap="toggleDetails"></Label>
-      <Label col="2" :text="item.birthYear" @tap="toggleDetails"></Label>
+      <Label class="last" col="2" :text="item.birthYear" @tap="toggleDetails" :class="{ loaded: timesLoaded }"></Label>
     </GridLayout>
 
     <GridLayout v-if="showDetails" row="0" class="details-label" columns="4*, 5*, auto, auto">
