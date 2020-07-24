@@ -1,9 +1,9 @@
 <template>
   <GridLayout class="calculate" columns="*" rows="auto, *">
     <GridLayout class="relay-selector" row="0" columns="1*,8*,1*">
-      <Label col="0" text="<" @tap="prevRelay()"></Label>
-      <Label column="1" :text="relayLabel()"></Label>
-      <Label column="2" text=">" @tap="nextRelay()"></Label>
+      <Image class="first" src="~/assets/images/arrow.png" text="<" @tap="prevRelay()"></Image>
+      <Label col="1" :text="relayLabel()"></Label>
+      <Image col="2" src="~/assets/images/arrow.png" text=">" @tap="nextRelay()"></Image>
     </GridLayout>
     
     <GridLayout row="1" class="container" rows="auto, *">
