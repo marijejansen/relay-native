@@ -7,12 +7,12 @@
     > * {
         padding: 30px 0 30px 20px;
     }
-    // text-align: center;
 
     background-color: white;
 
     > Image {
         height: 80px;
+        width: 80px;
         margin: 0 30px;
     }
 
@@ -46,6 +46,7 @@
     }
 }
 
+//remove?
 .edit-icon {
     font-family: Icons;
     font-size: 22;
@@ -53,7 +54,7 @@
 }
 
 .edit > * {
-    // text-align: start;
+    text-align: start;
     padding: 19px;
     font-size: 16;
 }

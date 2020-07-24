@@ -1,7 +1,6 @@
 <template>
 <GridLayout rows="auto, *">
     <Label row="0" text="Selection" class="label-top"></Label>
-
     <ListView row="1" for="result in selection()">
       <v-template>
         <SelectionItem :selection-item="result" :key="result.id"></SelectionItem>
