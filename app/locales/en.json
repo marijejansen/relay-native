@@ -2,25 +2,70 @@
     "actionbar": {
         "message": "Welcome to Relay Calculator"
     },
-
-        "search":{
-            "title": "search",
-            "firstname": "First name",
-            "lastname": "Last name",
-            "selection": "Selection"
-        },
-        "times":{
-            "title": "times"
-        },
-        "calculate":{
-            "title": "calculate",
-            "relays": {
-                "200free": "4 x 50 Freestyle",
-                "400free": "4 x 100 Freestyle",
-                "800free": "4 x 200 Freestyle",
-                "200medley": "4 x 50 Medley",
-                "400medley": "4 x 100 Medley"
+    "search": {
+        "title": "search",
+        "firstname": "First name",
+        "lastname": "Last name",
+        "selection": "Selection"
+    },
+    "times": {
+        "title": "times",
+        "strokes": {
+            "50free": {
+                "long": "50m freestyle",
+                "short": "50 free",
+                "supershort": "50Fr"
+            },
+            "100free": {
+                "long": "100m freestyle",
+                "short": "100 free",
+                "supershort": "100Fr"
+            },
+            "200free": {
+                "long": "200m freestyle",
+                "short": "200 free",
+                "supershort": "200Fr"
+            },
+            "50back": {
+                "long": "50m backstroke",
+                "short": "50 back",
+                "supershort": "50Ba"
+            },
+            "100back": {
+                "long": "100m backstroke",
+                "short": "100 back",
+                "supershort": "100Ba"
+            },
+            "50breast": {
+                "long": "50m breaststroke",
+                "short": "50 breast",
+                "supershort": "50Br"
+            },
+            "100breast": {
+                "long": "100m breaststroke",
+                "short": "100 breast",
+                "supershort": "100Br"
+            },
+            "50fly": {
+                "long": "50m butterfly",
+                "short": "50 fly",
+                "supershort": "50Fl"
+            },
+            "100fly": {
+                "long": "100m butterfly",
+                "short": "100 fly",
+                "supershort": "100Fl"
             }
         }
-
+    },
+    "calculate": {
+        "title": "calculate",
+        "relays": {
+            "200free": "4 x 50 Freestyle",
+            "400free": "4 x 100 Freestyle",
+            "800free": "4 x 200 Freestyle",
+            "200medley": "4 x 50 Medley",
+            "400medley": "4 x 100 Medley"
+        }
+    }
 }

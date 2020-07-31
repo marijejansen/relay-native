@@ -1,25 +1,71 @@
 {
   "actionbar": {
-      "message": "Welkom bij Relay Calculator"
+    "message": "Welkom bij Relay Calculator"
   },
-      "search":{
-          "title": "zoeken",
-          "firstname": "Voornaam",
-          "lastname": "Achternaam",
-          "selection": "Selectie"
+  "search": {
+    "title": "zoeken",
+    "firstname": "Voornaam",
+    "lastname": "Achternaam",
+    "selection": "Selectie"
+  },
+  "times": {
+    "title": "tijden",
+    "strokes": {
+      "50free": {
+        "long": "50m vrije slag",
+        "short": "50 vrij",
+        "supershort": "50vr"
       },
-      "times":{
-          "title": "tijden"
+      "100free": {
+        "long": "100m vrije slag",
+        "short": "100 vrij",
+        "supershort": "100vr"
       },
-      "calculate":{
-          "title": "berekenen",
-          "relays": {
-              "200free": "4 x 50 vrije slag",
-              "400free": "4 x 100 vrije slag",
-              "800free": "4 x 200 vrije slag",
-              "200medley": "4 x 50 wisselslag",
-              "400medley": "4 x 100 wisselslag"
-          }
+      "200free": {
+        "long": "200m vrije slag",
+        "short": "200 vrij",
+        "supershort": "200vr"
+      },
+      "50back": {
+        "long": "50m rugslag",
+        "short": "50 rug",
+        "supershort": "50r"
+      },
+      "100back": {
+        "long": "100m rugslag",
+        "short": "100 rug",
+        "supershort": "100r"
+      },
+      "50breast": {
+        "long": "50m schoolslag",
+        "short": "50 school",
+        "supershort": "50s"
+      },
+      "100breast": {
+        "long": "100m schoolslag",
+        "short": "100 school",
+        "supershort": "100s"
+      },
+      "50fly": {
+        "long": "50m vlinderslag",
+        "short": "50 vlinder",
+        "supershort": "50vl"
+      },
+      "100fly": {
+        "long": "100m vlinderslag",
+        "short": "100 vlinder",
+        "supershort": "100vl"
       }
-  
+    }
+  },
+  "calculate": {
+    "title": "bereken",
+    "relays": {
+      "200free": "4 x 50 vrije slag",
+      "400free": "4 x 100 vrije slag",
+      "800free": "4 x 200 vrije slag",
+      "200medley": "4 x 50 wisselslag",
+      "400medley": "4 x 100 wisselslag"
+    }
+  }
 }

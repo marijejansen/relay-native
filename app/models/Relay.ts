@@ -1,3 +1,5 @@
+import translate from '@/locales/i18n'
+
 export enum Relay {
   Free200,
   Free400,
@@ -7,10 +9,10 @@ export enum Relay {
 }
 
 export const RelayStrings = new Map<Relay, string>([
-  [Relay.Free200, "4 x 50 Freestyle"],
-  [Relay.Free400, "4 x 100 Freestyle"],
-  [Relay.Free800, "4 x 200 Freestyle"],
-  [Relay.Medley200, "4 x 50 Medley"],
-  [Relay.Medley400, "4 x 100 Medley"]
+  [Relay.Free200, translate.t('calculate.relays.200free').toString()],
+  [Relay.Free400, translate.t('calculate.relays.400free').toString()],
+  [Relay.Free800, translate.t('calculate.relays.800free').toString()],
+  [Relay.Medley200, translate.t('calculate.relays.200medley').toString()],
+  [Relay.Medley400, translate.t('calculate.relays.400medley').toString()]
 ]);
 

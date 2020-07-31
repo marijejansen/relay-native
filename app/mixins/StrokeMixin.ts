@@ -1,79 +1,89 @@
 import { Component, Vue } from "vue-property-decorator";
 import { ICourseTimes } from '../models/interfaces/ICourseTimes';
-
+import translate from '@/locales/i18n'
 
 @Component
 class StrokeMixin extends Vue {
 
-    public getStrokeNameLong(stroke: keyof ICourseTimes) {
+    public getStrokeNameLong(stroke: keyof ICourseTimes): string {
         switch (stroke) {
             case "freestyle50M":
-                return '50m freestyle';
+                return translate.t('times.strokes.50free.long').toString();
             case "freestyle100M":
-                return '100m freestyle';
+                return translate.t('times.strokes.100free.long').toString();
             case "freestyle200M":
-                return '200m freestyle';
+                return translate.t('times.strokes.200free.long').toString();
             case "backstroke50M":
-                return '50m backstroke';
+                return translate.t('times.strokes.50back.long').toString();
             case "backstroke100M":
-                return '100m backstroke';
+                return translate.t('times.strokes.100back.long').toString();
             case "breaststroke50M":
-                return '50m breaststroke';
+                return translate.t('times.strokes.50breast.long').toString();
             case "breaststroke100M":
-                return '100m breaststroke';
+                return translate.t('times.strokes.100breast.long').toString();
             case "butterfly50M":
-                return '50m butterfly';
+                return translate.t('times.strokes.50fly.long').toString();
             case "butterfly100M":
-                return '100m butterfly';
+                return translate.t('times.strokes.100fly.long').toString();
         }
     }
     public getStrokeNameShort(stroke: keyof ICourseTimes) {
         switch (stroke) {
             case "freestyle50M":
-                return '50 free';
+                return translate.t('times.strokes.50free.short').toString();
             case "freestyle100M":
-                return '100 free';
+                return translate.t('times.strokes.100free.short').toString();
             case "freestyle200M":
-                return '200 free';
+                return translate.t('times.strokes.200free.short').toString();
             case "backstroke50M":
-                return '50 back';
+                return translate.t('times.strokes.50back.short').toString();
             case "backstroke100M":
-                return '100 backs';
+                return translate.t('times.strokes.100back.short').toString();
             case "breaststroke50M":
-                return '50 breast';
+                return translate.t('times.strokes.50breast.short').toString();
             case "breaststroke100M":
-                return '100 breast';
+                return translate.t('times.strokes.100breast.short').toString();
             case "butterfly50M":
-                return '50 fly';
+                return translate.t('times.strokes.50fly.short').toString();
             case "butterfly100M":
-                return '100 fly';
+                return translate.t('times.strokes.100fly.short').toString();
         }
     }
     public getStrokeNameSuperShort(stroke: keyof ICourseTimes) {
         switch (stroke) {
             case "freestyle50M":
-                return '50Fr';
+                return translate.t('times.strokes.50free.supershort').toString();
             case "freestyle100M":
-                return '100Fr';
+                return translate.t('times.strokes.100free.supershort').toString();
             case "freestyle200M":
-                return '200Fr';
+                return translate.t('times.strokes.200free.supershort').toString();
             case "backstroke50M":
-                return '50Ba';
+                return translate.t('times.strokes.50back.supershort').toString();
             case "backstroke100M":
-                return '100Ba';
+                return translate.t('times.strokes.100back.supershort').toString();
             case "breaststroke50M":
-                return '50Br';
+                return translate.t('times.strokes.50breast.supershort').toString();
             case "breaststroke100M":
-                return '100Br';
+                return translate.t('times.strokes.100breast.supershort').toString();
             case "butterfly50M":
-                return '50Fl';
+                return translate.t('times.strokes.50fly.supershort').toString();
             case "butterfly100M":
-                return '100Fl';
+                return translate.t('times.strokes.100fly.supershort').toString();
         }
     }
 
     public getStrokeNamesSuperShort(): string[] {
-        var strokes = ["50Fr", "100Fr", "200Fr", "50Ba", "100Ba", "50Br", "100Br", "50Fl", "100Fl"];
+        var strokes = [
+                translate.t('times.strokes.50free.supershort').toString(),
+                translate.t('times.strokes.100free.supershort').toString(),
+                translate.t('times.strokes.200free.supershort').toString(),
+                translate.t('times.strokes.50back.supershort').toString(),
+                translate.t('times.strokes.100back.supershort').toString(),
+                translate.t('times.strokes.50breast.supershort').toString(),
+                translate.t('times.strokes.100breast.supershort').toString(),
+                translate.t('times.strokes.50fly.supershort').toString(),
+                translate.t('times.strokes.100fly.supershort').toString(),
+        ];
         return strokes
     }
 
