@@ -66,6 +66,10 @@
       "800free": "4 x 200 vrije slag",
       "200medley": "4 x 50 wisselslag",
       "400medley": "4 x 100 wisselslag"
+    },
+    "courses": {
+      "short": "kortebaan",
+      "long": "langebaan"
     }
   }
 }

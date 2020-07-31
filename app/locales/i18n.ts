@@ -9,8 +9,7 @@ Vue.use(VueI18n)
 
 export default new VueI18n({
   locale: device.language,
-  fallbackLocale: 'nl',
-
+  fallbackLocale: 'en',
   messages: Object.assign({
     nl: nl,
     en: en,
