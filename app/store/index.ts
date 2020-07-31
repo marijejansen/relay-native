@@ -19,7 +19,7 @@ const store: StoreOptions<RootState> = {
   },
 
   getters: {
-    getAllSelected(state) {
+    getAllSelected(state): Swimmer[] {
       return state.selectedSwimmers;
     },
 

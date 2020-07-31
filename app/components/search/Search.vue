@@ -1,5 +1,5 @@
 <template>
-  <GridLayout rows="auto, *,  *" class="search-layout container">
+  <GridLayout rows="auto, 2*,  3*" class="search-layout container">
 
   <GridLayout row="0" class="search-bar" orientation="horizontal" columns="3*,3*,1*">
     <TextField column="0" v-model="firstName" hint="First name" returnKeyType="next" @tap="onFirstTextfieldTap()"/>
