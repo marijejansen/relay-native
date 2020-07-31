@@ -1,0 +1,26 @@
+{
+    "actionbar": {
+        "message": "Welcome to Relay Calculator"
+    },
+
+        "search":{
+            "title": "search",
+            "firstname": "First name",
+            "lastname": "Last name",
+            "selection": "Selection"
+        },
+        "times":{
+            "title": "times"
+        },
+        "calculate":{
+            "title": "calculate",
+            "relays": {
+                "200free": "4 x 50 Freestyle",
+                "400free": "4 x 100 Freestyle",
+                "800free": "4 x 200 Freestyle",
+                "200medley": "4 x 50 Medley",
+                "400medley": "4 x 100 Medley"
+            }
+        }
+
+}

@@ -1,0 +1,25 @@
+{
+  "actionbar": {
+      "message": "Welkom bij Relay Calculator"
+  },
+      "search":{
+          "title": "zoeken",
+          "firstname": "Voornaam",
+          "lastname": "Achternaam",
+          "selection": "Selectie"
+      },
+      "times":{
+          "title": "tijden"
+      },
+      "calculate":{
+          "title": "berekenen",
+          "relays": {
+              "200free": "4 x 50 vrije slag",
+              "400free": "4 x 100 vrije slag",
+              "800free": "4 x 200 vrije slag",
+              "200medley": "4 x 50 wisselslag",
+              "400medley": "4 x 100 wisselslag"
+          }
+      }
+  
+}

@@ -1,18 +1,18 @@
 <template>
     <Page class="page">   
-        <ActionBar title="Welcome to Relay Calculator" android:flat="true"/>
+        <ActionBar :title="$t('actionbar.message')" android:flat="true"/>
         <TabView android:tabBackgroundColor="#29648A"
                  android:tabTextColor="#c4ffdf"
                  android:selectedTabTextColor="#ffffff"
                  androidSelectedTabHighlightColor="#ffc400">
-             <TabViewItem title="Search">
+             <TabViewItem :title="$t('search.title')">
                <Search></Search>
             </TabViewItem>
-            <TabViewItem title="Times">
+            <TabViewItem :title="$t('times.title')">
                 <Times></Times>
                 
             </TabViewItem>           
-            <TabViewItem title="Calculate">
+            <TabViewItem :title="$t('calculate.title')">
                 <Calculate></Calculate>
             </TabViewItem>           
         </TabView>

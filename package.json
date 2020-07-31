@@ -3,16 +3,8 @@
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Marije Jansen <jansen.marije@gmail.com>",
-  "license": "MIT",
-  "nativescript": {
-    "id": "org.nativescript.application",
-    "templateVersion": "v2",
-    "tns-android": {
-      "version": "6.0.0"
-    },
-    "tns-ios": {
-      "version": "6.0.1"
-    }
+  "scripts": {
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
     "@nativescript/theme": "^2.2.1",
@@ -20,12 +12,14 @@
     "nativescript-vue": "^2.5.0",
     "tns-core-modules": "^6.0.0",
     "vue-class-component": "^6.3.2",
+    "vue-i18n": "^8.17.3",
     "vue-property-decorator": "^7.3.0",
     "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@intlify/vue-i18n-loader": "^1.0.0",
     "@types/node": "^12.12.16",
     "babel-loader": "^8.0.2",
     "nativescript-dev-webpack": "^1.5.1",
@@ -36,6 +30,18 @@
     "tns-platform-declarations": "^6.0.0",
     "typescript": "^3.2.4",
     "vue": "^2.5.22",
+    "vue-cli-plugin-i18n": "~1.0.1",
     "vue-loader": "^15.4.0"
+  },
+  "license": "MIT",
+  "nativescript": {
+    "id": "org.nativescript.application",
+    "templateVersion": "v2",
+    "tns-android": {
+      "version": "6.0.0"
+    },
+    "tns-ios": {
+      "version": "6.0.1"
+    }
   }
 }
