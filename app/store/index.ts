@@ -4,12 +4,15 @@ import { RootState } from './types';
 import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
+import { calculate } from './calculate';
+
 
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
   modules: {
-    search
+    search,
+    calculate
   },
 
   state: {

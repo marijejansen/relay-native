@@ -1,5 +1,5 @@
 <template>
-  <GridLayout class="calculate" columns="*" rows="auto, auto, *">
+  <GridLayout class="calculate" columns="*" rows="auto, auto, *, auto">
     <GridLayout class="relay-selector" row="0" columns="1*,8*,1*">
       <Image class="first" src="~/assets/images/arrow.png" text="<" @tap="prevRelay()"></Image>
       <Label col="1" :text="relayLabel()"></Label>
@@ -18,6 +18,7 @@
         </v-template>
       </ListView>
     </GridLayout>
+  <GridLayout row="3"><Button text="KLIK HIER" @tap="calculate()"/></GridLayout>
   </GridLayout>
 </template>
 

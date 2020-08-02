@@ -76,7 +76,7 @@ class TestMixin extends Vue {
             birthYear: 2013,
             clubName: "ZPC Amersfoort",
             position: 0,
-            gender: 1,
+            gender: 0,
             time: 0,
             //@ts-ignore
             longCourseTimes: {

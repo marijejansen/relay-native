@@ -13,13 +13,9 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
 
     getTestData: Swimmer[] = this.getTestResults();
 
-    private activeRelayNumber: number = 0;
+    private relay: number = store.getters['calculate/getRelay'];
 
-    private activeCourseNumber: number = 0;
-
-    private relay: string = Relay[0];
-
-    private course: string = Course[0];
+    private course: number = store.getters['calculate/getCourse'];
 
     selection(): Swimmer[] {
         // return this.getTestData;
@@ -27,32 +23,38 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
     }
 
     relayLabel() {
-        return this.getRelayString(this.relay)
+        return this.getRelayString(Relay[this.relay])
       }
 
     courseLabel(): string{
-        return this.getCourseString(this.course);
+        return this.getCourseString(Course[this.course]);
     }
 
     nextRelay() {
-        this.setRelay((this.activeRelayNumber + 1) % 5);
+        this.setRelay((this.relay + 1) % 5);
     }
 
     prevRelay() {
-        this.setRelay(((this.activeRelayNumber + 4) % 5));
+        this.setRelay(((this.relay + 4) % 5));
     }
 
     setRelay(newNumber: number){
-        this.activeRelayNumber = newNumber;
-        this.relay = Relay[newNumber];
+        this.relay = newNumber;
     }
 
     nextCourse() {
-        this.setCourse((this.activeCourseNumber + 1) % 2);
+        this.setCourse((this.course + 1) % 2);
     }
 
     setCourse(newNumber: number){
-        this.activeCourseNumber = newNumber;
-        this.course = Course[newNumber];
+        this.course = newNumber;
+    }
+
+    calculate(){
+        console.log("calc");
+        store.commit('calculate/setCourse', this.course);
+        store.commit('calculate/setRelay', this.relay);
+        store.dispatch('calculate/calculateTeams');
+
     }
 }
