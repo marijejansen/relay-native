@@ -70,13 +70,13 @@ class TestMixin extends Vue {
                 breaststroke100M: 72.01
             },
         }, {
-            id: 125,
+            id: 126,
             firstName: "Moskou",
             lastName: "Jansen",
-            birthYear: 2013,
+            birthYear: 2000,
             clubName: "ZPC Amersfoort",
             position: 0,
-            gender: 0,
+            gender: 1,
             time: 0,
             //@ts-ignore
             longCourseTimes: {
@@ -100,11 +100,43 @@ class TestMixin extends Vue {
                 butterfly100M: 70.01,
                 breaststroke50M: 40.01,
                 breaststroke100M: 85.01
+            }
+        }, {
+            id: 125,
+            firstName: "Brussel",
+            lastName: "Giezen",
+            birthYear: 1992,
+            clubName: "ZPC Amersfoort",
+            position: 0,
+            gender: 0,
+            time: 0,
+            //@ts-ignore
+            longCourseTimes: {
+                freestyle50M: 25.01,
+                freestyle100M: 56.01,
+                freestyle200M: 145.01,
+                backstroke50M: 30.01,
+                backstroke100M: 60.01,
+                butterfly50M: 29.01,
+                butterfly100M: 62.01,
+                breaststroke50M: 32.01,
+                breaststroke100M: 74.01
             },
+            shortCourseTimes: {
+                freestyle50M: 25.01,
+                freestyle100M: 56.01,
+                freestyle200M: 145.01,
+                backstroke50M: 30.01,
+                backstroke100M: 60.01,
+                butterfly50M: 29.01,
+                butterfly100M: 62.01,
+                breaststroke50M: 32.01,
+                breaststroke100M: 74.01
+            }
         }];
     }
 
-    public getString(): string{
+    public getString(): string {
         return "JAAA";
     }
 }

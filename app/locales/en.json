@@ -66,6 +66,10 @@
             "800free": "4 x 200 Freestyle",
             "200medley": "4 x 50 Medley",
             "400medley": "4 x 100 Medley"
+        },
+        "courses": {
+            "short": "short course",
+            "long": "long course"
         }
     }
 }

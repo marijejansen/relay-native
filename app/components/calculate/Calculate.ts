@@ -4,11 +4,13 @@ import { Swimmer } from '@/models/Swimmer';
 import TestMixin from '@/mixins/TestMixin';
 import RelayMixin from '@/mixins/RelayMixins';
 import CalculateSelectionItem from '@/components/calculate/CalculateSelectionItem'
+import CalculateRelayTeam from '@/components/calculate/CalculateRelayTeam'
 import { Relay } from '@/models/relay';
 import { Course } from '@/models/Course';
 import store from '@/store/index';
+import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 
-@Component({ components: {CalculateSelectionItem} })
+@Component({ components: {CalculateSelectionItem, CalculateRelayTeam} })
 export default class Calculate extends Mixins(TestMixin, RelayMixin){
 
     getTestData: Swimmer[] = this.getTestResults();
@@ -16,6 +18,12 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
     private relay: number = store.getters['calculate/getRelay'];
 
     private course: number = store.getters['calculate/getCourse'];
+
+    private teams: IRelayTeam = store.getters['calculate/getTeams'];
+
+    get relayTeams(){
+        return store.getters['calculate/getTeams'];
+    }
 
     selection(): Swimmer[] {
         // return this.getTestData;

@@ -9,22 +9,25 @@ import { Swimmer } from '@/models/Swimmer';
 
 export const actions: ActionTree<CalculateState, RootState> = {
 
-    async calculateTeams({ commit, getters, rootState }) {
+  async calculateTeams({ commit, getters, rootState }) {
 
-        var course: Course = getters.getCourse;
-        var relay: Relay = getters.getRelay;
-        var swimmers: Swimmer[] = rootState.selectedSwimmers;
-  
-        var request: ICalculationRequest = {
-            Relay: relay,
-            Course: course,
-            CalculateForYear: 2020,
-            Swimmers: swimmers
-        }
+    var request: ICalculationRequest = {
+      Relay: getters.getRelay,
+      Course: getters.getCourse,
+      CalculateForYear: getters.getYear,
+      Swimmers: rootState.selectedSwimmers
+    }
 
-        await calculateRepository.getRelayTeamsAllIn(request)
-          .then((response) => {
-          });
-        }
-  
+    if (getters.getIsMasters) {
+      await calculateRepository.getRelayTeamsMasters(request)
+        .then((response) => {
+          commit("addRelayTeams", response)
+        });
+    } else {
+      await calculateRepository.getRelayTeamsAllIn(request)
+        .then((response) => {
+          commit("addRelayTeams", response)
+        });
+    }
+  }
 };
