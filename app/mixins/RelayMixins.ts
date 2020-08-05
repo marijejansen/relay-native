@@ -3,6 +3,7 @@ import { ICourseTimes } from '../models/interfaces/ICourseTimes';
 import translate from '@/locales/i18n'
 import { Relay } from '@/models/relay';
 import { Course } from '@/models/Course';
+import { Gender } from '@/models/gender';
 
 @Component
 class RelayMixin extends Vue {
@@ -20,6 +21,13 @@ class RelayMixin extends Vue {
           [Course.ShortCourse, translate.t('calculate.courses.short').toString()],
       ])
 
+      private genderShortMap = new Map<Gender, string>([
+        [Gender.Female, translate.t('calculate.gender.short.female').toString()],
+        [Gender.Male, translate.t('calculate.gender.short.male').toString()],
+        [Gender.Mix, translate.t('calculate.gender.short.mixed').toString()],
+        [Gender.Unknown, translate.t('calculate.gender.short.unknown').toString()]
+    ])
+
     getRelayString(relay: string): string {
         return this.relayMap.get((<any>Relay)[relay]);
     }
@@ -27,8 +35,10 @@ class RelayMixin extends Vue {
     getCourseString(course: string): string {
         return this.courseMap.get((<any>Course)[course]);
     }
-
     
+    getGenderStringShort(gender: Gender): string {
+        return this.genderShortMap.get(gender);
+    }
 
 }
 

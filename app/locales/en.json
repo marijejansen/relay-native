@@ -70,6 +70,20 @@
         "courses": {
             "short": "short course",
             "long": "long course"
+        },
+        "gender": {
+            "long": {
+                "female": "female",
+                "male": "male",
+                "unknown": "unknown",
+                "mixed": "mix"
+            },
+            "short": {
+                "female": "f",
+                "male": "m",
+                "unknown": "?",
+                "mixed": "x"
+            }
         }
     }
 }

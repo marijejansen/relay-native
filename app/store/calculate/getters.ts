@@ -8,7 +8,6 @@ import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 export const getters: GetterTree<CalculateState, RootState> = {
   
   getCourse(state): Course {
-    console.log("in getCourse")
     return state.course
   },
 

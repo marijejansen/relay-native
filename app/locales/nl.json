@@ -70,6 +70,20 @@
     "courses": {
       "short": "kortebaan",
       "long": "langebaan"
+    },
+    "gender": {
+        "long": {
+            "female": "dames",
+            "male": "heren",
+            "unknown": "onbekend",
+            "mixed": "mix"
+        },
+        "short": {
+            "female": "d",
+            "male": "h",
+            "unknown": "?",
+            "mixed": "x"
+        }
     }
   }
 }

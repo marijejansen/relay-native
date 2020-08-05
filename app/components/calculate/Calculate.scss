@@ -1,24 +1,23 @@
 @import "../../colors.scss";
 
 GridLayout.calculate {
-
     .relay-selector {
         margin: 15px;
         background-color: $white;
 
         text-align: center;
-        
+
         > * {
             font-weight: bold;
             font-size: 18;
         }
-        
+
         Image {
             background-color: $white;
             height: 100px;
             width: 100px;
 
-            &.first{
+            &.first {
                 rotate: 180;
             }
         }
@@ -32,8 +31,8 @@ GridLayout.calculate {
             border-color: $yellow;
             border-width: 0 0 0 6;
         }
-        
-        &.disabled{
+
+        &.disabled {
             color: $grey;
             > * {
                 background-color: $light-grey;
@@ -42,6 +41,19 @@ GridLayout.calculate {
             .first {
                 border-width: 0;
             }
+        }
+    }
+
+    .team-results {
+        > * {
+            text-align: center;
+            font-size: 16;
+            padding: 15px 0 15px 5px;
+            color: $dark-grey;
+        }
+        .ind-time {
+            color: initial;
+            font-size: 14;
         }
     }
 }

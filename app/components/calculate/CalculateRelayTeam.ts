@@ -1,19 +1,38 @@
-import { Component, Vue, Prop} from "vue-property-decorator";
+import { Component, Vue, Prop, Mixins } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import './Calculate.scss'
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 import store from '@/store/index';
+import RelayMixin from '@/mixins/RelayMixins';
+import TimeFormatMixin from '@/mixins/TimeFormatMixin';
 
 @Component({ components: {} })
-export default class CalculateRelayTeam extends Vue {
+export default class CalculateRelayTeam extends Mixins(RelayMixin, TimeFormatMixin) {
 
     @Prop()
     private team!: IRelayTeam;
 
-    get teamSwimmers(): Swimmer[]{
-        console.log("team age: ");
-        console.log(this.team);
+    private showDetails: boolean = false;
+
+    get teamSwimmers(): Swimmer[] {
         return this.team.swimmers;
+    }
+
+    genderShort() {
+        var gender = this.team.gender;
+        return this.getGenderStringShort(gender).toUpperCase();
+    }
+
+    get teamTime() {
+        return this.toTimeString(this.team.time);
+    }
+
+    stringTime(seconds: number){
+        return this.toTimeString(seconds);
+    }
+
+    toggleDetails() {
+        this.showDetails = !this.showDetails;
     }
 
 }
