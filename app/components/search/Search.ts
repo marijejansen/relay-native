@@ -3,6 +3,7 @@ import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository'
 import store from '@/store/index';
 import Selection from './Selection'
+import { TextField } from 'tns-core-modules/ui/text-field';
 
 @Component({components: {Selection} })
 export default class Search extends Vue {
@@ -11,6 +12,8 @@ export default class Search extends Vue {
   private lastName: string = "";
 
   private searched: boolean = false;
+
+  private lastInput: TextField;
 
   searchResult?: Swimmer[] = [];
   
@@ -40,6 +43,7 @@ export default class Search extends Vue {
   // naar store
   async search() {
     this.setSearched();
+    this.lastInput.dismissSoftInput();
     await searchRepository.getSearch(this.firstName, this.lastName)
       .then(response => this.searchResult = response);
   }
@@ -59,6 +63,11 @@ export default class Search extends Vue {
     this.firstName = "";
     this.lastName = "";
   }
+
+  textFieldLoaded(args) {
+    let input = <TextField>args.object;
+    this.lastInput = input;
+}
 
   async updateWithTimes(id: number){
     store.dispatch('updateWithTimes', id).then(response =>{

@@ -3,7 +3,7 @@
 
   <GridLayout row="0" class="search-bar" orientation="horizontal" columns="3*,3*,1*">
     <TextField column="0" v-model="firstName" :hint="$t('search.firstname')" returnKeyType="next" @tap="onFirstTextfieldTap()"/>
-    <TextField column="1" v-model="lastName" :hint="$t('search.lastname')" @returnPress="search" returnKeyType="done"/>
+    <TextField column="1" v-model="lastName" :hint="$t('search.lastname')" @returnPress="search" returnKeyType="search" @loaded="textFieldLoaded"/>
     <Image src="~/assets/images/lens.png"  column="2" class="search-button" :class="{ 'active': searched }" @tap="search"/>
   </GridLayout>
 
