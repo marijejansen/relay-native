@@ -26,7 +26,13 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
     }
 
     selection(): Swimmer[] {
-        // return this.getTestData;
+
+        // var test = this.getTestData;
+        // test.forEach(s => {
+        //     store.commit("addToSelectedSwimmers", s);
+        // })
+        // return test;
+
         return store.getters.getAllSelected;
     }
 
@@ -59,7 +65,6 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
     }
 
     calculate(){
-        console.log("calc");
         store.commit('calculate/setCourse', this.course);
         store.commit('calculate/setRelay', this.relay);
         store.dispatch('calculate/calculateTeams');

@@ -17,6 +17,7 @@ export default class Times extends Mixins(TestMixin, StrokeMixin) {
 
     selection(): Swimmer[] {
         return store.getters.getAllSelected;
+        // return this.getTestData;
     }
 
     getStrokesSuperShort(): string[] {
