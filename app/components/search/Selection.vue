@@ -1,15 +1,11 @@
 <template>
-<GridLayout rows="auto, *">
-    <Label row="0" :text="$t('search.selection')" class="label-top"></Label>
-    <ListView row="1" for="result in selection()">
-      <v-template>
-        <SelectionItem :selection-item="result" :key="result.id"></SelectionItem>
-      </v-template>     
-    </ListView>
-</GridLayout>
+  <WrapLayout :v-if="hasSelection">
+    <Label :text="$t('search.selection')" class="label-top"></Label>
+    <SelectionItem v-for="result in selection()" :selection-item="result" :key="result.id"></SelectionItem>
+  </WrapLayout>
 </template>
 
 <script lang="ts">
 //@ts-ignore
-export { default } from './Selection.ts';
+export { default } from "./Selection.ts";
 </script>

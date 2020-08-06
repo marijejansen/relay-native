@@ -13,6 +13,8 @@ export default class Search extends Vue {
 
   private searched: boolean = false;
 
+  private hasResults: boolean = this.results?.length > 0;
+
   private lastInput: TextField;
 
   searchResult?: Swimmer[] = [];
