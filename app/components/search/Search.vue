@@ -28,18 +28,16 @@
       <ScrollView orientation="vertical">
         <StackLayout>
           <WrapLayout :v-if="hasResults" >
-            <GridLayout
+            <SearchItem
               v-for="result in results()"
               v-bind:key="result.id"
+              :search-result="result"
               class="search-result"
               columns="3*, 3*, *"
               @tap="select(result.id)"
-            >
-              <Label col="0" class="first" :text="result.firstName + ' '+ result.lastName"></Label>
-              <Label col="1" :text="result.clubName"></Label>
-              <Label col="2" :text="result.birthYear"></Label>
-            </GridLayout>
-          </WrapLayout>
+            ></SearchItem>
+            </WrapLayout>
+
           <Selection height="50%" row="2" v-if="hasSelection()"></Selection>
         </StackLayout>
       </ScrollView>

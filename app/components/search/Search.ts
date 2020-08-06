@@ -3,11 +3,13 @@ import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository'
 import store from '@/store/index';
 import Selection from './Selection'
+import SearchItem from './SearchItem'
+
 import { TextField } from 'tns-core-modules/ui/text-field';
 
-@Component({components: {Selection} })
+@Component({ components: { Selection, SearchItem } })
 export default class Search extends Vue {
-  
+
   private firstName: string = "";
   private lastName: string = "";
 
@@ -18,26 +20,26 @@ export default class Search extends Vue {
   private lastInput: TextField;
 
   searchResult?: Swimmer[] = [];
-  
-  onFirstTextfieldTap(){
+
+  onFirstTextfieldTap() {
     this.removeSearchInput();
   }
 
-  selection() : Swimmer[]{
+  selection(): Swimmer[] {
     return store.getters.getAllSelected;
   }
-  
-  results(){
+
+  results() {
     return this.searchResult;
   }
-  
+
   fullName(id: number) {
     const result = this.searchResult.find(r => r.id === id);
-    if(result){
+    if (result) {
       return result.firstName + " " + result.lastName
     }
   }
-  
+
   hasSelection() {
     return this.selection().length > 0;
   }
@@ -50,15 +52,9 @@ export default class Search extends Vue {
       .then(response => this.searchResult = response);
   }
 
-  setSearched(){
+  setSearched() {
     this.searched = true;
-    setTimeout(() => {this.searched = false}, 300);
-  }
-
-  select(id: number) {
-    const swimmer = this.searchResult.find(s => s.id == id);  
-    store.commit("addToSelectedSwimmers", swimmer);
-    this.updateWithTimes(id);
+    setTimeout(() => { this.searched = false }, 300);
   }
 
   removeSearchInput() {
@@ -69,12 +65,5 @@ export default class Search extends Vue {
   textFieldLoaded(args) {
     let input = <TextField>args.object;
     this.lastInput = input;
-}
-
-  async updateWithTimes(id: number){
-    store.dispatch('updateWithTimes', id).then(response =>{
-      store.commit('search/setTimesLoaded', id);
-    }
-    );
   }
 }
