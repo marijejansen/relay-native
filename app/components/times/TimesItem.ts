@@ -11,7 +11,10 @@ import store from '@/store/index';
 @Component({ components: { SingleTime } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
-    course: Course = Course.ShortCourse;
+    @Prop()
+    private item!: Swimmer;
+
+    get course(): Course {return store.getters['calculate/getCourse']};
 
     showDetails: boolean = false;
 
@@ -19,8 +22,6 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     loadedTimes: Number[] = store.getters['search/timesLoaded'];
 
-    @Prop()
-    private item!: Swimmer;
 
     @Emit('toggleShow')
     toggleShow(show: boolean, id: number) {

@@ -1,0 +1,23 @@
+@import "../../colors.scss";
+
+.selector {
+    margin: 5px 0px 15px;
+    background-color: $white;
+
+    text-align: center;
+
+    > * {
+        font-weight: bold;
+        font-size: 18;
+    }
+
+    Image {
+        background-color: $white;
+        height: 100px;
+        width: 100px;
+
+        &.first {
+            rotate: 180;
+        }
+    }
+}

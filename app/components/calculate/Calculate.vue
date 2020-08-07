@@ -1,7 +1,7 @@
 <template>
-  <GridLayout class="calculate" columns="*" rows="auto, auto, *, *, auto">
+  <GridLayout class="calculate container" columns="*" rows="auto, auto, *, *, auto">
     
-    <GridLayout class="relay-selector" row="0" columns="1*,8*,1*">
+    <!-- <GridLayout class="relay-selector" row="0" columns="1*,8*,1*">
       <Image class="first" src="~/assets/images/arrow.png" text="<" @tap="prevRelay()"></Image>
       <Label col="1" :text="relayLabel()"></Label>
       <Image col="2" src="~/assets/images/arrow.png" text=">" @tap="nextRelay()"></Image>
@@ -11,9 +11,13 @@
       <Image class="first" src="~/assets/images/arrow.png" text="<" @tap="nextCourse()"></Image>
       <Label col="1" :text="courseLabel()"></Label>
       <Image col="2" src="~/assets/images/arrow.png" text=">" @tap="nextCourse()"></Image>
-    </GridLayout>
+    </GridLayout> -->
 
-    <GridLayout row="2" class="container" rows="auto, *">
+    <RelaySelector row="0"></RelaySelector>
+    <CourseSelector row="1"></CourseSelector>
+
+
+    <GridLayout row="2" rows="auto, *">
       <ListView row="1" for="result in selection()">
         <v-template>
           <CalculateSelectionItem :selection-item="result" :key="result.id" />
@@ -23,7 +27,7 @@
 
   <GridLayout row="4"><Button text="KLIK HIER" @tap="calculate()"/></GridLayout>
 
-    <GridLayout row="3" class="container">
+    <GridLayout row="3">
       <ListView for="team in relayTeams">
         <v-template>
           <CalculateRelayTeam :team="team"/>

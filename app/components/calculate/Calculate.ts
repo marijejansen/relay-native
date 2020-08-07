@@ -9,8 +9,10 @@ import { Relay } from '@/models/relay';
 import { Course } from '@/models/Course';
 import store from '@/store/index';
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
+import RelaySelector from '@/components/selectors/RelaySelector';
+import CourseSelector from '@/components/selectors/CourseSelector';
 
-@Component({ components: {CalculateSelectionItem, CalculateRelayTeam} })
+@Component({ components: {CalculateSelectionItem, CalculateRelayTeam, RelaySelector, CourseSelector} })
 export default class Calculate extends Mixins(TestMixin, RelayMixin){
 
     getTestData: Swimmer[] = this.getTestResults();
@@ -37,6 +39,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
     }
 
     relayLabel() {
+        console.log("num of relays: " + Object.keys(Relay).length / 2);
         return this.getRelayString(Relay[this.relay])
       }
 

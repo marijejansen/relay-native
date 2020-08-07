@@ -4,9 +4,9 @@ import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
 import store from '@/store/index';
 import StrokeMixin from '@/mixins/StrokeMixin';
+import CourseSelector from '../selectors/CourseSelector';
 
-
-@Component({ components: { TimesItem } })
+@Component({ components: { TimesItem, CourseSelector } })
 export default class Times extends Mixins(TestMixin, StrokeMixin) {
 
     showTop = false;
