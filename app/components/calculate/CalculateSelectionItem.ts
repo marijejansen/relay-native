@@ -1,14 +1,26 @@
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import './Calculate.scss'
+import store from '@/store/index';
 
 @Component({ components: {} })
 export default class CalculateSelectionItem extends Vue {
 
-    private isActive = false;
+    private active: boolean = false;
 
     @Prop()
     private selectionItem!: Swimmer;
+    
+    get isActive(): boolean {
+        return this.active;
+    }
+
+    set isActive(value: boolean) {
+        this.active = value;
+    }
+
+    @Emit('setActive')
+    setActive(active: boolean) { }
 
     getAge() {
         var thisYear = (new Date()).getFullYear();
@@ -17,5 +29,12 @@ export default class CalculateSelectionItem extends Vue {
 
     toggleActive() {
         this.isActive = !this.isActive;
+        console.log("toggle active to: " + this.isActive);
+        this.setActive(this.isActive);
+    }
+
+    created() {
+        this.isActive = true;
+        this.setActive(true);
     }
 }

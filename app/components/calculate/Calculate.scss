@@ -5,6 +5,7 @@ GridLayout.calculate {
     .selection-item {
         color: $dark-grey;
         padding: 6px 0;
+        height: 120px;
 
         .first {
             border-color: $yellow;

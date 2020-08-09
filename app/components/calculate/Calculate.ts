@@ -12,8 +12,8 @@ import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 import RelaySelector from '@/components/selectors/RelaySelector';
 import CourseSelector from '@/components/selectors/CourseSelector';
 
-@Component({ components: {CalculateSelectionItem, CalculateRelayTeam, RelaySelector, CourseSelector} })
-export default class Calculate extends Mixins(TestMixin, RelayMixin){
+@Component({ components: { CalculateSelectionItem, CalculateRelayTeam, RelaySelector, CourseSelector } })
+export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     getTestData: Swimmer[] = this.getTestResults();
 
@@ -23,27 +23,21 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
 
     private teams: IRelayTeam = store.getters['calculate/getTeams'];
 
-    get relayTeams(){
+    private selected: number[] = [];
+
+    get relayTeams() {
         return store.getters['calculate/getTeams'];
     }
 
     selection(): Swimmer[] {
-
-        // var test = this.getTestData;
-        // test.forEach(s => {
-        //     store.commit("addToSelectedSwimmers", s);
-        // })
-        // return test;
-
         return store.getters.getAllSelected;
     }
 
     relayLabel() {
-        console.log("num of relays: " + Object.keys(Relay).length / 2);
         return this.getRelayString(Relay[this.relay])
-      }
+    }
 
-    courseLabel(): string{
+    courseLabel(): string {
         return this.getCourseString(Course[this.course]);
     }
 
@@ -55,7 +49,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
         this.setRelay(((this.relay + 4) % 5));
     }
 
-    setRelay(newNumber: number){
+    setRelay(newNumber: number) {
         this.relay = newNumber;
     }
 
@@ -63,14 +57,23 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin){
         this.setCourse((this.course + 1) % 2);
     }
 
-    setCourse(newNumber: number){
+    setCourse(newNumber: number) {
         this.course = newNumber;
     }
 
-    calculate(){
-        store.commit('calculate/setCourse', this.course);
-        store.commit('calculate/setRelay', this.relay);
-        store.dispatch('calculate/calculateTeams');
+    calculate() {
+        store.dispatch('calculate/calculateTeams', { selected: this.selected });
+    }
 
+    setActive(id: number, active: boolean) {
+        var index = this.selected?.findIndex(s => s === id);
+        if (active && index === -1 || index == null) {
+            this.selected.push(id);
+        }
+        else if (!active && index !== -1) {
+            this.selected = this.selected.filter(
+                s => s !== id
+            );
+        }
     }
 }
