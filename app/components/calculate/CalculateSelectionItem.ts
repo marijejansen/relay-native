@@ -29,7 +29,6 @@ export default class CalculateSelectionItem extends Vue {
 
     toggleActive() {
         this.isActive = !this.isActive;
-        console.log("toggle active to: " + this.isActive);
         this.setActive(this.isActive);
     }
 

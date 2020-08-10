@@ -1,11 +1,11 @@
 <template>
   <GridLayout rows="auto, auto">
 
-    <GridLayout row="0" columns="3*, 3*, auto, 3*, auto, 3*, auto, 3*" class="team-results" @tap="toggleDetails()">
+    <GridLayout row="0" columns="3*, 3*, auto, 3*, auto, 3*, auto, 3*" class="team-results top" @tap="toggleDetails()">
       <Label col="0" :text="team.ageGroup + genderShort()" />
       <Label
         v-for="(val, index) in teamSwimmers"
-        v-bind:key="'sw_' + val.id"
+        v-bind:key="'sw_' + val.id + '_' + index"
         :col="index * 2 + 1"
         :text="val.firstName"
       >
@@ -16,11 +16,11 @@
       <Label col="6" text="" />
     </GridLayout>
 
-    <GridLayout v-if="showDetails" row="1" columns="3*, 3*, auto, 3*, auto, 3*, auto, 3*" class="team-results">
+    <GridLayout v-if="showDetails" row="1" columns="3*, 3*, auto, 3*, auto, 3*, auto, 3*" class="team-results bottom">
       <Label col="0" :text="stringTime(team.time)" />
       <Label
         v-for="(val, index) in teamSwimmers"
-        v-bind:key="'sw_' + val.id"
+        v-bind:key="'sw_' + val.id + '_' + index"
         :col="index * 2 + 1"
         :text="stringTime(val.time)"
         class="ind-time">
@@ -38,3 +38,4 @@
 //@ts-ignore
 export { default } from "./CalculateRelayTeam.ts";
 </script>
+

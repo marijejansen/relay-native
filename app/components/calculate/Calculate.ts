@@ -11,6 +11,7 @@ import store from '@/store/index';
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 import RelaySelector from '@/components/selectors/RelaySelector';
 import CourseSelector from '@/components/selectors/CourseSelector';
+import translate from '@/locales/i18n'
 
 @Component({ components: { CalculateSelectionItem, CalculateRelayTeam, RelaySelector, CourseSelector } })
 export default class Calculate extends Mixins(TestMixin, RelayMixin) {
@@ -25,12 +26,24 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     private selected: number[] = [];
 
-    get relayTeams() {
-        return store.getters['calculate/getTeams'];
+    private selectionIsClosed: boolean = false;
+
+    get relayTeams(): IRelayTeam[] {
+        var teams: IRelayTeam[] = store.getters['calculate/getTeams'];
+        this.showCalculateTop = teams.length > 0 ? true : false;
+        return teams;
     }
 
+    private showCalculateTop: boolean = false;
+
     selection(): Swimmer[] {
-        return store.getters.getAllSelected;
+        //return store.getters.getAllSelected;
+
+        var test = this.getTestData;
+        test.forEach(s => {
+            store.commit("addToSelectedSwimmers", s);
+        })
+        return test;
     }
 
     relayLabel() {
@@ -63,6 +76,23 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     calculate() {
         store.dispatch('calculate/calculateTeams', { selected: this.selected });
+        this.selectionIsClosed = true;
+    }
+
+    selectedText(): string {
+        var selectedNumber = this.selected.length;
+        var selectionNumber = this.selection().length;
+        if(selectedNumber === selectionNumber){
+            return translate.t('calculate.selection.text.allSelected').toString();
+        } else if (selectedNumber === 0) {
+            return translate.t('calculate.selection.text.noSelected').toString();
+        } else {
+            return `${selectedNumber} ${translate.t('calculate.selection.text.numberSelected.first').toString()} ${selectionNumber} ${translate.t('calculate.selection.text.numberSelected.second').toString()}`
+        }
+    }
+
+    openSelection(){
+        this.selectionIsClosed = false;
     }
 
     setActive(id: number, active: boolean) {
