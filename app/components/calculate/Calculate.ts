@@ -31,7 +31,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     get relayTeams(): IRelayTeam[] {
         var teams: IRelayTeam[] = store.getters['calculate/getTeams'];
         this.showCalculateTop = teams.length > 0 ? true : false;
-        return teams;
+        return teams.sort((a, b) => a.age - b.age || b.gender - a.gender);
     }
 
     private showCalculateTop: boolean = false;

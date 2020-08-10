@@ -2,7 +2,8 @@
   <GridLayout rows="auto, auto">
 
     <GridLayout row="0" columns="3*, 3*, auto, 3*, auto, 3*, auto, 3*" class="team-results top" @tap="toggleDetails()">
-      <Label col="0" :text="team.ageGroup + genderShort()" />
+      <!-- <Label col="0" :text="team.ageGroup + genderShort()" /> -->
+      <Label col="0" :text="getAgeText()" />
       <Label
         v-for="(val, index) in teamSwimmers"
         v-bind:key="'sw_' + val.id + '_' + index"

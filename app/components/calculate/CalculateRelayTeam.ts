@@ -31,6 +31,10 @@ export default class CalculateRelayTeam extends Mixins(RelayMixin, TimeFormatMix
         return this.toTimeString(seconds);
     }
 
+    getAgeText(){
+        return this.showDetails ? this.team.age : this.team.ageGroup + this.genderShort()
+    }
+
     toggleDetails() {
         this.showDetails = !this.showDetails;
     }
