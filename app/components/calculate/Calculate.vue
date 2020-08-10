@@ -15,6 +15,7 @@
             <CalculateSelectionItem
               v-for="(result, key, index) in selection()"
               :selection-item="result"
+              :selected="isSelected(result.id)"
               :row="index"
               :key="result.id + '_' + index"
               @setActive="setActive(result.id, $event)"

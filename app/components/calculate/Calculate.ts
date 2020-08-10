@@ -39,11 +39,12 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     selection(): Swimmer[] {
         //return store.getters.getAllSelected;
 
-        var test = this.getTestData;
-        test.forEach(s => {
+        var selection = this.getTestData;
+        selection.forEach(s => {
             store.commit("addToSelectedSwimmers", s);
         })
-        return test;
+        
+        return selection;
     }
 
     relayLabel() {
@@ -82,7 +83,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     selectedText(): string {
         var selectedNumber = this.selected.length;
         var selectionNumber = this.selection().length;
-        if(selectedNumber === selectionNumber){
+        if (selectedNumber === selectionNumber) {
             return translate.t('calculate.selection.text.allSelected').toString();
         } else if (selectedNumber === 0) {
             return translate.t('calculate.selection.text.noSelected').toString();
@@ -91,8 +92,13 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
         }
     }
 
-    openSelection(){
+    openSelection() {
         this.selectionIsClosed = false;
+    }
+
+    isSelected(id: number): boolean {
+        var index = this.selected?.findIndex(s => s === id);
+        return index !== -1;
     }
 
     setActive(id: number, active: boolean) {
@@ -105,5 +111,9 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
                 s => s !== id
             );
         }
+    }
+
+    created() {
+        this.selection().forEach(s => this.setActive(s.id, true));
     }
 }
