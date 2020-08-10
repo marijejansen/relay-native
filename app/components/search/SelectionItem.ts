@@ -37,6 +37,7 @@ export default class SelectionItem extends Vue {
         this.removed = true;
         setTimeout(() => { 
             store.commit("removeFromSelectedSwimmers", this.item.id);
+            store.commit('calculate/removeFromSelectedForCalculation', this.item.id)
         }, 200);
     }
     

@@ -10,9 +10,10 @@ export default class SearchItem extends Vue {
     @Prop()
     searchResult: Swimmer;
 
-    select(id: number) {
+    select() {
         this.setClicked();
         store.commit("addToSelectedSwimmers", this.searchResult);
+        store.commit("calculate/addToSelectedForCalculation", this.searchResult.id);
         this.updateWithTimes(this.searchResult.id);
     }
 

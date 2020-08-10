@@ -24,7 +24,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     private teams: IRelayTeam = store.getters['calculate/getTeams'];
 
-    private selected: number[] = [];
+    get selected(): number[] {return store.getters['calculate/getSelectedForCalculation']};
 
     private selectionIsClosed: boolean = false;
 
@@ -37,14 +37,14 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     private showCalculateTop: boolean = false;
 
     selection(): Swimmer[] {
-        //return store.getters.getAllSelected;
+        return store.getters.getAllSelected;
 
-        var selection = this.getTestData;
-        selection.forEach(s => {
-            store.commit("addToSelectedSwimmers", s);
-        })
+        // var selection = this.getTestData;
+        // selection.forEach(s => {
+        //     store.commit("addToSelectedSwimmers", s);
+        // })
         
-        return selection;
+        // return selection;
     }
 
     relayLabel() {
@@ -94,26 +94,5 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     openSelection() {
         this.selectionIsClosed = false;
-    }
-
-    isSelected(id: number): boolean {
-        var index = this.selected?.findIndex(s => s === id);
-        return index !== -1;
-    }
-
-    setActive(id: number, active: boolean) {
-        var index = this.selected?.findIndex(s => s === id);
-        if (active && index === -1 || index == null) {
-            this.selected.push(id);
-        }
-        else if (!active && index !== -1) {
-            this.selected = this.selected.filter(
-                s => s !== id
-            );
-        }
-    }
-
-    created() {
-        this.selection().forEach(s => this.setActive(s.id, true));
     }
 }

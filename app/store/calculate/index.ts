@@ -12,7 +12,8 @@ export const state: CalculateState = {
     relay: Relay.Free200,
     relayTeams: [],
     year: (new Date()).getFullYear(),
-    isMasters: true
+    isMasters: true,
+    selectedForCalculation: []
 };
 
 export const calculate: Module<CalculateState, RootState> = {

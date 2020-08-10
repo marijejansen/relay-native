@@ -8,4 +8,5 @@ export interface CalculateState {
     relay: Relay;
     relayTeams: IRelayTeam[];
     isMasters: boolean;
+    selectedForCalculation: number[]
 }

@@ -17,4 +17,16 @@ export const mutations: MutationTree<CalculateState> = {
   addRelayTeams(state, teams: IRelayTeam[]) {
     state.relayTeams = teams;
   },
+
+  addToSelectedForCalculation(state, id: number) {
+    var index = state.selectedForCalculation.findIndex(s => s == id);
+    if(index === -1){
+      state.selectedForCalculation.push(id)
+    }
+  },
+
+  removeFromSelectedForCalculation(state, id: number) {
+    state.selectedForCalculation = state.selectedForCalculation.filter(s => s !== id);
+  }
+
 };

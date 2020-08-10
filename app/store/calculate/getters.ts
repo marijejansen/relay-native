@@ -25,5 +25,9 @@ export const getters: GetterTree<CalculateState, RootState> = {
 
   getTeams(state): IRelayTeam[] {
     return state.relayTeams;
+  },
+
+  getSelectedForCalculation(state): number[] {
+    return state.selectedForCalculation;
   }
 }
