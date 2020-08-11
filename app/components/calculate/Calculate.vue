@@ -6,9 +6,9 @@
     <ScrollView row="2">
       <GridLayout rows="*, *">
 
-          <GridLayout row="0" v-if="selectionIsClosed" colums="auto" class="selection-closed" @tap="openSelection()">
+          <GridLayout row="0" columns="*, auto" v-if="selectionIsClosed" colums="auto" class="selection-closed" @tap="openSelection()">
             <Label col="0" :text="selectedText()"></Label>
-            <!-- <Label col=1></Label> -->
+            <Image col="1" class="edit-icon" src="~/assets/images/pen_yellow.png" stretch="fill" />
           </GridLayout>
 
           <WrapLayout row="0" v-if="!selectionIsClosed">         
@@ -22,9 +22,10 @@
           </WrapLayout>
 
 
-        <GridLayout row="1" rows="auto, *">
+        <GridLayout row="1" rows="auto, auto, *">
           <Label v-show="showCalculateTop" row="0" :text="$t('calculate.resultText')" class="label-top"></Label>
-          <WrapLayout row="1">
+          <Label class="no-results" v-show="showNoResults" row="1" text="Geen resultaten"></Label>
+          <WrapLayout row="2">
             <CalculateRelayTeam
               v-for="(team, index) in relayTeams"
               v-bind:key="index +'_' + team.time"
@@ -37,7 +38,7 @@
       </GridLayout>
     </ScrollView>
     <GridLayout row="3">
-      <Button :text="$t('calculate.button')" @tap="calculate()" />
+      <Button :text="$t('calculate.button')" @tap="calculate()" :class="!canCalculate ? 'disabled' : clicked ? 'active' : ''" />
     </GridLayout>
   </GridLayout>
 </template>

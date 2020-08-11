@@ -24,13 +24,19 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     private teams: IRelayTeam = store.getters['calculate/getTeams'];
 
-    get selected(): number[] {return store.getters['calculate/getSelectedForCalculation']};
-
     private selectionIsClosed: boolean = false;
+    
+    private clicked: boolean = false;
+
+    private showNoResults: boolean = false;
+
+    private calculated: boolean = false;
+
+    get selected(): number[] { return store.getters['calculate/getSelectedForCalculation'] };
 
     get relayTeams(): IRelayTeam[] {
         var teams: IRelayTeam[] = store.getters['calculate/getTeams'];
-        this.showCalculateTop = teams.length > 0 ? true : false;
+        this.showNoResults = !(teams.length > 0) && this.calculated ? true : false;
         return teams.sort((a, b) => a.age - b.age || b.gender - a.gender);
     }
 
@@ -43,7 +49,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
         // selection.forEach(s => {
         //     store.commit("addToSelectedSwimmers", s);
         // })
-        
+
         // return selection;
     }
 
@@ -75,10 +81,24 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
         this.course = newNumber;
     }
 
-    calculate() {
-        store.dispatch('calculate/calculateTeams', { selected: this.selected });
-        this.selectionIsClosed = true;
+    get canCalculate() {
+        return this.selected.length >= 4;
     }
+
+    calculate() {
+        if(this.canCalculate){
+            this.calculated = true;
+            this.showCalculateTop = true;
+            this.setClicked();
+            store.dispatch('calculate/calculateTeams', { selected: this.selected });
+            this.selectionIsClosed = true;
+        }
+    }
+
+    setClicked() {
+        this.clicked = true;
+        setTimeout(() => { this.clicked = false }, 300);
+      }
 
     selectedText(): string {
         var selectedNumber = this.selected.length;

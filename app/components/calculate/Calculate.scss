@@ -25,7 +25,24 @@ GridLayout.calculate {
     }
     
     .selection-closed {
-        padding: 6px 0;
+        margin: 6px 0;
+        padding-left: 20px;
+        background-color: $white;
+        font-style: italic;
+
+        > Image {
+            height: 80px;
+            width: 80px;
+            margin: 0 30px;
+        }
+    }
+
+    .no-results {
+        font-style: italic;
+        font-size: 17;
+        background-color: $background-grey;
+        color: $dark-grey;
+        text-align: center;
     }
 
     .team-results {
@@ -48,4 +65,14 @@ GridLayout.calculate {
     .team-first{
         padding-top: 0px;
     }
+
+    Button{
+    
+    &.disabled {
+        background-color: $button-disable;
+    }
+    &.active {
+        background-color: $yellow;
+    }
+}
 }

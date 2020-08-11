@@ -10,7 +10,7 @@
       <Label col="0" :text="item.firstName + ' ' + item.lastName" @tap="toggleDetails"></Label>
       <Label col="1" :text="item.birthYear" @tap="toggleDetails"></Label>
       <Image col="2" v-if="!showEdit" class="edit-icon" @tap="toggleEdit()" src="~/assets/images/pen_yellow.png" stretch="fill" />
-      <Image col="2" v-if="showEdit" class="edit-icon" @tap="onSave" src="~/assets/images/check_yellow.png" stretch="fill" />
+      <Image col="2" v-if="showEdit" class="edit-icon" @tap="onSave" src="~/assets/images/check.png" stretch="fill" />
     </GridLayout>
 
     <GridLayout
