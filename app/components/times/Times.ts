@@ -4,16 +4,30 @@ import { Swimmer } from '@/models/Swimmer';
 import TimesItem from './TimesItem';
 import store from '@/store/index';
 import StrokeMixin from '@/mixins/StrokeMixin';
-import CourseSelector from '../selectors/CourseSelector';
+import Selector from '../selectors/Selector';
+import RelayMixin from '@/mixins/RelayMixins';
+import { Course } from '@/models/Course';
 
-@Component({ components: { TimesItem, CourseSelector } })
-export default class Times extends Mixins(TestMixin, StrokeMixin) {
+@Component({ components: { TimesItem, Selector } })
+export default class Times extends Mixins(TestMixin, StrokeMixin, RelayMixin) {
 
     showTop = false;
 
     detailsShown: number[] = [];
 
     getTestData: Swimmer[] = this.getTestResults();
+
+    private courseNumber: number = store.getters['calculate/getCourse']; 
+
+    get courses(): string[] {
+        var numberOfCourses = Object.keys(Course).length / 2;
+        var courses: string[] = [];
+        for (let i = 0; i < numberOfCourses; i++) {
+            courses.push(this.getCourseString(Course[i]));
+        }
+        console.log(courses);
+        return courses;
+    }
 
     selection(): Swimmer[] {
         return store.getters.getAllSelected;
@@ -44,5 +58,9 @@ export default class Times extends Mixins(TestMixin, StrokeMixin) {
         } else {
             this.showTop = false;
         }
+    }
+
+    setCourse(courseNum: number){
+        store.commit('calculate/setCourse', courseNum);
     }
 }

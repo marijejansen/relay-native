@@ -1,6 +1,6 @@
 <template>
 <GridLayout class="container" rows="auto, auto, *, auto">
-  <CourseSelector row="0"></CourseSelector>
+  <Selector row="0" :active-number="courseNumber" :items="courses" @changeItem="setCourse" ></Selector>
     <GridLayout v-if="showTop" row="1" columns="*,*,*,*,*,*,*,*,*" class="times-top">
       <Label
         v-for="(stroke, index) in getStrokesSuperShort()"
