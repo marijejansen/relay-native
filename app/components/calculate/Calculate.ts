@@ -9,11 +9,11 @@ import { Relay } from '@/models/relay';
 import { Course } from '@/models/Course';
 import store from '@/store/index';
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
-import RelaySelector from '@/components/selectors/RelaySelector';
+import CalculateTop from '@/components/calculate/CalculateTop';
 import CourseSelector from '@/components/selectors/CourseSelector';
 import translate from '@/locales/i18n'
 
-@Component({ components: { CalculateSelectionItem, CalculateRelayTeam, RelaySelector, CourseSelector } })
+@Component({ components: { CalculateSelectionItem, CalculateRelayTeam, CalculateTop, CourseSelector } })
 export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     getTestData: Swimmer[] = this.getTestResults();

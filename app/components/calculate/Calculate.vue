@@ -1,9 +1,9 @@
 <template>
-  <GridLayout class="calculate container" columns="*" rows="auto, auto, *, auto">
-    <RelaySelector row="0"></RelaySelector>
-    <CourseSelector row="1"></CourseSelector>
+  <GridLayout class="calculate container" columns="*" rows="auto, *, auto">
+    
+    <CalculateTop row="0"></CalculateTop>
 
-    <ScrollView row="2">
+    <ScrollView row="1">
       <GridLayout rows="*, *">
 
           <GridLayout row="0" columns="*, auto" v-if="selectionIsClosed" colums="auto" class="selection-closed" @tap="openSelection()">
@@ -37,7 +37,7 @@
 
       </GridLayout>
     </ScrollView>
-    <GridLayout row="3">
+    <GridLayout row="2">
       <Button :text="$t('calculate.button')" @tap="calculate()" :class="!canCalculate ? 'disabled' : clicked ? 'active' : ''" />
     </GridLayout>
   </GridLayout>

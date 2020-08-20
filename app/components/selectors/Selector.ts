@@ -14,24 +14,26 @@ export default class RelaySelector extends Vue{
     @Emit('changeItem')
     changeItem(time: number) { }
 
+    private number: number = this.activeNumber;
+
     private numberOfElements = this.items.length;
 
     get activeItem(): string {
-        return this.items[this.activeNumber];
+        return this.items[this.number];
     }
 
     next() {
         var num = this.numberOfElements;
-        this.setRelay((this.activeNumber + 1) % num);
+        this.setItem((this.number + 1) % num);
     }
 
     previous() {
         var num = this.numberOfElements;
-        this.setRelay(((this.activeNumber + num-1) % num));
+        this.setItem(((this.number + num-1) % num));
     }
 
-    setRelay(newNumber: number){
-        this.activeNumber = newNumber;
-        this.changeItem(this.activeNumber);
+    setItem(newNumber: number){
+        this.number = newNumber;
+        this.changeItem(this.number);
     }
 }
