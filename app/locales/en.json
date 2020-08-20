@@ -87,15 +87,22 @@
         },
         "selection": {
             "text": {
-                "allSelected" : "All swimmers selected",
-                "noSelected" : "No swimmers selected",
-                "numberSelected" : {
-                    "first" : "of",
-                    "second" : "swimmers selected"
+                "allSelected": "All swimmers selected",
+                "noSelected": "No swimmers selected",
+                "numberSelected": {
+                    "first": "of",
+                    "second": "swimmers selected"
                 }
             }
-        }, 
-        "resultText" : "Possible teams",
-        "button": "Get teams"
+        },
+        "resultText": "Possible teams",
+        "button": "Get teams",
+        "noresults": "No results"
+    },
+    "options": {
+        "ageGroups": {
+            "masters": "masters",
+            "allin": "all-in"
+        }
     }
 }

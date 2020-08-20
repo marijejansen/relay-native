@@ -96,6 +96,13 @@
       }
     },
     "resultText": "Mogelijke teams",
-    "button": "Teams samenstellen"
+    "button": "Teams samenstellen",
+    "noresults": "Geen resultaten"
+  },
+  "options": {
+    "ageGroups": {
+      "masters": "masters",
+      "allin": "all-in"
+    }
   }
 }

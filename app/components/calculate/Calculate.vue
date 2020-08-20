@@ -24,7 +24,7 @@
 
         <GridLayout row="1" rows="auto, auto, *">
           <Label v-show="showCalculateTop" row="0" :text="$t('calculate.resultText')" class="label-top"></Label>
-          <Label class="no-results" v-show="showNoResults" row="1" text="Geen resultaten"></Label>
+          <Label class="no-results" v-show="showNoResults" row="1" :text="$t('calculate.noresults')"></Label>
           <WrapLayout row="2">
             <CalculateRelayTeam
               v-for="(team, index) in relayTeams"
