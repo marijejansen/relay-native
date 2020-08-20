@@ -7,7 +7,7 @@ import { Swimmer } from '@/models/Swimmer';
 
 export const actions: ActionTree<CalculateState, RootState> = {
 
-  async calculateTeams({ commit, getters, state, rootState }, payload) {
+  async calculateTeams({ commit, getters, state, rootState, }, payload) {
 
     var selection: Swimmer[] = []
 
@@ -19,11 +19,11 @@ export const actions: ActionTree<CalculateState, RootState> = {
     var request: ICalculationRequest = {
       Relay: state.relay,
       Course: state.course,
-      CalculateForYear: getters.getYear,
+      CalculateForYear: rootState.forYear,
       Swimmers: selection
     }
 
-    if (getters.getIsMasters) {
+    if (rootState.isMasters) {
       await calculateRepository.getRelayTeamsMasters(request)
         .then((response) => {
           commit("addRelayTeams", response)

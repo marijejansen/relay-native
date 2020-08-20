@@ -19,6 +19,8 @@ const store: StoreOptions<RootState> = {
     selectedSwimmers: Array<Swimmer>(),
     saving: false,
     fromYear: new Date().getFullYear() - 1,
+    forYear: (new Date()).getFullYear(),
+    isMasters: true,
   },
 
   getters: {
@@ -26,13 +28,22 @@ const store: StoreOptions<RootState> = {
       return state.selectedSwimmers;
     },
 
-    getYear(state) {
+    getFromYear(state) {
       return state.fromYear;
     },
 
     getIsSaving(state) {
       return state.saving;
-    }
+    },
+
+    isMasters(state): boolean {
+      return state.isMasters;
+    },
+
+    getForYear(state): number {
+      return state.forYear;
+    },
+
   },
 
   mutations: {
@@ -71,7 +82,7 @@ const store: StoreOptions<RootState> = {
 
     async updateWithTimes({ commit, getters }, swimmerId) {
 
-      var year = getters.getYear;
+      var year = getters.getFromYear;
 
       await searchRepository.getShortCourseTimes(swimmerId, year)
         .then((response) => {

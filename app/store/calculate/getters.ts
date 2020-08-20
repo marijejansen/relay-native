@@ -15,14 +15,6 @@ export const getters: GetterTree<CalculateState, RootState> = {
     return state.relay;
   },
 
-  getYear(state): number{
-    return state.year;
-  },
-
-  getIsMasters(state): boolean {
-    return state.isMasters;
-  },
-
   getTeams(state): IRelayTeam[] {
     return state.relayTeams;
   },

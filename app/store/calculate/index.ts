@@ -11,8 +11,6 @@ export const state: CalculateState = {
     course: Course.ShortCourse,
     relay: Relay.Free200,
     relayTeams: [],
-    year: (new Date()).getFullYear(),
-    isMasters: true,
     selectedForCalculation: []
 };
 
