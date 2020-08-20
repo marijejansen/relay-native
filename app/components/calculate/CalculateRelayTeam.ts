@@ -12,6 +12,8 @@ export default class CalculateRelayTeam extends Mixins(RelayMixin, TimeFormatMix
     @Prop()
     private team!: IRelayTeam;
 
+    private isMasters: number = store.getters['isMasters'];
+
     private showDetails: boolean = false;
 
     get teamSwimmers(): Swimmer[] {
@@ -32,7 +34,8 @@ export default class CalculateRelayTeam extends Mixins(RelayMixin, TimeFormatMix
     }
 
     getAgeText(){
-        return this.showDetails ? this.team.age : this.team.ageGroup + this.genderShort()
+        var age = !this.isMasters ? "" : this.showDetails ? this.team.age : this.team.ageGroup;
+        return age + this.genderShort();
     }
 
     toggleDetails() {

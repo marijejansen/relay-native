@@ -23,6 +23,8 @@ export const actions: ActionTree<CalculateState, RootState> = {
       Swimmers: selection
     }
 
+    console.log(request);
+
     if (rootState.isMasters) {
       await calculateRepository.getRelayTeamsMasters(request)
         .then((response) => {

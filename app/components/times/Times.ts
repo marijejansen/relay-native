@@ -25,7 +25,6 @@ export default class Times extends Mixins(TestMixin, StrokeMixin, RelayMixin) {
         for (let i = 0; i < numberOfCourses; i++) {
             courses.push(this.getCourseString(Course[i]));
         }
-        console.log(courses);
         return courses;
     }
 

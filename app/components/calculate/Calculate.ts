@@ -36,7 +36,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     get relayTeams(): IRelayTeam[] {
         var teams: IRelayTeam[] = store.getters['calculate/getTeams'];
-        this.showNoResults = !(teams.length > 0) && this.calculated ? true : false;
+        this.showNoResults = !(teams.length > 0) && this.calculated;
         return teams.sort((a, b) => a.age - b.age || b.gender - a.gender);
     }
 
@@ -91,6 +91,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
             this.showCalculateTop = true;
             this.setClicked();
             store.dispatch('calculate/calculateTeams', { selected: this.selected });
+            store.commit("calculate/emptyRelayTeams");
             this.selectionIsClosed = true;
         }
     }

@@ -27,6 +27,10 @@ export const mutations: MutationTree<CalculateState> = {
 
   removeFromSelectedForCalculation(state, id: number) {
     state.selectedForCalculation = state.selectedForCalculation.filter(s => s !== id);
+  },
+
+  emptyRelayTeams(state){
+    state.relayTeams = [];
   }
 
 };

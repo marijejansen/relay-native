@@ -76,6 +76,14 @@ const store: StoreOptions<RootState> = {
         sw => sw.id !== swimmerId
       );
     },
+
+    setIsMasters(state, isMasters: boolean) {
+      state.isMasters = isMasters;
+    },
+
+    setForYear(state, year: number) {
+      state.forYear = year;
+    }
   },
 
   actions: {
