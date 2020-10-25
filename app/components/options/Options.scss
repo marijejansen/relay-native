@@ -2,4 +2,48 @@
 
 .options {
     background-color: $background-grey;
+
+    .option-label {
+        background-color: $background-grey;
+        font-size: 19;
+
+        &.top {
+            text-align: center;
+        }
+    }
+
+    .options-add {
+        margin-top: 35px;
+
+        TextField {
+            height: 140px;
+            border-width: 2px;
+            border: 2px solid $grey;
+            background-color: $white;
+            padding-left: 15x;
+            padding-top: 35px;
+            margin: 20px 5px 0 5px;
+        }
+        .add-gender {
+            border-width: 2px;
+            border: 2px solid $grey;
+            margin: 20px 5px 0 5px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > * {
+                padding: 0px;
+                margin: 0px;
+
+            }
+            .selector Label {
+                padding-top: 39px;
+                justify-content: center;
+                text-align: center;
+
+            }
+        }
+    }
 }

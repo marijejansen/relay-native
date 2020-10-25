@@ -103,6 +103,23 @@
     "ageGroups": {
       "masters": "masters",
       "allin": "all-in"
-    }
+    },
+    "title": "OPTIES",
+        "labels": {
+            "ageGroup": "Leeftijdsgroup:",
+            "calculateFor": "Bereken voor:",
+            "calculateFrom": "Tijden vanaf:"
+        },
+    "save": "Opslaan",
+    "addSwimmer": {
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "birthYear": "Geboortjaar",
+      "clubName": "Clubnaam",
+      "gender": {
+          "female": "vrouw",
+          "male": "man"
+      }
+  }
   }
 }

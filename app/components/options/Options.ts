@@ -3,18 +3,27 @@ import './Options.scss'
 import store from '@/store/index';
 import translate from '@/locales/i18n'
 import Selector from '@/components/selectors/Selector';
+import OptionsAdd from './OptionsAdd';
 
-
-@Component({ components: { Selector}})
+@Component({ components: { OptionsAdd, Selector } })
 export default class Options extends Vue {
-    
+
     private isMasters: number = Number(store.getters['isMasters']);
 
     private forYear: number = Number(store.getters['getForYear']);
 
-    get yearIndex(): number{
+    private fromYear: number = Number(store.getters['getFromYear']);
+
+    get yearIndex(): number {
         var years = this.getForYearItems;
         var year = this.forYear.toString();
+        var index = years.findIndex(y => y === year);
+        return index;
+    }
+
+    get fromYearIndex(): number {
+        var years = this.getFromYearItems;
+        var year = this.fromYear.toString();
         var index = years.findIndex(y => y === year);
         return index;
     }
@@ -29,11 +38,21 @@ export default class Options extends Vue {
     get getForYearItems(): string[] {
         var thisYear = (new Date()).getFullYear();
         var years: string[] = [];
-        for(var i = 0; i < 4; i++){
+        for (var i = 0; i < 4; i++) {
             years.push((thisYear + i).toString())
         }
 
         return years;
+    }
+
+    get getFromYearItems(): string[] {
+        var thisYear = (new Date()).getFullYear();
+        var years: string[] = [];
+        for (var i = 0; i < 4; i++) {
+            years.push((thisYear - i).toString())
+        }
+
+        return years.sort();
     }
 
     setForYear(yearIndex: number) {
@@ -42,13 +61,18 @@ export default class Options extends Vue {
         this.emptyRelayTeams();
     }
 
+    setFromYear(yearIndex: number) {
+        var year = this.getFromYearItems[yearIndex];
+        store.commit('setFromYear', Number(year));
+        this.emptyRelayTeams();
+    }
+
     setIsMasters(isMasters: number) {
         store.commit('setIsMasters', isMasters);
         this.emptyRelayTeams();
     }
 
-    emptyRelayTeams(){
+    emptyRelayTeams() {
         store.commit("calculate/emptyRelayTeams");
     }
-
 }

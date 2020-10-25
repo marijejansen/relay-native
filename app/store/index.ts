@@ -83,6 +83,10 @@ const store: StoreOptions<RootState> = {
 
     setForYear(state, year: number) {
       state.forYear = year;
+    },
+
+    setFromYear(state, year: number) {
+      state.fromYear = year;
     }
   },
 

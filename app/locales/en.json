@@ -103,6 +103,23 @@
         "ageGroups": {
             "masters": "masters",
             "allin": "all-in"
+        },
+        "title": "OPTIONS",
+        "labels": {
+            "ageGroup": "Age group:",
+            "calculateFor": "Calculate for year:",
+            "calculateFrom": "Get times from year:"
+        },
+        "save": "Save",
+        "addSwimmer": {
+            "firstName": "First name",
+            "lastName": "Last name",
+            "birthYear": "Birth year",
+            "clubName": "Club name",
+            "gender": {
+                "female": "female",
+                "male": "male"
+            }
         }
     }
 }
