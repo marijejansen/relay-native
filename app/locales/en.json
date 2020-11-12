@@ -110,7 +110,6 @@
             "calculateFor": "Calculate for year:",
             "calculateFrom": "Get times from year:"
         },
-        "save": "Save",
         "addSwimmer": {
             "firstName": "First name",
             "lastName": "Last name",
@@ -119,7 +118,8 @@
             "gender": {
                 "female": "female",
                 "male": "male"
-            }
+            },
+            "save": "add swimmer"
         }
     }
 }

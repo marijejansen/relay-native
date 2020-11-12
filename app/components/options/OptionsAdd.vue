@@ -9,23 +9,24 @@
     >
       <Label row="0" col="0" text="Add Swimmer" @tap="toggleAddDetails"></Label>
       <Label row="0" col="1" text="+" @tap="toggleAddDetails"></Label>
+      <Label class="added" row="1" colSpan="2" v-if="showSwimmerAdded" text="V swimmer added"></Label>
       <GridLayout
         row="1"
         v-if="showAddDetails"
         colSpan="2"
         class=""
-        rows="auto, auto, auto"
+        rows="auto, auto, auto, auto"
         columns="*, *"
       >
         <TextField
           column="0"
-          v-model="firstName"
+          v-model="swimmer.firstName"
           :hint="$t('options.addSwimmer.firstName')"
           returnKeyType="next"
         />
         <TextField
           column="1"
-          v-model="lastName"
+          v-model="swimmer.lastName"
           :hint="$t('options.addSwimmer.lastName')"
         />
         <TextField
@@ -33,20 +34,21 @@
           row="1"
           column="0"
           colSpan="2"
-          v-model="clubName"
+          v-model="swimmer.clubName"
         />
         <TextField
           row="2"
           column="0"
-          v-model="birthYear"
+          v-model="swimmer.birthYear"
           :hint="$t('options.addSwimmer.birthYear')"
         />
         <WrapLayout row="2" column="1" class="add-gender">
           <Selector
-            :active-number="addSwimmerGender"
+            :active-number="swimmer.gender"
             :items="genders"
           ></Selector>
         </WrapLayout>
+        <Button row="3" colSpan="2" :text="$t('options.addSwimmer.save')" @tap="addSwimmer()" :class="!canAddSwimmer ? 'disabled' : buttonIsClicked ? 'active' : ''" />
       </GridLayout>
     </GridLayout>
   </GridLayout>

@@ -12,4 +12,5 @@ export interface Swimmer {
   shortCourseTimes: ICourseTimes;
   longCourseTimes: ICourseTimes;
   time: number;
+  isCustom: boolean;
 }

@@ -110,7 +110,6 @@
             "calculateFor": "Bereken voor:",
             "calculateFrom": "Tijden vanaf:"
         },
-    "save": "Opslaan",
     "addSwimmer": {
       "firstName": "Voornaam",
       "lastName": "Achternaam",
@@ -119,7 +118,8 @@
       "gender": {
           "female": "vrouw",
           "male": "man"
-      }
+      },
+      "save": "nieuwe zwemmer toevoegen"
   }
   }
 }

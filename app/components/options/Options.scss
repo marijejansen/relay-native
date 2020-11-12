@@ -13,7 +13,7 @@
     }
 
     .options-add {
-        margin-top: 35px;
+        margin-top: 40px;
 
         TextField {
             height: 140px;
@@ -24,6 +24,25 @@
             padding-top: 35px;
             margin: 20px 5px 0 5px;
         }
+
+        .added {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22;
+            background-color: $background-grey;
+        }
+
+        Button {
+            margin: 20px 5px 0 5px;
+
+            &.disabled {
+                background-color: $button-disable;
+            }
+            &.active {
+                background-color: $yellow;
+            }
+        }
+
         .add-gender {
             border-width: 2px;
             border: 2px solid $grey;
@@ -36,13 +55,11 @@
             > * {
                 padding: 0px;
                 margin: 0px;
-
             }
             .selector Label {
-                padding-top: 39px;
+                padding-top: 32px;
                 justify-content: center;
                 text-align: center;
-
             }
         }
     }
