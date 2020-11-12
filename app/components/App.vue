@@ -3,16 +3,23 @@
     <ActionBar :title="$t('actionbar.message')" android:flat="true">
       <GridLayout columns="5*, *">
         <Label class="title" :text="$t('actionbar.message')" col="0" />
-        <Label text="(())" @tap="toggleOptions" col="1" />
-      </GridLayout>
-    </ActionBar>/>
+        <Image
+          class="options-icon"
+          src="~/assets/images/options.png"
+          stretch="fill"
+          @tap="toggleOptions"
+          col="1"
+        />
+      </GridLayout> </ActionBar
+    >/>
     <Options v-if="optionsOpen"></Options>
     <TabView
       v-else
       android:tabBackgroundColor="#29648A"
       android:tabTextColor="#c4ffdf"
       android:selectedTabTextColor="#ffffff"
-      androidSelectedTabHighlightColor="#ffc400">
+      androidSelectedTabHighlightColor="#ffc400"
+    >
       <TabViewItem :title="$t('search.title')">
         <Search></Search>
       </TabViewItem>
@@ -37,7 +44,7 @@ export default {
     Search,
     Times,
     Calculate,
-    Options
+    Options,
   },
   data() {
     return {
@@ -45,9 +52,9 @@ export default {
     };
   },
   methods: {
-      toggleOptions: function () {
-        this.optionsOpen = !this.optionsOpen;
-    }
+    toggleOptions: function () {
+      this.optionsOpen = !this.optionsOpen;
+    },
   },
 };
 </script>
@@ -60,5 +67,10 @@ ActionBar {
 GridLayout > * {
   background-color: #29648a;
   color: #ffffff;
+}
+
+Image {
+  height: 70px;
+  width: 70px;
 }
 </style>
