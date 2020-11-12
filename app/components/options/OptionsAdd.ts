@@ -12,6 +12,8 @@ export default class OptionsAdd extends Vue {
 
     private buttonIsClicked: boolean = false;
 
+    private checkValues: boolean = false;
+
     private swimmer: Swimmer = {
         id: null,
         firstName: "",
@@ -35,7 +37,21 @@ export default class OptionsAdd extends Vue {
         return items;
     }
 
+    get validYear(){
+        if(this.checkValues){
+            var year = this.swimmer.birthYear;
+            var thisYear = (new Date()).getFullYear();
+            if(year != null) {
+                if(!Number.isInteger(parseInt(year.toString())) || year < 1900 || year > thisYear){
+                    return false;
+                }        
+            }
+        }
+        return true;
+    }
+
     async addSwimmer() {
+        this.checkValues = true;
         if (this.canAddSwimmer) {
             this.activateButton();
             setTimeout(() => {
@@ -47,7 +63,7 @@ export default class OptionsAdd extends Vue {
     }
 
     get canAddSwimmer(): boolean {
-        if (!this.swimmer.firstName || !this.swimmer.lastName || !this.swimmer.birthYear) {
+        if (!this.swimmer.firstName || !this.swimmer.lastName || !this.swimmer.birthYear || !this.validYear) {
             return false;
         }
         return true;

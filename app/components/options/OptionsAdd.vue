@@ -37,9 +37,11 @@
           v-model="swimmer.clubName"
         />
         <TextField
+          :class="!validYear ? 'invalid' : ''"
           row="2"
           column="0"
           v-model="swimmer.birthYear"
+          keyboardType="number"
           :hint="$t('options.addSwimmer.birthYear')"
         />
         <WrapLayout row="2" column="1" class="add-gender">

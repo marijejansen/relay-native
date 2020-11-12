@@ -23,6 +23,11 @@
             padding-left: 15x;
             padding-top: 35px;
             margin: 20px 5px 0 5px;
+
+            &.invalid {
+                border-width: 4px;
+                border-color: $red;
+            }
         }
 
         .added {
