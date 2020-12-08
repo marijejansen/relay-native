@@ -12,6 +12,17 @@
         }
     }
 
+    Button {
+        margin: 20px 5px 0 5px;
+
+        &.disabled {
+            background-color: $button-disable;
+        }
+        &.active {
+            background-color: $yellow;
+        }
+    }
+    
     .options-add {
         margin-top: 40px;
 
@@ -37,16 +48,6 @@
             background-color: $background-grey;
         }
 
-        Button {
-            margin: 20px 5px 0 5px;
-
-            &.disabled {
-                background-color: $button-disable;
-            }
-            &.active {
-                background-color: $yellow;
-            }
-        }
 
         .add-gender {
             border-width: 2px;

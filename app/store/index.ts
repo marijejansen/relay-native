@@ -6,7 +6,6 @@ import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
 import { calculate } from './calculate';
 
-
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -92,9 +91,19 @@ const store: StoreOptions<RootState> = {
 
   actions: {
 
+    async updateAllWithTimes({getters}){
+      var swimmersIds = getters.getAllSelected.filter((sw: Swimmer) => !sw.isCustom).map((sw: Swimmer) => sw.id);
+
+      //TODO: afmaken
+    },
+
     async updateWithTimes({ commit, getters }, swimmerId) {
 
       var year = getters.getFromYear;
+      var swimmer: Swimmer = getters.getAllSelected.find((sw: Swimmer) => sw.id == swimmerId)
+      if(swimmer.isCustom){
+        return;
+      }
 
       await searchRepository.getShortCourseTimes(swimmerId, year)
         .then((response) => {

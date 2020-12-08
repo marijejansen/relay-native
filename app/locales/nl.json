@@ -105,21 +105,22 @@
       "allin": "all-in"
     },
     "title": "OPTIES",
-        "labels": {
-            "ageGroup": "Leeftijdsgroup:",
-            "calculateFor": "Bereken voor:",
-            "calculateFrom": "Tijden vanaf:"
-        },
+    "labels": {
+      "ageGroup": "Leeftijdsgroup:",
+      "calculateFor": "Bereken voor:",
+      "calculateFrom": "Tijden vanaf:"
+    },
+    "saveOptions": "Opslaan",
     "addSwimmer": {
       "firstName": "Voornaam",
       "lastName": "Achternaam",
       "birthYear": "Geboortjaar",
       "clubName": "Clubnaam",
       "gender": {
-          "female": "vrouw",
-          "male": "man"
+        "female": "vrouw",
+        "male": "man"
       },
       "save": "nieuwe zwemmer toevoegen"
-  }
+    }
   }
 }

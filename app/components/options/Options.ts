@@ -8,11 +8,23 @@ import OptionsAdd from './OptionsAdd';
 @Component({ components: { OptionsAdd, Selector } })
 export default class Options extends Vue {
 
-    private isMasters: number = Number(store.getters['isMasters']);
+    private isMasters: number;
 
-    private forYear: number = Number(store.getters['getForYear']);
+    private forYear: number;
 
-    private fromYear: number = Number(store.getters['getFromYear']);
+    private fromYear: number;
+
+    private changed: boolean = false;
+
+    private fromYearChanged: boolean = false;
+
+    private buttonIsClicked: boolean = false;
+
+    beforeCreate(){
+        this.isMasters = Number(store.getters['isMasters']);
+        this.forYear = Number(store.getters['getForYear']);
+        this.fromYear = Number(store.getters['getFromYear']);
+    }
 
     get yearIndex(): number {
         var years = this.getForYearItems;
@@ -30,8 +42,6 @@ export default class Options extends Vue {
 
     get isMastersItems(): string[] {
         var items: string[] = [translate.t('options.ageGroups.allin').toString(), translate.t('options.ageGroups.masters').toString()];
-        console.log("      isMasters:      " + Number(this.isMasters));
-
         return items;
     }
 
@@ -54,22 +64,43 @@ export default class Options extends Vue {
 
         return years.sort();
     }
+    
+    get optionsChanged(){
+        return this.changed;
+    }
 
+    activateButton() {
+        this.buttonIsClicked = true;
+        setTimeout(() => { this.buttonIsClicked = false,  this.changed = false}, 800);
+    }
+    
     setForYear(yearIndex: number) {
-        var year = this.getForYearItems[yearIndex];
-        store.commit('setForYear', Number(year));
-        this.emptyRelayTeams();
+        this.forYear = Number(this.getForYearItems[yearIndex]);
+        this.changed = true;
     }
 
     setFromYear(yearIndex: number) {
-        var year = this.getFromYearItems[yearIndex];
-        store.commit('setFromYear', Number(year));
-        this.emptyRelayTeams();
+        this.fromYear = Number(this.getFromYearItems[yearIndex]);
+        this.changed = true;
+        this.fromYearChanged = true;
     }
 
     setIsMasters(isMasters: number) {
-        store.commit('setIsMasters', isMasters);
+        this.isMasters = isMasters;
+        this.changed = true;
+    }
+
+    saveOptions(){
+        this.activateButton();
+        store.commit('setForYear', this.forYear);
+        store.commit('setFromYear', this.fromYear);
+        store.commit('setIsMasters', this.isMasters);
+
         this.emptyRelayTeams();
+
+        if(this.fromYearChanged){
+            store.dispatch('updateAllWithTimes');
+        }
     }
 
     emptyRelayTeams() {

@@ -11,7 +11,7 @@ export const actions: ActionTree<CalculateState, RootState> = {
 
     var selection: Swimmer[] = []
 
-    payload.selected.forEach(id => {
+    payload.selected.forEach((id: number) => {
       var swimmer = rootState.selectedSwimmers.find(sw => sw.id == id);
       selection.push(swimmer);
     })
@@ -22,8 +22,6 @@ export const actions: ActionTree<CalculateState, RootState> = {
       CalculateForYear: rootState.forYear,
       Swimmers: selection
     }
-
-    console.log(request);
 
     if (rootState.isMasters) {
       await calculateRepository.getRelayTeamsMasters(request)

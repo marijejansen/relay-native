@@ -110,6 +110,7 @@
             "calculateFor": "Calculate for year:",
             "calculateFrom": "Get times from year:"
         },
+        "saveOptions": "Save",
         "addSwimmer": {
             "firstName": "First name",
             "lastName": "Last name",
