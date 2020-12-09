@@ -8,14 +8,14 @@
           src="~/assets/images/load.png"
           stretch="fill"
           @tap="loadData"
-          col="2"
+          col="1"
         />
         <Image
           class="options-icon"
           src="~/assets/images/options.png"
           stretch="fill"
           @tap="toggleOptions"
-          col="3"
+          col="2"
         />
       </GridLayout> </ActionBar
     >/>

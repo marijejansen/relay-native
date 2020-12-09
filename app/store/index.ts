@@ -97,9 +97,12 @@ const store: StoreOptions<RootState> = {
       appSettings.setString("swimmers", JSON.stringify(swimmers));
     },
 
-    getFromStorage() {
+    getFromStorage({commit}) {
       const swimmers = JSON.parse(appSettings.getString("swimmers", "{}"));    
       this.state.selectedSwimmers = swimmers;
+      swimmers.forEach(sw => {
+        commit('search/setTimesLoaded', sw.id);
+      });
     },
 
     async updateAllWithTimes({ dispatch, getters }) {
