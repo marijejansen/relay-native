@@ -1,14 +1,21 @@
 <template>
   <Page class="page">
     <ActionBar :title="$t('actionbar.message')" android:flat="true">
-      <GridLayout columns="5*, *">
+      <GridLayout columns="5*, *, *">
         <Label class="title" :text="$t('actionbar.message')" col="0" />
+        <Image
+          class="load-icon"
+          src="~/assets/images/load.png"
+          stretch="fill"
+          @tap="loadData"
+          col="2"
+        />
         <Image
           class="options-icon"
           src="~/assets/images/options.png"
           stretch="fill"
           @tap="toggleOptions"
-          col="1"
+          col="3"
         />
       </GridLayout> </ActionBar
     >/>
@@ -38,6 +45,7 @@ import Search from "./search/Search";
 import Times from "./times/Times";
 import Calculate from "./calculate/Calculate";
 import Options from "./options/Options";
+import store from '@/store/index';
 
 export default {
   components: {
@@ -54,6 +62,9 @@ export default {
   methods: {
     toggleOptions: function () {
       this.optionsOpen = !this.optionsOpen;
+    },
+    loadData: function () {
+      store.dispatch('getFromStorage');
     },
   },
 };

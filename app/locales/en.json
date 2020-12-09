@@ -1,6 +1,6 @@
 {
     "actionbar": {
-        "message": "Welcome to Relay Calculator"
+        "message": "Relay Calculator"
     },
     "search": {
         "title": "search",
@@ -96,7 +96,7 @@
                 }
             }
         },
-        "resultText": "Possible teams",
+        "resultText": "Teams",
         "button": "Get teams",
         "noresults": "No results"
     },

@@ -6,6 +6,7 @@ import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
 import { calculate } from './calculate';
 
+const appSettings = require("tns-core-modules/application-settings");
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -90,6 +91,16 @@ const store: StoreOptions<RootState> = {
   },
 
   actions: {
+
+    saveToStorage({getters}) {
+      var swimmers = getters.getAllSelected;
+      appSettings.setString("swimmers", JSON.stringify(swimmers));
+    },
+
+    getFromStorage() {
+      const swimmers = JSON.parse(appSettings.getString("swimmers", "{}"));    
+      this.state.selectedSwimmers = swimmers;
+    },
 
     async updateAllWithTimes({ dispatch, getters }) {
       var swimmersIds = getters.getAllSelected.filter((sw: Swimmer) => !sw.isCustom).map((sw: Swimmer) => sw.id);
