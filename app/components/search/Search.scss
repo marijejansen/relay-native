@@ -27,6 +27,12 @@
             }
         }
     }
+    
+    Label.no-results {
+        background-color: $background-grey;
+        font-size: 20;
+        text-align: center;
+    }
 
     .search-result {
         padding: 6px 0;

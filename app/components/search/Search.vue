@@ -20,7 +20,7 @@
         src="~/assets/images/lens.png"
         column="2"
         class="search-button"
-        :class="{ 'active': searched }"
+        :class="{ 'active': searchActive }"
         @tap="search"
       />
     </GridLayout>
@@ -29,7 +29,7 @@
         <StackLayout>
           <WrapLayout :v-if="hasResults" >
             <SearchItem
-              v-for="result in results()"
+              v-for="result in results"
               v-bind:key="result.id"
               :search-result="result"
               class="search-result"
@@ -37,7 +37,7 @@
               @tap="select(result.id)"
             ></SearchItem>
             </WrapLayout>
-
+            <Label class="no-results" v-if="searched && !hasResults" :text="$t('search.noResults')"/>
           <Selection height="50%" row="2" v-if="hasSelection()"></Selection>
         </StackLayout>
       </ScrollView>

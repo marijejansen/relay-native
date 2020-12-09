@@ -15,7 +15,9 @@ export default class Search extends Vue {
 
   private searched: boolean = false;
 
-  private hasResults: boolean = this.results?.length > 0;
+  private searchActive: boolean = false;
+
+  get hasResults(): boolean { return this.results?.length > 0 };
 
   private lastInput: TextField;
 
@@ -29,7 +31,7 @@ export default class Search extends Vue {
     return store.getters.getAllSelected;
   }
 
-  results() {
+  get results() {
     return this.searchResult;
   }
 
@@ -44,17 +46,19 @@ export default class Search extends Vue {
     return this.selection().length > 0;
   }
 
-  // naar store
   async search() {
-    this.setSearched();
+    this.setSearchActive();
     this.lastInput.dismissSoftInput();
     await searchRepository.getSearch(this.firstName, this.lastName)
-      .then(response => this.searchResult = response);
+      .then(response => {
+        this.searchResult = response;
+        this.searched = true
+      });
   }
 
-  setSearched() {
-    this.searched = true;
-    setTimeout(() => { this.searched = false }, 300);
+  setSearchActive() {
+    this.searchActive = true;
+    setTimeout(() => { this.searchActive = false }, 300);
   }
 
   removeSearchInput() {

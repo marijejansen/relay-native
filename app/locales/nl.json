@@ -6,7 +6,8 @@
     "title": "zoeken",
     "firstname": "Voornaam",
     "lastname": "Achternaam",
-    "selection": "Selectie"
+    "selection": "Selectie",
+    "noResults": "Geen zoekresultaten"
   },
   "times": {
     "title": "tijden",

@@ -6,7 +6,8 @@
         "title": "search",
         "firstname": "First name",
         "lastname": "Last name",
-        "selection": "Selection"
+        "selection": "Selection",
+        "noResults": "No results"
     },
     "times": {
         "title": "times",
