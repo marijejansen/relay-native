@@ -36,7 +36,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 40.02,
                 breaststroke100M: 85.02
             },
-
+            isCustom: true,
         }, {
             id: 124,
             firstName: "Martijntje",
@@ -69,6 +69,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 31.01,
                 breaststroke100M: 72.01
             },
+            isCustom: true,
         }, {
             id: 126,
             firstName: "Moskou",
@@ -100,7 +101,8 @@ class TestMixin extends Vue {
                 butterfly100M: 70.01,
                 breaststroke50M: 40.01,
                 breaststroke100M: 85.01
-            }
+            },
+            isCustom: true,
         }, {
             id: 125,
             firstName: "Brussel",
@@ -132,7 +134,8 @@ class TestMixin extends Vue {
                 butterfly100M: 62.01,
                 breaststroke50M: 32.01,
                 breaststroke100M: 74.01
-            }
+            },
+            isCustom: true,
         }, {
             id: 143,
             firstName: "Marije",
@@ -164,7 +167,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 40.02,
                 breaststroke100M: 85.02
             },
-
+            isCustom: true,
         }, {
             id: 144,
             firstName: "Martijntje",
@@ -197,6 +200,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 31.01,
                 breaststroke100M: 72.01
             },
+            isCustom: true,
         }, {
             id: 145,
             firstName: "Moskou",
@@ -228,7 +232,8 @@ class TestMixin extends Vue {
                 butterfly100M: 70.01,
                 breaststroke50M: 40.01,
                 breaststroke100M: 85.01
-            }
+            },
+            isCustom: true,
         }, {
             id: 146,
             firstName: "Brussel",
@@ -260,7 +265,8 @@ class TestMixin extends Vue {
                 butterfly100M: 62.01,
                 breaststroke50M: 32.01,
                 breaststroke100M: 74.01
-            }
+            },
+            isCustom: true,
         },{
             id: 153,
             firstName: "Marije",
@@ -292,7 +298,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 40.02,
                 breaststroke100M: 85.02
             },
-
+            isCustom: true,
         }, {
             id: 154,
             firstName: "Martijntje",
@@ -325,6 +331,7 @@ class TestMixin extends Vue {
                 breaststroke50M: 31.01,
                 breaststroke100M: 72.01
             },
+            isCustom: true,
         }, {
             id: 156,
             firstName: "Moskou",
@@ -356,7 +363,8 @@ class TestMixin extends Vue {
                 butterfly100M: 70.01,
                 breaststroke50M: 40.01,
                 breaststroke100M: 85.01
-            }
+            },
+            isCustom: true,
         }, {
             id: 155,
             firstName: "Brussel",
@@ -388,12 +396,9 @@ class TestMixin extends Vue {
                 butterfly100M: 62.01,
                 breaststroke50M: 32.01,
                 breaststroke100M: 74.01
-            }
+            },
+            isCustom: true,
         }];
-    }
-
-    public getString(): string {
-        return "JAAA";
     }
 }
 

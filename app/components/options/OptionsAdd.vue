@@ -1,0 +1,62 @@
+<template>
+  <GridLayout class="options-add">
+    <GridLayout
+      row="4"
+      colSpan="2"
+      class="add-swimmer"
+      rows="auto, auto"
+      columns="8*, 2*"
+    >
+      <Label row="0" col="0" text="Add Swimmer" @tap="toggleAddDetails"></Label>
+      <Label row="0" col="1" text="+" @tap="toggleAddDetails"></Label>
+      <Label class="added" row="1" colSpan="2" v-if="showSwimmerAdded" text="V swimmer added"></Label>
+      <GridLayout
+        row="1"
+        v-if="showAddDetails"
+        colSpan="2"
+        class=""
+        rows="auto, auto, auto, auto"
+        columns="*, *"
+      >
+        <TextField
+          column="0"
+          v-model="swimmer.firstName"
+          :hint="$t('options.addSwimmer.firstName')"
+          returnKeyType="next"
+        />
+        <TextField
+          column="1"
+          v-model="swimmer.lastName"
+          :hint="$t('options.addSwimmer.lastName')"
+        />
+        <TextField
+          :hint="$t('options.addSwimmer.clubName')"
+          row="1"
+          column="0"
+          colSpan="2"
+          v-model="swimmer.clubName"
+        />
+        <TextField
+          :class="!validYear ? 'invalid' : ''"
+          row="2"
+          column="0"
+          v-model="swimmer.birthYear"
+          keyboardType="number"
+          :hint="$t('options.addSwimmer.birthYear')"
+        />
+        <WrapLayout row="2" column="1" class="add-gender">
+          <Selector
+            :active-number="swimmer.gender"
+            :items="genders"
+          ></Selector>
+        </WrapLayout>
+        <Button row="3" colSpan="2" :text="$t('options.addSwimmer.save')" @tap="addSwimmer()" :class="!canAddSwimmer ? 'disabled' : buttonIsClicked ? 'active' : ''" />
+      </GridLayout>
+    </GridLayout>
+  </GridLayout>
+</template>
+
+<script lang="ts">
+//@ts-ignore
+export { default } from "./OptionsAdd.ts";
+</script>
