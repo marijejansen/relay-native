@@ -91,17 +91,19 @@ const store: StoreOptions<RootState> = {
 
   actions: {
 
-    async updateAllWithTimes({getters}){
+    async updateAllWithTimes({ dispatch, getters }) {
       var swimmersIds = getters.getAllSelected.filter((sw: Swimmer) => !sw.isCustom).map((sw: Swimmer) => sw.id);
 
-      //TODO: afmaken
+      await Promise.all(swimmersIds.forEach((id: number) => {
+        dispatch('updateWithTimes', id);
+      }));
     },
 
     async updateWithTimes({ commit, getters }, swimmerId) {
 
       var year = getters.getFromYear;
       var swimmer: Swimmer = getters.getAllSelected.find((sw: Swimmer) => sw.id == swimmerId)
-      if(swimmer.isCustom){
+      if (swimmer.isCustom) {
         return;
       }
 
@@ -116,7 +118,6 @@ const store: StoreOptions<RootState> = {
         });
       return "OK";
     },
-
   }
 };
 
