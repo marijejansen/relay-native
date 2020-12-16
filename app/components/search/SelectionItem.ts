@@ -19,12 +19,6 @@ export default class SelectionItem extends Vue {
     @Prop()
     private selectionItem!: Swimmer;
 
-    get time(){
-        if(this.selectionItem && this.selectionItem.shortCourseTimes){
-            return this.selectionItem.shortCourseTimes.freestyle50M;
-        }
-    }
-
     get item(){
         return this.selectionItem;
     }

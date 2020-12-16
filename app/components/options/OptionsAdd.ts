@@ -57,6 +57,7 @@ export default class OptionsAdd extends Vue {
             setTimeout(() => {
                 this.swimmer.id = this.getNextCustomId();
                 store.commit("addToSelectedSwimmers", this.swimmer);
+                store.dispatch('saveToStorage');
                 this.closeAddAndShowSwimmerAdded();
             }, 800);
         }
