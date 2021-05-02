@@ -1,5 +1,5 @@
-import { MutationTree } from "vuex";
-import { CalculateState } from "./types";
+import { MutationTree } from 'vuex';
+import { CalculateState } from './types';
 import { Course } from '@/models/Course';
 import { Relay } from '@/models/relay';
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
@@ -7,7 +7,7 @@ import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 export const mutations: MutationTree<CalculateState> = {
 
   setCourse(state, course: Course) {
-      state.course = course;  
+    state.course = course;
   },
 
   setRelay(state, relay: Relay) {
@@ -19,9 +19,9 @@ export const mutations: MutationTree<CalculateState> = {
   },
 
   addToSelectedForCalculation(state, id: number) {
-    var index = state.selectedForCalculation.findIndex(s => s == id);
-    if(index === -1){
-      state.selectedForCalculation.push(id)
+    const index = state.selectedForCalculation.findIndex(s => s === id);
+    if (index === -1) {
+      state.selectedForCalculation.push(id);
     }
   },
 
@@ -29,7 +29,7 @@ export const mutations: MutationTree<CalculateState> = {
     state.selectedForCalculation = state.selectedForCalculation.filter(s => s !== id);
   },
 
-  emptyRelayTeams(state){
+  emptyRelayTeams(state) {
     state.relayTeams = [];
   }
 

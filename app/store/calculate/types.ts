@@ -6,5 +6,5 @@ export interface CalculateState {
     course: Course;
     relay: Relay;
     relayTeams: IRelayTeam[];
-    selectedForCalculation: number[]
+    selectedForCalculation: number[];
 }

@@ -4,7 +4,8 @@
   "description": "A native application built with NativeScript-Vue",
   "author": "Marije Jansen <jansen.marije@gmail.com>",
   "scripts": {
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "@nativescript/theme": "^2.2.1",
@@ -21,7 +22,15 @@
     "@babel/preset-env": "^7.0.0",
     "@intlify/vue-i18n-loader": "^1.0.0",
     "@types/node": "^12.12.16",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.0.2",
+    "eslint": "^7.25.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-vue": "^7.9.0",
     "nativescript-dev-webpack": "^1.5.1",
     "nativescript-vue-template-compiler": "^2.5.0",
     "nativescript-worker-loader": "~0.9.0",

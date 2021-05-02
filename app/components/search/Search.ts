@@ -1,23 +1,22 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from 'vue-property-decorator';
 import { Swimmer } from '@/models/Swimmer';
-import searchRepository from '@/repositories/search-repository'
+import searchRepository from '@/repositories/search-repository';
 import store from '@/store/index';
-import Selection from './Selection'
-import SearchItem from './SearchItem'
+import Selection from './Selection';
+import SearchItem from './SearchItem';
 
 import { TextField } from 'tns-core-modules/ui/text-field';
 
 @Component({ components: { Selection, SearchItem } })
 export default class Search extends Vue {
+  private firstName = '';
+  private lastName = '';
 
-  private firstName: string = "";
-  private lastName: string = "";
+  private searched = false;
 
-  private searched: boolean = false;
+  private searchActive = false;
 
-  private searchActive: boolean = false;
-
-  get hasResults(): boolean { return this.results?.length > 0 };
+  get hasResults(): boolean { return this.results?.length > 0; }
 
   private lastInput: TextField;
 
@@ -38,7 +37,7 @@ export default class Search extends Vue {
   fullName(id: number) {
     const result = this.searchResult.find(r => r.id === id);
     if (result) {
-      return result.firstName + " " + result.lastName
+      return result.firstName + ' ' + result.lastName;
     }
   }
 
@@ -52,22 +51,22 @@ export default class Search extends Vue {
     await searchRepository.getSearch(this.firstName, this.lastName)
       .then(response => {
         this.searchResult = response;
-        this.searched = true
+        this.searched = true;
       });
   }
 
   setSearchActive() {
     this.searchActive = true;
-    setTimeout(() => { this.searchActive = false }, 300);
+    setTimeout(() => { this.searchActive = false; }, 300);
   }
 
   removeSearchInput() {
-    this.firstName = "";
-    this.lastName = "";
+    this.firstName = '';
+    this.lastName = '';
   }
 
   textFieldLoaded(args) {
-    let input = <TextField>args.object;
+    const input = <TextField>args.object;
     this.lastInput = input;
   }
 }

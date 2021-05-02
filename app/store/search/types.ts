@@ -1,6 +1,6 @@
-import { Swimmer } from "@/models/swimmer";
+import { Swimmer } from '@/models/swimmer';
 
 export interface SearchState {
   searchResult: Array<Swimmer>;
-  loadedTimes: Array<Number>;
+  loadedTimes: Array<number>;
 }

@@ -1,12 +1,12 @@
-import Vue from "vue";
-import Vuex, { StoreOptions } from "vuex";
+import Vue from 'vue';
+import Vuex, { StoreOptions } from 'vuex';
 import { RootState } from './types';
 import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
 import { calculate } from './calculate';
 
-const appSettings = require("tns-core-modules/application-settings");
+const appSettings = require('tns-core-modules/application-settings');
 Vue.use(Vuex);
 
 const store: StoreOptions<RootState> = {
@@ -20,7 +20,7 @@ const store: StoreOptions<RootState> = {
     saving: false,
     fromYear: new Date().getFullYear() - 1,
     forYear: (new Date()).getFullYear(),
-    isMasters: true,
+    isMasters: true
   },
 
   getters: {
@@ -42,8 +42,7 @@ const store: StoreOptions<RootState> = {
 
     getForYear(state): number {
       return state.forYear;
-    },
-
+    }
   },
 
   mutations: {
@@ -53,21 +52,21 @@ const store: StoreOptions<RootState> = {
     },
 
     addToSelectedSwimmers(state, swimmer: Swimmer) {
-      var index = state.selectedSwimmers.findIndex(sw => sw.id === swimmer.id);
-      if (index != -1) {
+      const index = state.selectedSwimmers.findIndex(sw => sw.id === swimmer.id);
+      if (index !== -1) {
         state.selectedSwimmers[index] = swimmer;
-      } else {       
+      } else {
         state.selectedSwimmers.push(swimmer);
       }
     },
 
     addSCTimes(state, payload) {
-      var index = state.selectedSwimmers.findIndex(sw => sw.id == payload.id);
+      const index = state.selectedSwimmers.findIndex(sw => sw.id === payload.id);
       state.selectedSwimmers[index].shortCourseTimes = payload.courseTimes;
     },
 
     addLCTimes(state, payload) {
-      var index = state.selectedSwimmers.findIndex(sw => sw.id == payload.id);
+      const index = state.selectedSwimmers.findIndex(sw => sw.id === payload.id);
       state.selectedSwimmers[index].longCourseTimes = payload.courseTimes;
     },
 
@@ -92,13 +91,13 @@ const store: StoreOptions<RootState> = {
 
   actions: {
 
-    saveToStorage({getters}) {
-      var swimmers = getters.getAllSelected;
-      appSettings.setString("swimmers", JSON.stringify(swimmers));
+    saveToStorage({ getters }) {
+      const swimmers = getters.getAllSelected;
+      appSettings.setString('swimmers', JSON.stringify(swimmers));
     },
 
-    getFromStorage({commit}) {
-      const swimmers = JSON.parse(appSettings.getString("swimmers", "{}"));    
+    getFromStorage({ commit }) {
+      const swimmers = JSON.parse(appSettings.getString('swimmers', '{}'));
       this.state.selectedSwimmers = swimmers;
       swimmers.forEach(sw => {
         commit('search/setTimesLoaded', sw.id);
@@ -106,7 +105,7 @@ const store: StoreOptions<RootState> = {
     },
 
     async updateAllWithTimes({ dispatch, getters }) {
-      var swimmersIds = getters.getAllSelected.filter((sw: Swimmer) => !sw.isCustom).map((sw: Swimmer) => sw.id);
+      const swimmersIds = getters.getAllSelected.filter((sw: Swimmer) => !sw.isCustom).map((sw: Swimmer) => sw.id);
 
       await Promise.all(swimmersIds.forEach((id: number) => {
         dispatch('updateWithTimes', id);
@@ -114,24 +113,23 @@ const store: StoreOptions<RootState> = {
     },
 
     async updateWithTimes({ commit, getters }, swimmerId) {
-
-      var year = getters.getFromYear;
-      var swimmer: Swimmer = getters.getAllSelected.find((sw: Swimmer) => sw.id == swimmerId)
+      const year = getters.getFromYear;
+      const swimmer: Swimmer = getters.getAllSelected.find((sw: Swimmer) => sw.id === swimmerId);
       if (swimmer.isCustom) {
         return;
       }
 
       await searchRepository.getShortCourseTimes(swimmerId, year)
         .then((response) => {
-          commit("addSCTimes", { id: swimmerId, courseTimes: response })
+          commit('addSCTimes', { id: swimmerId, courseTimes: response });
         });
 
       await searchRepository.getLongCourseTimes(swimmerId, year)
         .then((response) => {
-          commit("addLCTimes", { id: swimmerId, courseTimes: response });
+          commit('addLCTimes', { id: swimmerId, courseTimes: response });
         });
-      return "OK";
-    },
+      return 'OK';
+    }
   }
 };
 

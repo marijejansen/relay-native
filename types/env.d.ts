@@ -1,1 +1,1 @@
-declare var TNS_ENV: string;
+declare let TNS_ENV: string;

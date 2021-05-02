@@ -1,5 +1,5 @@
-import { Gender } from "./gender";
-import { ICourseTimes } from "./interfaces/ICourseTimes";
+import { Gender } from './gender';
+import { ICourseTimes } from './interfaces/ICourseTimes';
 
 export interface Swimmer {
   id: number;

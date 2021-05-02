@@ -1,5 +1,3 @@
-import translate from '@/locales/i18n'
-
 export enum Relay {
   Free200,
   Free400,
@@ -7,5 +5,3 @@ export enum Relay {
   Medley200,
   Medley400
 }
-
-

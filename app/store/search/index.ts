@@ -1,14 +1,14 @@
-import { Swimmer } from "@/models/swimmer";
-import { Module } from "vuex";
-import { RootState } from "../types";
-import { SearchState } from "./types";
-import { getters } from "./getters";
-import { actions } from "./actions";
-import { mutations } from "./mutations";
+import { Swimmer } from '@/models/swimmer';
+import { Module } from 'vuex';
+import { RootState } from '../types';
+import { SearchState } from './types';
+import { getters } from './getters';
+import { actions } from './actions';
+import { mutations } from './mutations';
 
 export const state: SearchState = {
   searchResult: Array<Swimmer>(),
-  loadedTimes: Array<Number>()
+  loadedTimes: Array<number>()
 };
 
 export const search: Module<SearchState, RootState> = {

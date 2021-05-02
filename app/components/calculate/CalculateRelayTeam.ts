@@ -1,6 +1,6 @@
-import { Component, Vue, Prop, Mixins } from "vue-property-decorator";
+import { Component, Vue, Prop, Mixins } from 'vue-property-decorator';
 import { Swimmer } from '@/models/Swimmer';
-import './Calculate.scss'
+import './Calculate.scss';
 import { IRelayTeam } from '@/models/interfaces/IRelayTeam';
 import store from '@/store/index';
 import RelayMixin from '@/mixins/RelayMixins';
@@ -8,38 +8,36 @@ import TimeFormatMixin from '@/mixins/TimeFormatMixin';
 
 @Component({ components: {} })
 export default class CalculateRelayTeam extends Mixins(RelayMixin, TimeFormatMixin) {
-
     @Prop()
     private team!: IRelayTeam;
 
-    private isMasters: number = store.getters['isMasters'];
+    private isMasters: number = store.getters.isMasters;
 
-    private showDetails: boolean = false;
+    private showDetails = false;
 
     get teamSwimmers(): Swimmer[] {
-        return this.team.swimmers;
+      return this.team.swimmers;
     }
 
     genderShort() {
-        var gender = this.team.gender;
-        return this.getGenderStringShort(gender).toUpperCase();
+      const gender = this.team.gender;
+      return this.getGenderStringShort(gender).toUpperCase();
     }
 
     get teamTime() {
-        return this.toTimeString(this.team.time);
+      return this.toTimeString(this.team.time);
     }
 
-    stringTime(seconds: number){
-        return this.toTimeString(seconds);
+    stringTime(seconds: number) {
+      return this.toTimeString(seconds);
     }
 
-    getAgeText(){
-        var age = !this.isMasters ? "" : this.showDetails ? this.team.age : this.team.ageGroup;
-        return age + this.genderShort();
+    getAgeText() {
+      const age = !this.isMasters ? '' : this.showDetails ? this.team.age : this.team.ageGroup;
+      return age + this.genderShort();
     }
 
     toggleDetails() {
-        this.showDetails = !this.showDetails;
+      this.showDetails = !this.showDetails;
     }
-
 }

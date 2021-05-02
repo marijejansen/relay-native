@@ -1,10 +1,8 @@
-import { Component, Vue, Prop, Emit } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import './Selector.scss';
 
-
 @Component({})
-export default class RelaySelector extends Vue{
-    
+export default class RelaySelector extends Vue {
     @Prop()
     private activeNumber: number;
 
@@ -19,25 +17,25 @@ export default class RelaySelector extends Vue{
     private numberOfElements = this.items.length;
 
     get activeItem(): string {
-        return this.items[this.number];
+      return this.items[this.number];
     }
 
-    itemName(number: number){
-        return this.items[number];
+    itemName(number: number) {
+      return this.items[number];
     }
 
     next() {
-        var num = this.numberOfElements;
-        this.setItem((this.number + 1) % num);
+      const num = this.numberOfElements;
+      this.setItem((this.number + 1) % num);
     }
 
     previous() {
-        var num = this.numberOfElements;
-        this.setItem(((this.number + num-1) % num));
+      const num = this.numberOfElements;
+      this.setItem(((this.number + num - 1) % num));
     }
 
-    setItem(newNumber: number){
-        this.number = newNumber;
-        this.changeItem(this.number);
+    setItem(newNumber: number) {
+      this.number = newNumber;
+      this.changeItem(this.number);
     }
 }

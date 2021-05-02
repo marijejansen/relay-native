@@ -1,7 +1,6 @@
 import { ICourseTimes } from './interfaces/ICourseTimes';
 
 export class CourseTimes implements ICourseTimes {
-     
     freestyle50M: number;
     freestyle100M: number;
     freestyle200M: number;
@@ -12,7 +11,7 @@ export class CourseTimes implements ICourseTimes {
     butterfly50M: number;
     butterfly100M: number;
 
-   constructor() {
+    constructor() {
       this.freestyle50M = 0;
       this.freestyle100M = 0;
       this.freestyle200M = 0;
@@ -22,5 +21,5 @@ export class CourseTimes implements ICourseTimes {
       this.breaststroke100M = 0;
       this.butterfly50M = 0;
       this.butterfly100M = 0;
-   }
+    }
 }
