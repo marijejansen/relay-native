@@ -53,10 +53,10 @@ const store: StoreOptions<RootState> = {
     },
 
     addToSelectedSwimmers(state, swimmer: Swimmer) {
-      var index = state.selectedSwimmers.findIndex(sw => sw.id == swimmer.id);
+      var index = state.selectedSwimmers.findIndex(sw => sw.id === swimmer.id);
       if (index != -1) {
         state.selectedSwimmers[index] = swimmer;
-      } else {
+      } else {       
         state.selectedSwimmers.push(swimmer);
       }
     },

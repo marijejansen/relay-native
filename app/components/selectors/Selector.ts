@@ -12,7 +12,7 @@ export default class RelaySelector extends Vue{
     private items: string[];
 
     @Emit('changeItem')
-    changeItem(time: number) { }
+    changeItem(time: number) {}
 
     private number: number = this.activeNumber;
 
@@ -20,6 +20,10 @@ export default class RelaySelector extends Vue{
 
     get activeItem(): string {
         return this.items[this.number];
+    }
+
+    itemName(number: number){
+        return this.items[number];
     }
 
     next() {

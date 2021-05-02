@@ -20,13 +20,13 @@
       >
         <TextField
           column="0"
-          v-model="swimmer.firstName"
+          v-model="firstName"
           :hint="$t('options.addSwimmer.firstName')"
           returnKeyType="next"
         />
         <TextField
           column="1"
-          v-model="swimmer.lastName"
+          v-model="lastName"
           :hint="$t('options.addSwimmer.lastName')"
         />
         <TextField
@@ -34,20 +34,21 @@
           row="1"
           column="0"
           colSpan="2"
-          v-model="swimmer.clubName"
+          v-model="clubName"
         />
         <TextField
           :class="!validYear ? 'invalid' : ''"
           row="2"
           column="0"
-          v-model="swimmer.birthYear"
+          v-model="birthYear"
           keyboardType="number"
           :hint="$t('options.addSwimmer.birthYear')"
         />
         <WrapLayout row="2" column="1" class="add-gender">
           <Selector
-            :active-number="swimmer.gender"
+            :active-number="genderIndex"
             :items="genders"
+            @changeItem="setGender"
           ></Selector>
         </WrapLayout>
         <Button row="3" colSpan="2" :text="$t('options.addSwimmer.save')" @tap="addSwimmer()" :class="!canAddSwimmer ? 'disabled' : buttonIsClicked ? 'active' : ''" />

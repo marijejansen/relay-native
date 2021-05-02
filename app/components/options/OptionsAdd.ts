@@ -14,19 +14,15 @@ export default class OptionsAdd extends Vue {
 
     private checkValues: boolean = false;
 
-    private swimmer: Swimmer = {
-        id: null,
-        firstName: "",
-        lastName: "",
-        clubName: "",
-        position: null,
-        birthYear: null,
-        gender: 0,
-        shortCourseTimes: null,
-        longCourseTimes: null,
-        time: null,
-        isCustom: true
-    };
+    private firstName: string = "";
+
+    private lastName: string = "";
+
+    private clubName: string = "";
+
+    private birthYear: number = null;
+
+    private genderIndex: number = 0;
 
     toggleAddDetails() {
         this.showAddDetails = !this.showAddDetails;
@@ -37,14 +33,18 @@ export default class OptionsAdd extends Vue {
         return items;
     }
 
-    get validYear(){
-        if(this.checkValues){
-            var year = this.swimmer.birthYear;
+    setGender(gender: number) {
+        this.genderIndex = gender;
+    }
+
+    get validYear() {
+        if (this.checkValues) {
+            var year = this.birthYear;
             var thisYear = (new Date()).getFullYear();
-            if(year != null) {
-                if(!Number.isInteger(parseInt(year.toString())) || year < 1900 || year > thisYear){
+            if (year != null) {
+                if (!Number.isInteger(parseInt(year.toString())) || year < 1900 || year > thisYear) {
                     return false;
-                }        
+                }
             }
         }
         return true;
@@ -54,17 +54,43 @@ export default class OptionsAdd extends Vue {
         this.checkValues = true;
         if (this.canAddSwimmer) {
             this.activateButton();
-            setTimeout(() => {
-                this.swimmer.id = this.getNextCustomId();
-                store.commit("addToSelectedSwimmers", this.swimmer);
+
+            const swimmer = this.getSwimmerModel();
+            await setTimeout(() => {
+                store.commit("addToSelectedSwimmers", swimmer);
                 store.dispatch('saveToStorage');
                 this.closeAddAndShowSwimmerAdded();
+                this.clearFields();
             }, 800);
         }
     }
 
+    getSwimmerModel(): Swimmer {
+        return {
+            id: this.getNextCustomId(),
+            firstName: this.firstName,
+            lastName: this.lastName,
+            clubName: this.clubName,
+            position: null,
+            birthYear: Number(this.birthYear),
+            gender: this.genderIndex,
+            shortCourseTimes: null,
+            longCourseTimes: null,
+            time: null,
+            isCustom: true
+        }
+    }
+
+    clearFields() {
+        this.firstName = "";
+        this.lastName = "";
+        this.clubName = "";
+        this.birthYear = null;
+        this.genderIndex = 0;
+    }
+
     get canAddSwimmer(): boolean {
-        if (!this.swimmer.firstName || !this.swimmer.lastName || !this.swimmer.birthYear || !this.validYear) {
+        if (!this.firstName || !this.lastName || !this.birthYear || !this.validYear) {
             return false;
         }
         return true;
@@ -83,7 +109,6 @@ export default class OptionsAdd extends Vue {
 
     getNextCustomId() {
         var swimmers: Swimmer[] = store.getters.getAllSelected;
-
         var customIds = swimmers.map(p => p.id).filter(id => id > 999999900).sort();
         var lowest = -1;
         for (var i = 0; i < customIds.length; i++) {
