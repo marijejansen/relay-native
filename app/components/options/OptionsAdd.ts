@@ -50,7 +50,7 @@ export default class OptionsAdd extends Vue {
       return true;
     }
 
-    async addSwimmer() {
+    async addSwimmer(): Promise<void> {
       this.checkValues = true;
       if (this.canAddSwimmer) {
         this.activateButton();

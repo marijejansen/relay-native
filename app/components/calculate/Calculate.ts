@@ -52,7 +52,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
       // return selection;
     }
 
-    relayLabel() {
+    relayLabel(): string {
       return this.getRelayString(Relay[this.relay]);
     }
 
@@ -60,31 +60,31 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
       return this.getCourseString(Course[this.course]);
     }
 
-    nextRelay() {
+    nextRelay(): void {
       this.setRelay((this.relay + 1) % 5);
     }
 
-    prevRelay() {
+    prevRelay(): void {
       this.setRelay(((this.relay + 4) % 5));
     }
 
-    setRelay(newNumber: number) {
+    setRelay(newNumber: number): void {
       this.relay = newNumber;
     }
 
-    nextCourse() {
+    nextCourse(): void {
       this.setCourse((this.course + 1) % 2);
     }
 
-    setCourse(newNumber: number) {
+    setCourse(newNumber: number): void {
       this.course = newNumber;
     }
 
-    get canCalculate() {
+    get canCalculate(): boolean {
       return this.selected.length >= 4;
     }
 
-    calculate() {
+    calculate(): void {
       if (this.canCalculate) {
         this.calculated = true;
         this.showCalculateTop = true;
@@ -95,7 +95,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
       }
     }
 
-    setClicked() {
+    setClicked(): void {
       this.clicked = true;
       setTimeout(() => { this.clicked = false; }, 300);
     }
@@ -112,7 +112,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
       }
     }
 
-    openSelection() {
+    openSelection(): void {
       this.selectionIsClosed = false;
     }
 }
