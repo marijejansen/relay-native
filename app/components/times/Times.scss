@@ -1,71 +1,64 @@
 @import "../../colors.scss";
 
-.details-label {
-    color: $dark-grey;
-    margin: 5px 0;
-    height: 120px;
-    > * {
-        padding: 30px 0 30px 20px;
-    }
-
-    background-color: white;
-
-    > Image {
-        height: 80px;
-        width: 80px;
-        margin: 0 30px;
-    }
-
-    > Label.last{
-        border-color: $yellow;
-        border-width: 0 6 0 0;
-
-        &.loaded {
-            border-color: $green;
+.times {
+    .details-label {
+        color: $dark-grey;
+        margin: 3dp 0;
+        height: 45dp;
+        > * {
+            padding: 10dp 0 10dp 7dp;
+        }
+    
+        background-color: white;
+    
+        > Image {
+            height: 27dp;
+            height: 27dp;
+            margin: 0 11dp;
+        }
+    
+        > Label.last{
+            border-color: $yellow;
+            border-width: 0 6 0 0;
+    
+            &.loaded {
+                border-color: $green;
+            }
         }
     }
-}
-
-.details > * {
-    font-size: 12;
-    padding: 0px 5px;
-    text-align: center;
-}
-
-.times-top {
-    background-color: $base-blue;
-    padding: 10px 3px;
-    margin: 15px 0;
-    border-radius: 10px;
-    > * {
-        background-color: $base-blue;
+    
+    .details > * {
+        font-size: 12;
+        padding: 0px 2dp;
         text-align: center;
-        font-size: 14;
-        padding: 0px;
-        color: $white;
     }
-}
-
-//remove?
-.edit-icon {
-    font-family: Icons;
-    font-size: 22;
-    color: $grey;
-}
-
-.edit > * {
-    text-align: start;
-    padding: 19px;
-    font-size: 16;
-}
-
-TextField {
-    padding: 19px;
-    background-color: #ebebeb;
-    // font-size: 16;
-}
-
-.single-time {
-    margin: 0;
-    padding: 0;
+    
+    .times-top {
+        background-color: $base-blue;
+        padding: 3dp 1dp;
+        margin: 5dp 0;
+        border-radius: 4dp;
+        > * {
+            background-color: $base-blue;
+            text-align: center;
+            font-size: 14;
+            padding: 0dp;
+            color: $white;
+        }
+    }
+    
+    .edit > * {
+        text-align: start;
+        padding: 6.5dp;
+        font-size: 16;
+    }
+    
+    TextField {
+        background-color: #ebebeb;
+    }
+    
+    .single-time {
+        margin: 0;
+        padding: 0;
+    }   
 }

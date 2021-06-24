@@ -1,5 +1,5 @@
 <template>
-<GridLayout class="container" rows="auto, auto, *, auto">
+<GridLayout class="container times" rows="auto, auto, *, auto">
   <Selector row="0" :active-number="courseNumber" :items="courses" @changeItem="setCourse" ></Selector>
     <GridLayout v-if="showTop" row="1" columns="*,*,*,*,*,*,*,*,*" class="times-top">
       <Label
