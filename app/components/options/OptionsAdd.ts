@@ -24,7 +24,7 @@ export default class OptionsAdd extends Vue {
 
     private genderIndex: number = 0;
 
-    toggleAddDetails() {
+    toggleAddDetails(): void {
         this.showAddDetails = !this.showAddDetails;
     }
 
@@ -33,11 +33,11 @@ export default class OptionsAdd extends Vue {
         return items;
     }
 
-    setGender(gender: number) {
+    setGender(gender: number): void {
         this.genderIndex = gender;
     }
 
-    get validYear() {
+    get validYear(): boolean {
         if (this.checkValues) {
             var year = this.birthYear;
             var thisYear = (new Date()).getFullYear();
@@ -50,19 +50,21 @@ export default class OptionsAdd extends Vue {
         return true;
     }
 
-    async addSwimmer() {
-        this.checkValues = true;
-        if (this.canAddSwimmer) {
-            this.activateButton();
+    async addSwimmer(): Promise<void> {
+      this.checkValues = true;
+      if (this.canAddSwimmer) {
+        this.activateButton();
 
-            const swimmer = this.getSwimmerModel();
-            await setTimeout(() => {
-                store.commit("addToSelectedSwimmers", swimmer);
-                store.dispatch('saveToStorage');
-                this.closeAddAndShowSwimmerAdded();
-                this.clearFields();
-            }, 800);
-        }
+        const swimmer = this.getSwimmerModel();
+        await setTimeout(() => {
+          store.commit('addToSelectedSwimmers', swimmer);
+          store.commit('calculate/addToSelectedForCalculation', swimmer.id);
+
+          store.dispatch('saveToStorage');
+          this.closeAddAndShowSwimmerAdded();
+          this.clearFields();
+        }, 800);
+      }
     }
 
     getSwimmerModel(): Swimmer {
@@ -96,18 +98,18 @@ export default class OptionsAdd extends Vue {
         return true;
     }
 
-    activateButton() {
+    activateButton(): void {
         this.buttonIsClicked = true;
         setTimeout(() => { this.buttonIsClicked = false }, 800);
     }
 
-    closeAddAndShowSwimmerAdded() {
+    closeAddAndShowSwimmerAdded(): void {
         this.showAddDetails = false;
         this.showSwimmerAdded = true;
         setTimeout(() => { this.showSwimmerAdded = false }, 2000);
     }
 
-    getNextCustomId() {
+    getNextCustomId(): number {
         var swimmers: Swimmer[] = store.getters.getAllSelected;
         var customIds = swimmers.map(p => p.id).filter(id => id > 999999900).sort();
         var lowest = -1;
