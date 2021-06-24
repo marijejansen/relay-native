@@ -5,7 +5,7 @@ import { Swimmer } from '@/models/Swimmer';
 import store from '@/store/index';
 
 @Component({ components: { Selector } })
-export default class OptionsAdd extends Vue {
+export default class ManualAdd extends Vue {
     private showAddDetails: boolean = false;
 
     private showSwimmerAdded: boolean = false;

@@ -42,10 +42,6 @@ export default class Search extends Vue {
     }
   }
 
-  hasSelection() {
-    return this.selection().length > 0;
-  }
-
   async search() {
     this.setSearchActive();
     this.lastInput.dismissSoftInput();

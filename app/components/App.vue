@@ -28,7 +28,7 @@
       androidSelectedTabHighlightColor="#ffc400"
     >
       <TabViewItem :title="$t('search.title')">
-        <Search></Search>
+        <Swimmers></Swimmers>
       </TabViewItem>
       <TabViewItem :title="$t('times.title')">
         <Times></Times>
@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import Search from "./search/Search";
+import Swimmers from "./search/Swimmers";
 import Times from "./times/Times";
 import Calculate from "./calculate/Calculate";
 import Options from "./options/Options";
@@ -49,10 +49,10 @@ import store from '@/store/index';
 
 export default {
   components: {
-    Search,
     Times,
     Calculate,
     Options,
+    Swimmers
   },
   data() {
     return {

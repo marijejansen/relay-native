@@ -1,5 +1,5 @@
 <template>
-  <GridLayout class="options-add">
+  <GridLayout class="manual-add">
     <GridLayout
       row="4"
       colSpan="2"
@@ -7,12 +7,8 @@
       rows="auto, auto"
       columns="8*, 2*"
     >
-      <Label row="0" col="0" text="Add Swimmer" @tap="toggleAddDetails"></Label>
-      <Label row="0" col="1" text="+" @tap="toggleAddDetails"></Label>
-      <Label class="added" row="1" colSpan="2" v-if="showSwimmerAdded" text="V swimmer added"></Label>
       <GridLayout
         row="1"
-        v-if="showAddDetails"
         colSpan="2"
         class=""
         rows="auto, auto, auto, auto"
@@ -59,5 +55,5 @@
 
 <script lang="ts">
 //@ts-ignore
-export { default } from "./OptionsAdd.ts";
+export { default } from "./ManualAdd.ts";
 </script>

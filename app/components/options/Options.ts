@@ -3,9 +3,8 @@ import './Options.scss'
 import store from '@/store/index';
 import translate from '@/locales/i18n'
 import Selector from '@/components/selectors/Selector';
-import OptionsAdd from './OptionsAdd';
 
-@Component({ components: { OptionsAdd, Selector } })
+@Component({ components: { Selector } })
 export default class Options extends Vue {
 
     private isMasters: number;

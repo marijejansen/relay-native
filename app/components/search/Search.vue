@@ -38,7 +38,6 @@
             ></SearchItem>
             </WrapLayout>
             <Label class="no-results" v-if="searched && !hasResults" :text="$t('search.noResults')"/>
-          <Selection height="50%" row="2" v-if="hasSelection()"></Selection>
         </StackLayout>
       </ScrollView>
     </GridLayout>

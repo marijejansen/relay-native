@@ -3,7 +3,11 @@
         "message": "Relay Calculator"
     },
     "search": {
-        "title": "search",
+        "pageoption": {
+            "search": "search",
+            "manual": "manual"
+        },
+        "title": "swimmers",
         "firstname": "First name",
         "lastname": "Last name",
         "selection": "Selection",

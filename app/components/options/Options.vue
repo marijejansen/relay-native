@@ -8,7 +8,6 @@
     <Label row="3" class="option-label" column="0" :text="$t('options.labels.calculateFrom')"/>
     <Selector row="3" column="1" :active-number="fromYearIndex" :items="getFromYearItems" @changeItem="setFromYear"></Selector>
     <Button row="4" colSpan="2" :text="$t('options.saveOptions')" @tap="saveOptions()" :class="!optionsChanged ? 'disabled' : buttonIsClicked ? 'active' : ''"/>
-    <OptionsAdd row="5" colSpan="2"></OptionsAdd>
 </GridLayout>
 </template>    
 

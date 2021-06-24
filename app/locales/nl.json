@@ -3,7 +3,11 @@
     "message": "Relay Calculator"
   },
   "search": {
-    "title": "zoeken",
+    "title": "zwemmers",
+    "pageoption": {
+      "search": "zoeken",
+      "manual": "handmatig"
+  },
     "firstname": "Voornaam",
     "lastname": "Achternaam",
     "selection": "Selectie",
