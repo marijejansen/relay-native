@@ -1,5 +1,5 @@
 <template>
-  <GridLayout rows="auto, *" class="search-layout container">
+  <GridLayout rows="auto, *" class="search-layout">
     <GridLayout row="0" class="search-bar" orientation="horizontal" columns="3*,3*,1*">
       <TextField
         column="0"

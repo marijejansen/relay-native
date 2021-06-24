@@ -1,11 +1,10 @@
 @import "../../colors.scss";
 
 GridLayout.calculate {
-
     .selection-item {
         color: $dark-grey;
-        padding: 6px 0;
-        height: 120px;
+        padding: 2dp 0;
+        height: 45dp;
 
         .first {
             border-color: $yellow;
@@ -23,17 +22,17 @@ GridLayout.calculate {
             }
         }
     }
-    
+
     .selection-closed {
-        margin: 6px 0;
-        padding-left: 20px;
+        margin: 2dp 0;
+        padding-left: 7dp;
         background-color: $white;
         font-style: italic;
 
         > Image {
-            height: 80px;
-            width: 80px;
-            margin: 0 30px;
+            height: 27dp;
+            height: 27dp;
+            margin: 0 11dp;
         }
     }
 
@@ -49,7 +48,7 @@ GridLayout.calculate {
         > * {
             text-align: center;
             font-size: 16;
-            padding: 15px 0 15px 5px;
+            padding: 5dp 0 5dp 2dp;
             color: $dark-grey;
         }
         .ind-time {
@@ -58,21 +57,20 @@ GridLayout.calculate {
         }
 
         &.top {
-            padding-top: 14px;
+            padding-top: 5dp;
         }
     }
 
-    .team-first{
-        padding-top: 0px;
+    .team-first {
+        padding-top: 0dp;
     }
 
-    Button{
-    
-    &.disabled {
-        background-color: $button-disable;
+    Button {
+        &.disabled {
+            background-color: $button-disable;
+        }
+        &.active {
+            background-color: $yellow;
+        }
     }
-    &.active {
-        background-color: $yellow;
-    }
-}
 }

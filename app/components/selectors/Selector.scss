@@ -1,7 +1,8 @@
 @import "../../colors.scss";
 
 .selector {
-    margin: 5px 0px 15px;
+    height: 42dp;
+    margin: 2dp 0 6dp;
     background-color: $white;
 
     text-align: center;
@@ -13,8 +14,8 @@
 
     Image {
         background-color: $white;
-        height: 100px;
-        width: 100px;
+        height: 34dp;
+        width: 34dp;
 
         &.first {
             rotate: 180;

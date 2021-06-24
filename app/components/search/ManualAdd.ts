@@ -8,8 +8,6 @@ import store from '@/store/index';
 export default class ManualAdd extends Vue {
     private showAddDetails: boolean = false;
 
-    private showSwimmerAdded: boolean = false;
-
     private buttonIsClicked: boolean = false;
 
     private checkValues: boolean = false;
@@ -61,7 +59,6 @@ export default class ManualAdd extends Vue {
           store.commit('calculate/addToSelectedForCalculation', swimmer.id);
 
           store.dispatch('saveToStorage');
-          this.closeAddAndShowSwimmerAdded();
           this.clearFields();
         }, 800);
       }
@@ -101,12 +98,6 @@ export default class ManualAdd extends Vue {
     activateButton(): void {
         this.buttonIsClicked = true;
         setTimeout(() => { this.buttonIsClicked = false }, 800);
-    }
-
-    closeAddAndShowSwimmerAdded(): void {
-        this.showAddDetails = false;
-        this.showSwimmerAdded = true;
-        setTimeout(() => { this.showSwimmerAdded = false }, 2000);
     }
 
     getNextCustomId(): number {
