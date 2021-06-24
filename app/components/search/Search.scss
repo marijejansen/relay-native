@@ -3,23 +3,23 @@
 .swimmers-layout {
     .search-bar {
         > * {
-            height: 140px;
+            height: 48dp;
             border-width: 2px;
             border: 2px solid $grey;
-            border-radius: 10px;
-            padding-bottom: 30px;
-            margin: 10px 0 20px;
+            border-radius: 4dp;
+            padding-bottom: 10dp;
+            margin: 3dp 0 7dp;
         }
 
         TextField {
             background-color: $white;
-            padding-left: 15x;
-            padding-top: 35px;
-            margin-right: 10px;
+            padding-left: 12dp;
+            padding-top: 12dp;
+            margin-right: 3dp;
         }
 
         .search-button {
-            padding: 10px 14px;
+            padding: 3dp 4dp;
             background-color: $button-yellow;
 
             &.active {
@@ -35,8 +35,8 @@
     }
 
     .search-result {
-        height: 120px;
-        padding: 6px 0;
+        height: 45dp;
+        padding: 2dp 0;
 
         &.clicked Label {
             background-color: $select-item;
@@ -66,15 +66,14 @@
     }
     
     .manual-add {
-
         TextField {
-            height: 140px;
+            height: 48dp;
             border-width: 2px;
             border: 2px solid $grey;
             background-color: $white;
-            padding-left: 15x;
-            padding-top: 35px;
-            margin: 20px 5px 0 5px;
+            border-radius: 4dp;
+            padding-bottom: 10dp;
+            margin: 3dp 3dp 7dp;         
 
             &.invalid {
                 border-width: 4px;
@@ -83,35 +82,32 @@
         }
 
         Button {
-            margin-top: 30px;
+            margin: 10dp 3dp;
         }
-
-        .added {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 22;
-            background-color: $background-grey;
-        }
-
 
         .add-gender {
             border-width: 2px;
             border: 2px solid $grey;
-            margin: 20px 5px 0 5px;
-            height: 140px;
+            height: 48dp;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 3dp 3dp 7dp;         
 
             > * {
                 padding: 0px;
                 margin: 0px;
             }
-            .selector Label {
-                padding-top: 32px;
-                justify-content: center;
-                text-align: center;
-            }
+            
+            .selector {
+                height: 48dp;
+
+                Label {
+   
+                    justify-content: center;
+                    text-align: center;
+                }
+            }      
         }
     }
 }
