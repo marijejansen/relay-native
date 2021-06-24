@@ -81,7 +81,7 @@ GridLayout > * {
 }
 
 Image {
-  height: 70px;
-  width: 70px;
+  height: 24dp;
+  width: 24dp;
 }
 </style>
