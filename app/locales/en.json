@@ -127,5 +127,12 @@
             },
             "save": "add swimmer"
         }
-    }
+    },
+    "storage": {
+        "save": "save",
+        "load": "load",
+        "date": "date",
+        "number": "number",
+        "description": "description"
+      }
 }

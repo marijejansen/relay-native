@@ -7,7 +7,7 @@
           class="load-icon"
           src="~/assets/images/load.png"
           stretch="fill"
-          @tap="loadData"
+          @tap="toggleStorage"
           col="1"
         />
         <Image
@@ -20,6 +20,7 @@
       </GridLayout> </ActionBar
     >/>
     <Options v-if="optionsOpen"></Options>
+    <Storage v-else-if="storageOpen"></Storage>
     <TabView
       v-else
       android:tabBackgroundColor="#29648A"
@@ -45,26 +46,30 @@ import Swimmers from "./search/Swimmers";
 import Times from "./times/Times";
 import Calculate from "./calculate/Calculate";
 import Options from "./options/Options";
-import store from '@/store/index';
+import Storage from './storage/Storage';
 
 export default {
   components: {
     Times,
     Calculate,
     Options,
-    Swimmers
+    Swimmers,
+    Storage
   },
   data() {
     return {
       optionsOpen: false,
+      storageOpen: false
     };
   },
   methods: {
     toggleOptions: function () {
+      this.storageOpen = false;
       this.optionsOpen = !this.optionsOpen;
     },
-    loadData: function () {
-      store.dispatch('getFromStorage');
+    toggleStorage: function () {
+      this.optionsOpen = false;
+      this.storageOpen = !this.storageOpen;
     },
   },
 };

@@ -127,5 +127,12 @@
       },
       "save": "nieuwe zwemmer toevoegen"
     }
+  },
+  "storage": {
+    "save": "opslaan",
+    "load": "ophalen",
+    "date": "datum",
+    "number": "aantal",
+    "description": "beschrijving"
   }
 }

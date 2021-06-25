@@ -1,0 +1,33 @@
+@import "../../colors.scss";
+
+.storage {
+    .storage-item {
+        color: $dark-grey;
+        margin: 3dp 0;
+        height: 45dp;
+        > * {
+            margin: 3dp 0 ;
+            background-color: white;
+        }
+    
+        > Image {
+            height: 39dp;
+            width: 39dp;
+            padding: 8dp;
+        }
+    }
+
+    .load-top {
+        background-color: $base-blue;
+        padding: 3dp 1dp;
+        margin: 5dp 0;
+        border-radius: 4dp;
+        > * {
+            background-color: $base-blue;
+            text-align: start;
+            font-size: 14;
+            padding: 0 0 0 5dp;
+            color: $white;
+        }
+    }
+}
