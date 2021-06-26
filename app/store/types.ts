@@ -1,3 +1,4 @@
+import { StorageData } from '@/models/StorageData';
 import { Swimmer } from '@/models/Swimmer';
 
 export interface RootState {
@@ -6,4 +7,5 @@ export interface RootState {
     fromYear: number;
     forYear: number,
     isMasters: boolean,
+    storageData: Array<StorageData>
   }

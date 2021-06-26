@@ -3,25 +3,42 @@
 .storage {
     .storage-title {
         background-color: $background-grey;
+        font-size: 19;
     }
 
-    .storage-item {
-        color: $dark-grey;
-        margin: 3dp 0;
-        height: 45dp;
-        > * {
-            margin: 3dp 0 ;
-            background-color: white;
+    Button.clicked {
+        background-color: $yellow;
+    }
+
+    .load-data {
+        .storage-item {
+            color: $dark-grey;
+            margin: 3dp 0;
+            height: 45dp;
+            > * {
+                margin: 3dp 0;
+                background-color: white;
+            }
         }
-    
-        > Image {
-            height: 39dp;
-            width: 39dp;
-            padding: 8dp;
+
+        Button {
+            margin-right: 2dp;
+        }
+
+        Button.delete {
+            margin-left: 2dp;
+            margin-right: 0dp;
+
+            background-color: $remove-red;
+
+            &.clicked {
+                background-color: $active-red;
+            }
         }
     }
 
-    .load-top,.save-top {
+    .load-top,
+    .save-top {
         background-color: $base-blue;
         padding: 3dp 1dp;
         margin: 5dp 0;
@@ -37,13 +54,12 @@
 
     .add-save {
         height: 48dp;
-        margin: 3dp 0dp 7dp;  
+        margin: 3dp 0dp 7dp;
         TextField {
-   
-        border-width: 2px;
-        border: 2px solid $grey;
-        background-color: $white;
-        border-radius: 4dp;
+            border-width: 2px;
+            border: 2px solid $grey;
+            background-color: $white;
+            border-radius: 4dp;
+        }
     }
-}
 }

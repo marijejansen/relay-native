@@ -134,8 +134,9 @@
     "date": "datum",
     "number": "aantal",
     "description": "beschrijving",
-    "getdata": "opgeslagen zwemmers ophalen",
-    "loadtitle": "opgeslagen zwemmers ophalen",
-    "savetitle": "zwemmers opslaan"
+    "getdata": "Opgeslagen zwemmers ophalen",
+    "deletedata": "verwijderen",
+    "loadtitle": "Opgeslagen zwemmers ophalen",
+    "savetitle": "Huidige selectie zwemmers opslaan"
   }
 }

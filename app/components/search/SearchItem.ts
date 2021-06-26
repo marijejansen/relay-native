@@ -25,7 +25,6 @@ export default class SearchItem extends Vue {
     async updateWithTimes(id: number) {
         store.dispatch('updateWithTimes', id).then(response => {
             store.commit('search/setTimesLoaded', id);
-            store.dispatch('saveToStorage');
         });
     }
 }

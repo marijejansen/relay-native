@@ -132,10 +132,11 @@
         "save": "save",
         "load": "load",
         "date": "date",
-        "number": "number",
+        "number": "amount",
         "description": "description",
-        "getdata": "get saved swimmers",
-        "loadtitle": "get saved swimmers",
-        "savetitle": "save current swimmers"
+        "getdata": "Get saved swimmers",
+        "deletedata": "delete",
+        "loadtitle": "Get saved swimmers",
+        "savetitle": "Save currently selected swimmers"
       }
 }

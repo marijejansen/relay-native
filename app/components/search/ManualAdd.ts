@@ -57,8 +57,6 @@ export default class ManualAdd extends Vue {
         await setTimeout(() => {
           store.commit('addToSelectedSwimmers', swimmer);
           store.commit('calculate/addToSelectedForCalculation', swimmer.id);
-
-          store.dispatch('saveToStorage');
           this.clearFields();
         }, 800);
       }

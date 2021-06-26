@@ -5,6 +5,8 @@ import { Swimmer } from '@/models/Swimmer';
 import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
 import { calculate } from './calculate';
+import { StorageData } from "@/models/StorageData";
+
 
 const appSettings = require("tns-core-modules/application-settings");
 Vue.use(Vuex);
@@ -21,6 +23,7 @@ const store: StoreOptions<RootState> = {
     fromYear: new Date().getFullYear() - 1,
     forYear: (new Date()).getFullYear(),
     isMasters: true,
+    storageData: Array<StorageData>()
   },
 
   getters: {
@@ -44,7 +47,11 @@ const store: StoreOptions<RootState> = {
       return state.forYear;
     },
 
+    getStorageData(state): StorageData[] {
+      return state.storageData
+    }
   },
+
 
   mutations: {
 
@@ -92,17 +99,21 @@ const store: StoreOptions<RootState> = {
 
   actions: {
 
-    saveToStorage({getters}) {
-      var swimmers = getters.getAllSelected;
-      appSettings.setString("swimmers", JSON.stringify(swimmers));
+    saveToStorage({getters}, storageData: StorageData) {
+      const currentData: StorageData[] = JSON.parse(appSettings.getString("swimmers", "[]"));
+      currentData.push(storageData);
+      appSettings.setString("swimmers", JSON.stringify(currentData));
     },
 
-    getFromStorage({commit}) {
-      const swimmers = JSON.parse(appSettings.getString("swimmers", "{}"));    
-      this.state.selectedSwimmers = swimmers;
-      swimmers.forEach(sw => {
-        commit('search/setTimesLoaded', sw.id);
-      });
+    getFromStorage(): void {
+      const storageData: StorageData[] = JSON.parse(appSettings.getString("swimmers", "[]"));    
+      this.state.storageData = storageData;    
+    },
+
+    deleteInStorage({}, id: number): void {
+      var currentData: StorageData[] = JSON.parse(appSettings.getString("swimmers", "[]"));
+      currentData = currentData.filter(d => d.id !== id);
+      appSettings.setString("swimmers", JSON.stringify(currentData));
     },
 
     async updateAllWithTimes({ dispatch, getters }) {
