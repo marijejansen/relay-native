@@ -6,6 +6,7 @@ import searchRepository from '@/repositories/search-repository';
 import { search } from './search';
 import { calculate } from './calculate';
 import { StorageData } from "@/models/StorageData";
+import { ICourseTimes } from "@/models/interfaces/ICourseTimes";
 
 
 const appSettings = require("tns-core-modules/application-settings");
@@ -131,19 +132,35 @@ const store: StoreOptions<RootState> = {
       if (swimmer.isCustom) {
         return;
       }
-
+      var hasTimes: boolean = false;
       await searchRepository.getShortCourseTimes(swimmerId, year)
         .then((response) => {
-          commit("addSCTimes", { id: swimmerId, courseTimes: response })
+            hasTimes = getHasTimes(response);
+            commit("addSCTimes", { id: swimmerId, courseTimes: response })
         });
 
       await searchRepository.getLongCourseTimes(swimmerId, year)
         .then((response) => {
+          hasTimes = hasTimes || getHasTimes(response);
           commit("addLCTimes", { id: swimmerId, courseTimes: response });
         });
+
+      if (hasTimes) {
+        commit("search/setTimesLoaded", swimmerId);
+      }
       return "OK";
     },
-  }
+  },
 };
+
+function getHasTimes(times: ICourseTimes): boolean {
+  var hasTimes: boolean = false;
+  Object.values(times).forEach(val => {
+    if(val !== 0){
+      hasTimes = true;
+    }
+  });
+  return hasTimes;
+}
 
 export default new Vuex.Store<RootState>(store);

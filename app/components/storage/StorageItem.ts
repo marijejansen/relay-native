@@ -4,6 +4,7 @@ import translate from '@/locales/i18n'
 import store from '@/store/index';
 
 import './Storage.scss';
+import { ICourseTimes } from "@/models/interfaces/ICourseTimes";
 
 @Component({ components: {} })
 export default class StorageItem extends Vue {
@@ -35,6 +36,9 @@ export default class StorageItem extends Vue {
         this.item.swimmers.forEach(s => {
             store.commit("addToSelectedSwimmers", s);
             store.commit("calculate/addToSelectedForCalculation", s.id);
+            if(this.getHasTimes(s.shortCourseTimes) || this.getHasTimes(s.longCourseTimes)){
+                store.commit("search/setTimesLoaded", s.id);
+            }
         })
     }
 
@@ -55,4 +59,14 @@ export default class StorageItem extends Vue {
         var minutes = date.getMinutes();
         return `${day}/${month} ${hour < 10 ? "0" + hour : hour}:${minutes < 10 ? "0" + minutes : minutes}`;
     }
+
+    getHasTimes(times: ICourseTimes): boolean {
+        var hasTimes: boolean = false;
+        Object.values(times).forEach(val => {
+          if(val !== 0){
+            hasTimes = true;
+          }
+        });
+        return hasTimes;
+      }
 }

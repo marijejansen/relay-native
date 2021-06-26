@@ -83,6 +83,9 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         }
 
         store.commit("addToSelectedSwimmers", swimmer);
+        if(time !== 0 && time != undefined){
+            store.commit("search/setTimesLoaded", swimmer.id);
+        }
     }
 
     private getCourseKeyByIndex(index: number): keyof ICourseTimes{
