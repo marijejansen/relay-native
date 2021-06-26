@@ -1,6 +1,10 @@
 @import "../../colors.scss";
 
 .storage {
+    .storage-title {
+        background-color: $background-grey;
+    }
+
     .storage-item {
         color: $dark-grey;
         margin: 3dp 0;
@@ -17,7 +21,7 @@
         }
     }
 
-    .load-top {
+    .load-top,.save-top {
         background-color: $base-blue;
         padding: 3dp 1dp;
         margin: 5dp 0;
@@ -30,4 +34,16 @@
             color: $white;
         }
     }
+
+    .add-save {
+        height: 48dp;
+        margin: 3dp 0dp 7dp;  
+        TextField {
+   
+        border-width: 2px;
+        border: 2px solid $grey;
+        background-color: $white;
+        border-radius: 4dp;
+    }
+}
 }

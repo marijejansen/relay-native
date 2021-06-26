@@ -133,6 +133,9 @@
         "load": "load",
         "date": "date",
         "number": "number",
-        "description": "description"
+        "description": "description",
+        "getdata": "get saved swimmers",
+        "loadtitle": "get saved swimmers",
+        "savetitle": "save current swimmers"
       }
 }

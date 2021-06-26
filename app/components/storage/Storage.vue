@@ -1,35 +1,39 @@
 <template>
-<GridLayout class="container storage" rows="auto, *" columns="*">
-    
-    
-    <!-- <Label class="label-top" row="0" colSpan="2" :text="$t('storage.load')"/> -->
+  <GridLayout class="container storage" rows="auto, auto, 2*, auto">
+        <Label class="storage-title" row="0" :text="$t('storage.loadtitle')"></Label>
 
-    <GridLayout row="0" class="load-top" columns="3*, 2*, 6*">
-        <Label col="0" :text="$t('storage.date')"></Label>
-        <Label col="1" :text="$t('storage.number')"></Label>
-        <Label col="2" :text="$t('storage.description')"></Label>
+    <GridLayout row="1" class="load-top" columns="3*, 2*, 6*">
+      <Label col="0" :text="$t('storage.date')"></Label>
+      <Label col="1" :text="$t('storage.number')"></Label>
+      <Label col="2" :text="$t('storage.description')"></Label>
     </GridLayout>
-
-
-    <ListView row="1" for="item in selection()">
-              <v-template>
-
-    <GridLayout class="storage-item" columns="3*, 2*, 5*, *">
-        <Label col="0" :text="getDateString(item.date)"></Label>
-        <Label col="1" :text="item.numberOfSwimmers"></Label>
-        <Label col="2" :text="item.description"></Label>
-        <Image
-          class="load-icon"
-          src="~/assets/images/load_dark.png"
-          stretch="fill"
-          col="3"
-        />
-    </GridLayout>
-          </v-template>
-
+    <ListView row="2" for="item in selection()">
+      <v-template>
+        <StorageItem :item="item"></StorageItem>
+      </v-template>
     </ListView>
-</GridLayout>
 
+  <GridLayout row="3" rows="auto, auto, auto, auto">
+    <Label class="storage-title" row="0" :text="$t('storage.savetitle')"></Label>
+    <GridLayout row="1" columns="*, 4*" class="save-top">
+      <Label col="0" text="number"></Label>
+      <Label col="1" text="description"></Label>
+    </GridLayout>
+    <GridLayout class="add-save" row="2" columns="*, 4*" rows="*, auto">
+      <Label text="5" col="0" row="0"></Label>
+        <TextField
+          col="1"
+          row="0"
+          v-model="description"
+          :hint="$t('storage.description')"
+          returnKeyType="next"
+        />  
+    </GridLayout>
+        <Button row="3" :text="$t('storage.save')" colSpan="2"></Button>
+  </GridLayout>
+    </GridLayout>
+
+   
 </template>    
 
 <script lang="ts">

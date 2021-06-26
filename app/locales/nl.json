@@ -133,6 +133,9 @@
     "load": "ophalen",
     "date": "datum",
     "number": "aantal",
-    "description": "beschrijving"
+    "description": "beschrijving",
+    "getdata": "opgeslagen zwemmers ophalen",
+    "loadtitle": "opgeslagen zwemmers ophalen",
+    "savetitle": "zwemmers opslaan"
   }
 }
