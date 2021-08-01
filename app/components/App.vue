@@ -1,21 +1,30 @@
 <template>
   <Page class="page">
     <ActionBar :title="$t('actionbar.message')" android:flat="true">
-      <GridLayout columns="5*, *, *">
-        <Label class="title" :text="$t('actionbar.message')" col="0" />
+      <GridLayout columns="*, 5*, *, *">
+        <!-- <Label class="title" :text="$t('actionbar.message')" col="0" /> -->
+        <Image
+          v-if="!homeOpen"
+          class="home-icon"
+          :src="homeActive ? '~/assets/images/long-arrow-active.png' : '~/assets/images/long-arrow.png'"
+          stretch="fill"
+          @tap="toggleHome"
+          col="0"
+        />
+        <Label col="1"></Label>
         <Image
           class="load-icon"
-          src="~/assets/images/load.png"
+          :src="storageActive ? '~/assets/images/load-active.png' : '~/assets/images/load.png'"
           stretch="fill"
           @tap="toggleStorage"
-          col="1"
+          col="2"
         />
         <Image
           class="options-icon"
-          src="~/assets/images/options.png"
+          :src="optionsActive ? '~/assets/images/options-active.png' : '~/assets/images/options.png'"
           stretch="fill"
           @tap="toggleOptions"
-          col="2"
+          col="3"
         />
       </GridLayout> </ActionBar
     >/>
@@ -59,18 +68,43 @@ export default {
   data() {
     return {
       optionsOpen: false,
-      storageOpen: false
+      storageOpen: false,
+      homeOpen: true,
+      homeActive: false,
+      optionsActive: false,
+      storageActive: false,
     };
   },
   methods: {
     toggleOptions: function () {
-      this.storageOpen = false;
-      this.optionsOpen = !this.optionsOpen;
+      this.optionsActive = true;
+      setTimeout(() => { 
+        this.optionsActive = false
+        this.storageOpen = false;
+        this.homeOpen = this.optionsOpen;
+        this.optionsOpen = !this.optionsOpen;
+        }, 100);
     },
     toggleStorage: function () {
-      this.optionsOpen = false;
-      this.storageOpen = !this.storageOpen;
+      this.storageActive = true;
+      setTimeout(() => { 
+        this.storageOpen = true;   
+        this.storageActive = false
+        this.optionsOpen = false;
+        this.homeOpen = false;
+        }, 100);
     },
+    toggleHome: function () {
+      if(!this.homeOpen){
+        this.homeActive = true;
+        setTimeout(() => { 
+          this.homeActive = false;
+          this.homeOpen = true;
+          this.storageOpen = false;
+          this.optionsOpen = false;  
+        }, 100);
+      }
+    }
   },
 };
 </script>
@@ -85,7 +119,12 @@ GridLayout > * {
   color: #ffffff;
 }
 
+Image.home-icon {
+  left: 0px;
+}
+
 Image {
+  float: left;
   height: 24dp;
   width: 24dp;
 }
