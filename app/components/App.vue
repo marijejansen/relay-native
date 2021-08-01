@@ -33,7 +33,7 @@
     <TabView
       v-else
       android:tabBackgroundColor="#29648A"
-      android:tabTextColor="#c4ffdf"
+      android:tabTextColor="#a8b6bf"
       android:selectedTabTextColor="#ffffff"
       androidSelectedTabHighlightColor="#ffc400"
     >
@@ -80,9 +80,9 @@ export default {
       this.optionsActive = true;
       setTimeout(() => { 
         this.optionsActive = false
+        this.optionsOpen = true;
         this.storageOpen = false;
-        this.homeOpen = this.optionsOpen;
-        this.optionsOpen = !this.optionsOpen;
+        this.homeOpen = false;
         }, 100);
     },
     toggleStorage: function () {
