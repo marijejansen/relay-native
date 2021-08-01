@@ -1,33 +1,36 @@
 @import "../../colors.scss";
 
 .swimmers-layout {
-    .search-bar {
-        > * {
-            height: 48dp;
-            border-width: 2px;
-            border: 2px solid $grey;
-            border-radius: 4dp;
-            padding-bottom: 10dp;
-            margin: 3dp 0 7dp;
-        }
+    .search-layout {
+        height: 216dp;
+        .search-bar {
+            > * {
+                height: 48dp;
+                border-width: 2px;
+                border: 2px solid $grey;
+                border-radius: 4dp;
+                padding-bottom: 10dp;
+                margin: 3dp 0 7dp;
+            }
 
-        TextField {
-            background-color: $white;
-            padding-left: 12dp;
-            padding-top: 12dp;
-            margin-right: 3dp;
-        }
+            TextField {
+                background-color: $white;
+                padding-left: 12dp;
+                padding-top: 12dp;
+                margin-right: 3dp;
+            }
 
-        .search-button {
-            padding: 3dp 4dp;
-            background-color: $button-yellow;
+            .search-button {
+                padding: 3dp 4dp;
+                background-color: $button-yellow;
 
-            &.active {
-                background-color: $yellow;
+                &.active {
+                    background-color: $yellow;
+                }
             }
         }
     }
-    
+
     Label.no-results {
         background-color: $background-grey;
         font-size: 20;
@@ -64,8 +67,9 @@
             }
         }
     }
-    
+
     .manual-add {
+        height: 216dp;
         TextField {
             height: 48dp;
             border-width: 2px;
@@ -73,7 +77,7 @@
             background-color: $white;
             border-radius: 4dp;
             padding-bottom: 10dp;
-            margin: 3dp 3dp 7dp;         
+            margin: 3dp 3dp 3dp;
 
             &.invalid {
                 border-width: 4px;
@@ -82,7 +86,7 @@
         }
 
         Button {
-            margin: 10dp 3dp;
+            margin: 5dp 3dp;
         }
 
         .add-gender {
@@ -92,7 +96,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 3dp 3dp 7dp;         
+            margin: 3dp 3dp 3dp;
 
             > * {
                 padding: 0dp;
@@ -103,12 +107,10 @@
                 height: 48dp;
 
                 Label {
-   
                     justify-content: center;
                     text-align: center;
                 }
-            }      
+            }
         }
     }
 }
-
