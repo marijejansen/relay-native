@@ -27,33 +27,9 @@
       ></Label>
     </GridLayout>
 
-    <GridLayout
-      row="1"
-      v-if="showEdit"
-      class="details edit"
-      columns="*,*"
-      :rows="colsOrRowsForTimes('rows')"
-    >
-      <Label
-        class="edit-result"
-        col="0"
-        v-for="(val, key, index) in times"
-        v-bind:key="'ed_n' + item.id + index"
-        :row="getIndex(key)"
-        :text="strokeNameLong(key)"
-      ></Label>
-      <SingleTime
-        :id="'single_' + item.id + '' + index"
-        class="edit-result"
-        col="1"
-        v-for="(val, key, index) in times"
-        v-bind:key="'ed' + item.id + index"
-        :row="getIndex(key)"
-        :timeSeconds="val"
-        :index="getIndex(key)"
-        @saveTime="saveTime(index, $event)"
-      ></SingleTime>
-    </GridLayout>
+    <EditTimes key="sc-edittimes" v-if="showEdit && this.isShortCourse" :courseTimes="times" :swimmerId="item.id" :isShortCourse="true" @saveTime="saveTime"></EditTimes>
+    <EditTimes key="lc-edittimes" v-if="showEdit && !this.isShortCourse" :courseTimes="times" :swimmerId="item.id" :isShortCourse="false" @saveTime="saveTime"></EditTimes>
+
   </GridLayout>
 </template>
 

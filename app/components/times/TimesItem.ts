@@ -2,13 +2,13 @@ import { Component, Vue, Prop, Mixins, Emit } from "vue-property-decorator";
 import { Swimmer } from '@/models/Swimmer';
 import TimeFormatMixin from '@/mixins/TimeFormatMixin'
 import StrokeMixin from '@/mixins/StrokeMixin'
-import SingleTime from './SingleTime';
+import EditTimes from './EditTimes';
 import { ICourseTimes } from '@/models/interfaces/ICourseTimes';
 import { CourseTimes } from '@/models/CourseTimes';
 import { Course } from '@/models/Course';
 import store from '@/store/index';
 
-@Component({ components: { SingleTime } })
+@Component({ components: { EditTimes } })
 export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     @Prop()
@@ -22,13 +22,16 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     loadedTimes: Number[] = store.getters['search/timesLoaded'];
 
-
     @Emit('toggleShow')
     toggleShow(show: boolean, id: number) {
     }
 
     timeString(seconds: number) {
         return this.toTimeString(seconds);
+    }
+    
+    get isShortCourse(): boolean {
+        return this.course == Course.ShortCourse;
     }
 
     colsOrRowsForTimes(wat: string) {
@@ -43,10 +46,6 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
 
     getIndex(key: keyof ICourseTimes) : number {
         return this.getStrokeIndex(key);
-    }
-
-    strokeNameLong(stroke: keyof ICourseTimes) {
-        return this.getStrokeNameLong(stroke);
     }
 
     get timesLoaded() {

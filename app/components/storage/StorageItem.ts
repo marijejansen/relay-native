@@ -53,8 +53,8 @@ export default class StorageItem extends Vue {
 
     getDateString(date: Date): string {
         date = new Date(date);
-        var month = date.getMonth();
-        var day = date.getDay();        
+        var month = date.getMonth() + 1;
+        var day = date.getDate();       
         var hour = date.getHours();
         var minutes = date.getMinutes();
         return `${day}/${month} ${hour < 10 ? "0" + hour : hour}:${minutes < 10 ? "0" + minutes : minutes}`;

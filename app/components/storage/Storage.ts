@@ -45,6 +45,7 @@ export default class Storage extends Vue {
     }
 
     selection(): StorageData[] {
-        return store.getters.getStorageData;
+        var storageData: StorageData[] = store.getters.getStorageData;
+        return storageData.filter(sd => sd.date !== null && sd.date !== undefined);
     }
 }
