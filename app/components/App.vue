@@ -6,7 +6,11 @@
         <Image
           v-if="!homeOpen"
           class="home-icon"
-          :src="homeActive ? '~/assets/images/long-arrow-active.png' : '~/assets/images/long-arrow.png'"
+          :src="
+            homeActive
+              ? '~/assets/images/long-arrow-active.png'
+              : '~/assets/images/long-arrow.png'
+          "
           stretch="fill"
           @tap="toggleHome"
           col="0"
@@ -14,14 +18,22 @@
         <Label col="1"></Label>
         <Image
           class="load-icon"
-          :src="storageActive ? '~/assets/images/load-active.png' : '~/assets/images/load.png'"
+          :src="
+            storageActive
+              ? '~/assets/images/load-active.png'
+              : '~/assets/images/load.png'
+          "
           stretch="fill"
           @tap="toggleStorage"
           col="2"
         />
         <Image
           class="options-icon"
-          :src="optionsActive ? '~/assets/images/options-active.png' : '~/assets/images/options.png'"
+          :src="
+            optionsActive
+              ? '~/assets/images/options-active.png'
+              : '~/assets/images/options.png'
+          "
           stretch="fill"
           @tap="toggleOptions"
           col="3"
@@ -55,7 +67,8 @@ import Swimmers from "./search/Swimmers";
 import Times from "./times/Times";
 import Calculate from "./calculate/Calculate";
 import Options from "./options/Options";
-import Storage from './storage/Storage';
+import Storage from "./storage/Storage";
+import store from "@/store/index";
 
 export default {
   components: {
@@ -63,8 +76,13 @@ export default {
     Calculate,
     Options,
     Swimmers,
-    Storage
+    Storage,
   },
+
+  mounted() {
+    store.dispatch("getLastStateFromStorage");
+  },
+
   data() {
     return {
       optionsOpen: false,
@@ -78,33 +96,33 @@ export default {
   methods: {
     toggleOptions: function () {
       this.optionsActive = true;
-      setTimeout(() => { 
-        this.optionsActive = false
+      setTimeout(() => {
+        this.optionsActive = false;
         this.optionsOpen = true;
         this.storageOpen = false;
         this.homeOpen = false;
-        }, 100);
+      }, 100);
     },
     toggleStorage: function () {
       this.storageActive = true;
-      setTimeout(() => { 
-        this.storageOpen = true;   
-        this.storageActive = false
+      setTimeout(() => {
+        this.storageOpen = true;
+        this.storageActive = false;
         this.optionsOpen = false;
         this.homeOpen = false;
-        }, 100);
+      }, 100);
     },
     toggleHome: function () {
-      if(!this.homeOpen){
+      if (!this.homeOpen) {
         this.homeActive = true;
-        setTimeout(() => { 
+        setTimeout(() => {
           this.homeActive = false;
           this.homeOpen = true;
           this.storageOpen = false;
-          this.optionsOpen = false;  
+          this.optionsOpen = false;
         }, 100);
       }
-    }
+    },
   },
 };
 </script>

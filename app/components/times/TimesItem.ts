@@ -82,6 +82,7 @@ export default class TimesItem extends Mixins(TimeFormatMixin, StrokeMixin) {
         }
 
         store.commit("addToSelectedSwimmers", swimmer);
+        store.dispatch('saveCurrentStateToStorage');
         if(time !== 0 && time != undefined){
             store.commit("search/setTimesLoaded", swimmer.id);
         }

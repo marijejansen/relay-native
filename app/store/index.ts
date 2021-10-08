@@ -106,6 +106,16 @@ const store: StoreOptions<RootState> = {
       appSettings.setString("swimmers", JSON.stringify(currentData));
     },
 
+    saveCurrentStateToStorage({getters}){
+      const swimmers = getters.getAllSelected;
+      appSettings.setString("currentState", JSON.stringify(swimmers));
+    },
+
+    getLastStateFromStorage({commit}){
+      const swimmers: Swimmer[] = JSON.parse(appSettings.getString("currentState", "[]"));    
+      swimmers.forEach(swimmer => commit("addToSelectedSwimmers", swimmer))
+    },
+
     getFromStorage(): void {
       const storageData: StorageData[] = JSON.parse(appSettings.getString("swimmers", "[]"));    
       this.state.storageData = storageData;    

@@ -14,6 +14,7 @@ export default class SearchItem extends Vue {
         this.setClicked();
         store.commit("addToSelectedSwimmers", this.searchResult);
         store.commit("calculate/addToSelectedForCalculation", this.searchResult.id);
+        store.dispatch('saveCurrentStateToStorage');
         this.updateWithTimes(this.searchResult.id);
     }
 
@@ -24,5 +25,6 @@ export default class SearchItem extends Vue {
 
     async updateWithTimes(id: number) {
         store.dispatch('updateWithTimes', id);
+        store.dispatch('saveCurrentStateToStorage');
     }
 }
