@@ -13,7 +13,9 @@ class RelayMixin extends Vue {
         [Relay.Free400, translate.t('calculate.relays.400free').toString()],
         [Relay.Free800, translate.t('calculate.relays.800free').toString()],
         [Relay.Medley200, translate.t('calculate.relays.200medley').toString()],
-        [Relay.Medley400, translate.t('calculate.relays.400medley').toString()]
+        [Relay.Medley400, translate.t('calculate.relays.400medley').toString()],
+        [Relay.Backstroke200, translate.t('calculate.relays.200back').toString()],
+        [Relay.Breaststroke200, translate.t('calculate.relays.200breast').toString()],
       ]); 
 
       private courseMap = new Map<Course, string>([

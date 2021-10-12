@@ -7,6 +7,7 @@ import { search } from './search';
 import { calculate } from './calculate';
 import { StorageData } from "@/models/StorageData";
 import { ICourseTimes } from "@/models/interfaces/ICourseTimes";
+import { Relay } from "@/models/relay";
 
 
 const appSettings = require("tns-core-modules/application-settings");
@@ -24,7 +25,8 @@ const store: StoreOptions<RootState> = {
     fromYear: new Date().getFullYear() - 1,
     forYear: (new Date()).getFullYear(),
     isMasters: true,
-    storageData: Array<StorageData>()
+    storageData: Array<StorageData>(),
+    visibleRelays: [Relay.Free200, Relay.Free400, Relay.Free800, Relay.Medley200, Relay.Medley400]
   },
 
   getters: {
@@ -49,7 +51,11 @@ const store: StoreOptions<RootState> = {
     },
 
     getStorageData(state): StorageData[] {
-      return state.storageData
+      return state.storageData;
+    },
+
+    getVisibleRelays(state): Relay[] {
+      return state.visibleRelays;
     }
   },
 

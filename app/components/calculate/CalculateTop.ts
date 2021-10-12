@@ -13,6 +13,8 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     private relayNumber: number = store.getters['calculate/getRelay'];
 
+    private visibleRelays: Relay[] = store.getters["getVisibleRelays"];
+
     get courses(): string[] {
         var numberOfCourses = Object.keys(Course).length / 2;
         var courses: string[] = [];
@@ -23,10 +25,10 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     }
 
     get relays(): string[] {
-        var numberOfRelays = Object.keys(Relay).length / 2;
+        var numberOfRelays = this.visibleRelays.length;
         var relays: string[] = [];
         for (let i = 0; i < numberOfRelays; i++) {
-            relays.push(this.getRelayString(Relay[i]));
+            relays.push(this.getRelayString(Relay[this.visibleRelays[i]]));
         }
         return relays;
     }
@@ -36,6 +38,7 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
     }
 
     setRelay(relayNum: number) {
-        store.commit('calculate/setRelay', relayNum);
+        var relay: number = this.visibleRelays[relayNum]
+        store.commit('calculate/setRelay', relay);
     }
 }

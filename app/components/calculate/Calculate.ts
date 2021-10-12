@@ -20,6 +20,8 @@ export default class Calculate extends Mixins(TestMixin, RelayMixin) {
 
     private relay: number = store.getters['calculate/getRelay'];
 
+    private visibleRelays: Relay[] = store.getters["getVisibleRelays"];
+
     private course: number = store.getters['calculate/getCourse'];
 
     private teams: IRelayTeam = store.getters['calculate/getTeams'];

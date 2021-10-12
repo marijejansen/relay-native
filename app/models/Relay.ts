@@ -5,7 +5,9 @@ export enum Relay {
   Free400,
   Free800,
   Medley200,
-  Medley400
+  Medley400,
+  Backstroke200,
+  Breaststroke200
 }
 
 

@@ -70,7 +70,9 @@
       "400free": "4 x 100 vrije slag",
       "800free": "4 x 200 vrije slag",
       "200medley": "4 x 50 wisselslag",
-      "400medley": "4 x 100 wisselslag"
+      "400medley": "4 x 100 wisselslag",
+      "200back": "4 x 50 rugslag",
+      "200breast": "4 x 50 schoolslag"
     },
     "courses": {
       "short": "kortebaan",
