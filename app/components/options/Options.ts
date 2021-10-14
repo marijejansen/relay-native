@@ -1,11 +1,14 @@
-import { Vue, Component } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import './Options.scss'
 import store from '@/store/index';
 import translate from '@/locales/i18n'
 import Selector from '@/components/selectors/Selector';
+import { Relay } from "@/models/relay";
+import RelayMixin from "@/mixins/RelayMixins";
+import RelayOption from "./RelayOption";
 
-@Component({ components: { Selector } })
-export default class Options extends Vue {
+@Component({ components: { Selector, RelayOption } })
+export default class Options extends Mixins(RelayMixin) {
 
     private isMasters: number;
 
@@ -19,7 +22,12 @@ export default class Options extends Vue {
 
     private buttonIsClicked: boolean = false;
 
-    beforeCreate(){
+    private activeRelays: Relay[];
+
+    private allRelays: Relay[] = this.getAllRelays();
+
+    beforeCreate(): void {
+        this.activeRelays = store.getters["getVisibleRelays"];
         this.isMasters = Number(store.getters['isMasters']);
         this.forYear = Number(store.getters['getForYear']);
         this.fromYear = Number(store.getters['getFromYear']);
@@ -63,46 +71,72 @@ export default class Options extends Vue {
 
         return years.sort();
     }
-    
-    get optionsChanged(){
+
+    get optionsChanged(): boolean {
         return this.changed;
     }
 
-    activateButton() {
-        this.buttonIsClicked = true;
-        setTimeout(() => { this.buttonIsClicked = false,  this.changed = false}, 800);
+    rowsForRelays(): string {
+        var rows = '*' + ', *'.repeat((Object.keys(this.allRelays).length - 1) / 2);
+        return rows;
     }
-    
-    setForYear(yearIndex: number) {
+
+    relayIsActive(key: number): boolean {
+        var active = this.activeRelays;
+        return active?.find(v => v == key) !== undefined;
+    }
+
+    getAllRelays(): Relay[] {
+        var relayKeys = Object.keys(Relay);
+        return relayKeys.filter(k => isNaN(Number(k))).map(n => Relay[n]);
+    }
+
+    toggleRelay(index: number): void {
+        var relay = Relay[Relay[index]];
+        if (this.activeRelays.findIndex(r => r === index) === -1) {
+            this.activeRelays.push(relay);
+        } else {
+            this.activeRelays = this.activeRelays.filter(r => r !== index);
+        }
+        this.changed = true;
+    }
+
+    activateButton(): void {
+        this.buttonIsClicked = true;
+        setTimeout(() => { this.buttonIsClicked = false, this.changed = false }, 800);
+    }
+
+    setForYear(yearIndex: number): void {
         this.forYear = Number(this.getForYearItems[yearIndex]);
         this.changed = true;
     }
 
-    setFromYear(yearIndex: number) {
+    setFromYear(yearIndex: number): void {
         this.fromYear = Number(this.getFromYearItems[yearIndex]);
         this.changed = true;
         this.fromYearChanged = true;
     }
 
-    setIsMasters(isMasters: number) {
+    setIsMasters(isMasters: number): void {
         this.isMasters = isMasters;
         this.changed = true;
     }
 
-    saveOptions(){
+    saveOptions(): void {
         this.activateButton();
         store.commit('setForYear', this.forYear);
         store.commit('setFromYear', this.fromYear);
         store.commit('setIsMasters', this.isMasters);
+        store.commit('setVisibleRelays', this.activeRelays);
 
         this.emptyRelayTeams();
 
-        if(this.fromYearChanged){
+        if (this.fromYearChanged) {
             store.dispatch('updateAllWithTimes');
         }
     }
 
-    emptyRelayTeams() {
+    emptyRelayTeams(): void {
         store.commit("calculate/emptyRelayTeams");
     }
 }

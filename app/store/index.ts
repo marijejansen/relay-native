@@ -101,6 +101,10 @@ const store: StoreOptions<RootState> = {
 
     setFromYear(state, year: number) {
       state.fromYear = year;
+    },
+
+    setVisibleRelays(state, relays: Relay[]) {
+      state.visibleRelays = relays;
     }
   },
 
