@@ -8,6 +8,8 @@ import { calculate } from './calculate';
 import { StorageData } from "@/models/StorageData";
 import { ICourseTimes } from "@/models/interfaces/ICourseTimes";
 import { Relay } from "@/models/relay";
+import Options from "@/components/options/Options";
+import { OptionsData } from "@/models/Options";
 
 
 const appSettings = require("tns-core-modules/application-settings");
@@ -121,6 +123,16 @@ const store: StoreOptions<RootState> = {
       appSettings.setString("currentState", JSON.stringify(swimmers));
     },
 
+    saveOptionsToStorage({getters}) {
+      const options: OptionsData = {
+        fromYear: getters.getFromYear,
+        forYear: getters.getForYear,
+        isMasters: getters.isMasters,
+        activeRelays: getters.getVisibleRelays
+      }
+      appSettings.setString("options", JSON.stringify(options));
+    },
+
     getLastStateFromStorage({commit}){
       const swimmers: Swimmer[] = JSON.parse(appSettings.getString("currentState", "[]"));    
       swimmers.forEach(swimmer => commit("addToSelectedSwimmers", swimmer))
@@ -129,6 +141,22 @@ const store: StoreOptions<RootState> = {
     getFromStorage(): void {
       const storageData: StorageData[] = JSON.parse(appSettings.getString("swimmers", "[]"));    
       this.state.storageData = storageData;    
+    },
+
+    getOptionsFromStorage({dispatch}): void {
+      const optionsData: OptionsData = JSON.parse(appSettings.getString("options", "[]"));    
+      if(optionsData.fromYear !== null){
+        dispatch('setFromYear', optionsData.fromYear);
+      }
+      if(optionsData.forYear !== null){
+        dispatch('setForYear', optionsData.forYear);
+      }
+      if(optionsData.isMasters !== null){
+        dispatch('setIsMasters', optionsData.isMasters);
+      }
+      if(optionsData.activeRelays !== null){
+        dispatch('setVisibleRelays', optionsData.activeRelays);
+      }
     },
 
     deleteInStorage({}, id: number): void {
