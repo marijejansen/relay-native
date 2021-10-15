@@ -7,7 +7,7 @@
     <Selector row="2" column="1" :active-number="yearIndex" :items="getForYearItems" @changeItem="setForYear"></Selector>
     <Label row="3" class="option-label" column="0" :text="$t('options.labels.calculateFrom')"/>
     <Selector row="3" column="1" :active-number="fromYearIndex" :items="getFromYearItems" @changeItem="setFromYear"></Selector>
-    <Label row="4" class="option-label" colSpan="2" text='Relays: '/>
+    <Label row="4" class="option-label" colSpan="2" :text="$t('options.relays')"/>
     <GridLayout row="5" colSpan="2" :rows="rowsForRelays()" class="selection-item" columns="*, *">
             <RelayOption v-for="(relay, index) in allRelays" 
             :relay="relay"

@@ -128,7 +128,8 @@
                 "male": "male"
             },
             "save": "add swimmer"
-        }
+        },
+        "relays": "Relays:"
     },
     "storage": {
         "save": "save",
